@@ -18,8 +18,6 @@
 		57257EE92566AE7E00242978 /* Goal+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57257EE72566AE7E00242978 /* Goal+CoreDataClass.swift */; };
 		57257EEA2566AE7E00242978 /* Goal+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57257EE82566AE7E00242978 /* Goal+CoreDataProperties.swift */; };
 		573541D92566B8650002473A /* Period.swift in Sources */ = {isa = PBXBuildFile; fileRef = 573541D82566B8650002473A /* Period.swift */; };
-		573541E12566B8D50002473A /* Profile+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 573541DD2566B8D50002473A /* Profile+CoreDataClass.swift */; };
-		573541E22566B8D50002473A /* Profile+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 573541DE2566B8D50002473A /* Profile+CoreDataProperties.swift */; };
 		573541EC2566B92A0002473A /* Statistics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 573541EB2566B92A0002473A /* Statistics.swift */; };
 		57CEC34B25669E5B0014AF32 /* DaysOfTheWeek.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57CEC34A25669E5B0014AF32 /* DaysOfTheWeek.swift */; };
 		57E3AE072566B3D400C9F0E9 /* Level+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57E3AE052566B3D400C9F0E9 /* Level+CoreDataClass.swift */; };
@@ -62,8 +60,6 @@
 		57257EE72566AE7E00242978 /* Goal+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Goal+CoreDataClass.swift"; sourceTree = "<group>"; };
 		57257EE82566AE7E00242978 /* Goal+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Goal+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		573541D82566B8650002473A /* Period.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Period.swift; sourceTree = "<group>"; };
-		573541DD2566B8D50002473A /* Profile+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Profile+CoreDataClass.swift"; sourceTree = "<group>"; };
-		573541DE2566B8D50002473A /* Profile+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Profile+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		573541EB2566B92A0002473A /* Statistics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Statistics.swift; sourceTree = "<group>"; };
 		57CEC34A25669E5B0014AF32 /* DaysOfTheWeek.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DaysOfTheWeek.swift; sourceTree = "<group>"; };
 		57E3AE052566B3D400C9F0E9 /* Level+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Level+CoreDataClass.swift"; sourceTree = "<group>"; };
@@ -152,8 +148,6 @@
 		0F177EA825654B2400D6E21F /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				573541DD2566B8D50002473A /* Profile+CoreDataClass.swift */,
-				573541DE2566B8D50002473A /* Profile+CoreDataProperties.swift */,
 				57E3AE052566B3D400C9F0E9 /* Level+CoreDataClass.swift */,
 				57E3AE062566B3D400C9F0E9 /* Level+CoreDataProperties.swift */,
 				57257EE72566AE7E00242978 /* Goal+CoreDataClass.swift */,
@@ -224,6 +218,7 @@
 				0F177E68256548EF00D6E21F /* Sources */,
 				0F177E69256548EF00D6E21F /* Frameworks */,
 				0F177E6A256548EF00D6E21F /* Resources */,
+				6931D4CE256D3557009F19D5 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -338,6 +333,26 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		6931D4CE256D3557009F19D5 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\nif which swiftlint >/dev/null; then\nswiftlint\nelse\necho \"warning: Swiftlint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		0F177E68256548EF00D6E21F /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -346,7 +361,6 @@
 				573541D92566B8650002473A /* Period.swift in Sources */,
 				57E3AE072566B3D400C9F0E9 /* Level+CoreDataClass.swift in Sources */,
 				57CEC34B25669E5B0014AF32 /* DaysOfTheWeek.swift in Sources */,
-				573541E12566B8D50002473A /* Profile+CoreDataClass.swift in Sources */,
 				0F177E74256548EF00D6E21F /* ViewController.swift in Sources */,
 				573541EC2566B92A0002473A /* Statistics.swift in Sources */,
 				57257EE92566AE7E00242978 /* Goal+CoreDataClass.swift in Sources */,
@@ -355,7 +369,6 @@
 				0F177E7A256548EF00D6E21F /* LingoCoach.xcdatamodeld in Sources */,
 				57E3AE082566B3D400C9F0E9 /* Level+CoreDataProperties.swift in Sources */,
 				696FE9D2256D2D8700DC6401 /* DetailsViewController.swift in Sources */,
-				573541E22566B8D50002473A /* Profile+CoreDataProperties.swift in Sources */,
 				0F177E72256548EF00D6E21F /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -527,6 +540,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = GHRBLV3RV2;
 				INFOPLIST_FILE = LingoCoach/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -546,6 +560,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = GHRBLV3RV2;
 				INFOPLIST_FILE = LingoCoach/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
