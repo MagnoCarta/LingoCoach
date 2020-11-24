@@ -38,11 +38,9 @@ class ViewController: UIViewController {
             let result = try context.fetch(goals)
             print(result[1].title)
             print(result[1].summary)
-            print(result[1].goalDays)
             print(result[1].icon)
             imageView.image = result[1].icon
-        }
-        catch {
+        } catch {
             print(error)
         }
 //        let goal = Goal(context: context)
@@ -53,6 +51,4 @@ class ViewController: UIViewController {
 //        try! context.save()
     }
 
-
 }
-
