@@ -24,6 +24,7 @@
 		57CEC34B25669E5B0014AF32 /* DaysOfTheWeek.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57CEC34A25669E5B0014AF32 /* DaysOfTheWeek.swift */; };
 		57E3AE072566B3D400C9F0E9 /* Level+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57E3AE052566B3D400C9F0E9 /* Level+CoreDataClass.swift */; };
 		57E3AE082566B3D400C9F0E9 /* Level+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57E3AE062566B3D400C9F0E9 /* Level+CoreDataProperties.swift */; };
+		696FE9D2256D2D8700DC6401 /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 696FE9D1256D2D8700DC6401 /* DetailsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +68,7 @@
 		57CEC34A25669E5B0014AF32 /* DaysOfTheWeek.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DaysOfTheWeek.swift; sourceTree = "<group>"; };
 		57E3AE052566B3D400C9F0E9 /* Level+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Level+CoreDataClass.swift"; sourceTree = "<group>"; };
 		57E3AE062566B3D400C9F0E9 /* Level+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Level+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		696FE9D1256D2D8700DC6401 /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -179,6 +181,7 @@
 				0F177E71256548EF00D6E21F /* SceneDelegate.swift */,
 				0F177E6F256548EF00D6E21F /* AppDelegate.swift */,
 				0F177E73256548EF00D6E21F /* ViewController.swift */,
+				696FE9D1256D2D8700DC6401 /* DetailsViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -351,6 +354,7 @@
 				57257EEA2566AE7E00242978 /* Goal+CoreDataProperties.swift in Sources */,
 				0F177E7A256548EF00D6E21F /* LingoCoach.xcdatamodeld in Sources */,
 				57E3AE082566B3D400C9F0E9 /* Level+CoreDataProperties.swift in Sources */,
+				696FE9D2256D2D8700DC6401 /* DetailsViewController.swift in Sources */,
 				573541E22566B8D50002473A /* Profile+CoreDataProperties.swift in Sources */,
 				0F177E72256548EF00D6E21F /* SceneDelegate.swift in Sources */,
 			);
@@ -521,7 +525,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 828XYUZTZQ;
+				DEVELOPMENT_TEAM = GHRBLV3RV2;
 				INFOPLIST_FILE = LingoCoach/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -540,7 +544,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 828XYUZTZQ;
+				DEVELOPMENT_TEAM = GHRBLV3RV2;
 				INFOPLIST_FILE = LingoCoach/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
