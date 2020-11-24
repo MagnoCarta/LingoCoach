@@ -15,6 +15,7 @@
 		0F177E7F256548F000D6E21F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0F177E7D256548F000D6E21F /* LaunchScreen.storyboard */; };
 		0F177E8A256548F000D6E21F /* LingoCoachTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F177E89256548F000D6E21F /* LingoCoachTests.swift */; };
 		0F177E95256548F000D6E21F /* LingoCoachUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F177E94256548F000D6E21F /* LingoCoachUITests.swift */; };
+		0F43D4C0256D41910066509A /* UIFontExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F43D4BF256D41910066509A /* UIFontExtension.swift */; };
 		570CDE96256D39D400E217FA /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 570CDE95256D39D400E217FA /* .swiftlint.yml */; };
 		57138CD4256D3C2700BD99DD /* NoteListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57138CD3256D3C2700BD99DD /* NoteListViewController.swift */; };
 		57138CDC256D3C3400BD99DD /* ProgressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57138CDB256D3C3400BD99DD /* ProgressViewController.swift */; };
@@ -58,6 +59,7 @@
 		0F177E90256548F000D6E21F /* LingoCoachUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LingoCoachUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0F177E94256548F000D6E21F /* LingoCoachUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LingoCoachUITests.swift; sourceTree = "<group>"; };
 		0F177E96256548F000D6E21F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0F43D4BF256D41910066509A /* UIFontExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIFontExtension.swift; sourceTree = "<group>"; };
 		570CDE95256D39D400E217FA /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 		57138CD3256D3C2700BD99DD /* NoteListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteListViewController.swift; sourceTree = "<group>"; };
 		57138CDB256D3C3400BD99DD /* ProgressViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressViewController.swift; sourceTree = "<group>"; };
@@ -186,6 +188,7 @@
 		0F177EAB25654B3900D6E21F /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				0F43D4BF256D41910066509A /* UIFontExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -374,6 +377,7 @@
 				0F177E7A256548EF00D6E21F /* LingoCoach.xcdatamodeld in Sources */,
 				696FE9D2256D2D8700DC6401 /* DetailsViewController.swift in Sources */,
 				0F177E72256548EF00D6E21F /* SceneDelegate.swift in Sources */,
+				0F43D4C0256D41910066509A /* UIFontExtension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

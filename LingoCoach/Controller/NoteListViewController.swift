@@ -8,10 +8,14 @@
 import UIKit
 
 class NoteListViewController: UIViewController {
-
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.title = "Notas"
 
+        self.view.backgroundColor = .white
         // Do any additional setup after loading the view.
     }
     
