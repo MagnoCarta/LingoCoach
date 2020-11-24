@@ -24,6 +24,7 @@
 		57843ED4256D3540001DE122 /* Goal+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57843ED2256D3540001DE122 /* Goal+CoreDataProperties.swift */; };
 		57CEC34B25669E5B0014AF32 /* DaysOfTheWeek.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57CEC34A25669E5B0014AF32 /* DaysOfTheWeek.swift */; };
 		696FE9D2256D2D8700DC6401 /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 696FE9D1256D2D8700DC6401 /* DetailsViewController.swift */; };
+		FF45203D256D41B7001E77AA /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF45203C256D41B7001E77AA /* Colors.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +68,7 @@
 		57843ED2256D3540001DE122 /* Goal+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Goal+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		57CEC34A25669E5B0014AF32 /* DaysOfTheWeek.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DaysOfTheWeek.swift; sourceTree = "<group>"; };
 		696FE9D1256D2D8700DC6401 /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
+		FF45203C256D41B7001E77AA /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -186,6 +188,7 @@
 		0F177EAB25654B3900D6E21F /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				FF45203C256D41B7001E77AA /* Colors.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -370,6 +373,7 @@
 				0F177E74256548EF00D6E21F /* ViewController.swift in Sources */,
 				573541EC2566B92A0002473A /* Statistics.swift in Sources */,
 				57843ED4256D3540001DE122 /* Goal+CoreDataProperties.swift in Sources */,
+				FF45203D256D41B7001E77AA /* Colors.swift in Sources */,
 				0F177E70256548EF00D6E21F /* AppDelegate.swift in Sources */,
 				0F177E7A256548EF00D6E21F /* LingoCoach.xcdatamodeld in Sources */,
 				696FE9D2256D2D8700DC6401 /* DetailsViewController.swift in Sources */,
