@@ -8,18 +8,27 @@
 import UIKit
 
 class NoteListViewController: UIViewController {
-    
-    
+    var plusButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addNote))
+    var noteListView = NoteListView()
+
+    override func loadView() {
+        super.loadView()
+        self.view = noteListView
+        
+    }
     
     override func viewDidLoad() {
+        
         super.viewDidLoad()
         self.title = "Notas"
-
+        self.navigationController?.navigationBar.prefersLargeTitles = true
+        self.navigationItem.rightBarButtonItem = plusButton
+        self.navigationItem.rightBarButtonItem?.tintColor = .brightGreenLC
         self.view.backgroundColor = .white
         // Do any additional setup after loading the view.
     }
-    
-
+    @objc func addNote() {
+    }
     /*
     // MARK: - Navigation
 
