@@ -7,9 +7,8 @@
 
 import Foundation
 
-class Statistics {
-    
-    
+class Progress {
+
     /// Calculates the days of the current week in which the user was active
     /// - Parameter completedGoals: The goals which were completed
     /// - Returns: The days of the current week in which the user was active

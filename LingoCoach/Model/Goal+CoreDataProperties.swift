@@ -2,7 +2,7 @@
 //  Goal+CoreDataProperties.swift
 //  LingoCoach
 //
-//  Created by Rodrigo Matos Aguiar on 19/11/20.
+//  Created by Rodrigo Matos Aguiar on 24/11/20.
 //
 //
 
@@ -16,19 +16,14 @@ extension Goal {
         return NSFetchRequest<Goal>(entityName: "Goal")
     }
 
-    @NSManaged public var categories: [String]?
-    @NSManaged public var duration: Date?
-    @NSManaged public var endTime: Date?
-    @NSManaged public var goalDays: [String]?
-    @NSManaged public var icon: UIImage?
-    @NSManaged public var isCompleted: Bool
-    @NSManaged public var isNotificationActive: Bool
-    @NSManaged public var points: Int64
-    @NSManaged public var summary: String?
     @NSManaged public var title: String?
+    @NSManaged public var icon: UIImage?
+    @NSManaged public var summary: String?
+    @NSManaged public var language: String?
+    @NSManaged public var categories: [String]?
 
 }
 
-extension Goal : Identifiable {
+extension Goal: Identifiable {
 
 }

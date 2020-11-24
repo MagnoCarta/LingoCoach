@@ -15,13 +15,14 @@
 		0F177E7F256548F000D6E21F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0F177E7D256548F000D6E21F /* LaunchScreen.storyboard */; };
 		0F177E8A256548F000D6E21F /* LingoCoachTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F177E89256548F000D6E21F /* LingoCoachTests.swift */; };
 		0F177E95256548F000D6E21F /* LingoCoachUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F177E94256548F000D6E21F /* LingoCoachUITests.swift */; };
-		57257EE92566AE7E00242978 /* Goal+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57257EE72566AE7E00242978 /* Goal+CoreDataClass.swift */; };
-		57257EEA2566AE7E00242978 /* Goal+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57257EE82566AE7E00242978 /* Goal+CoreDataProperties.swift */; };
+		570CDE96256D39D400E217FA /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 570CDE95256D39D400E217FA /* .swiftlint.yml */; };
+		57138CD4256D3C2700BD99DD /* NoteListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57138CD3256D3C2700BD99DD /* NoteListViewController.swift */; };
+		57138CDC256D3C3400BD99DD /* ProgressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57138CDB256D3C3400BD99DD /* ProgressViewController.swift */; };
 		573541D92566B8650002473A /* Period.swift in Sources */ = {isa = PBXBuildFile; fileRef = 573541D82566B8650002473A /* Period.swift */; };
 		573541EC2566B92A0002473A /* Statistics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 573541EB2566B92A0002473A /* Statistics.swift */; };
+		57843ED3256D3540001DE122 /* Goal+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57843ED1256D3540001DE122 /* Goal+CoreDataClass.swift */; };
+		57843ED4256D3540001DE122 /* Goal+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57843ED2256D3540001DE122 /* Goal+CoreDataProperties.swift */; };
 		57CEC34B25669E5B0014AF32 /* DaysOfTheWeek.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57CEC34A25669E5B0014AF32 /* DaysOfTheWeek.swift */; };
-		57E3AE072566B3D400C9F0E9 /* Level+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57E3AE052566B3D400C9F0E9 /* Level+CoreDataClass.swift */; };
-		57E3AE082566B3D400C9F0E9 /* Level+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57E3AE062566B3D400C9F0E9 /* Level+CoreDataProperties.swift */; };
 		696FE9D2256D2D8700DC6401 /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 696FE9D1256D2D8700DC6401 /* DetailsViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -57,13 +58,14 @@
 		0F177E90256548F000D6E21F /* LingoCoachUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LingoCoachUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0F177E94256548F000D6E21F /* LingoCoachUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LingoCoachUITests.swift; sourceTree = "<group>"; };
 		0F177E96256548F000D6E21F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		57257EE72566AE7E00242978 /* Goal+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Goal+CoreDataClass.swift"; sourceTree = "<group>"; };
-		57257EE82566AE7E00242978 /* Goal+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Goal+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		570CDE95256D39D400E217FA /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
+		57138CD3256D3C2700BD99DD /* NoteListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteListViewController.swift; sourceTree = "<group>"; };
+		57138CDB256D3C3400BD99DD /* ProgressViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressViewController.swift; sourceTree = "<group>"; };
 		573541D82566B8650002473A /* Period.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Period.swift; sourceTree = "<group>"; };
 		573541EB2566B92A0002473A /* Statistics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Statistics.swift; sourceTree = "<group>"; };
+		57843ED1256D3540001DE122 /* Goal+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Goal+CoreDataClass.swift"; sourceTree = "<group>"; };
+		57843ED2256D3540001DE122 /* Goal+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Goal+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		57CEC34A25669E5B0014AF32 /* DaysOfTheWeek.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DaysOfTheWeek.swift; sourceTree = "<group>"; };
-		57E3AE052566B3D400C9F0E9 /* Level+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Level+CoreDataClass.swift"; sourceTree = "<group>"; };
-		57E3AE062566B3D400C9F0E9 /* Level+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Level+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		696FE9D1256D2D8700DC6401 /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -95,6 +97,7 @@
 		0F177E63256548EF00D6E21F = {
 			isa = PBXGroup;
 			children = (
+				570CDE95256D39D400E217FA /* .swiftlint.yml */,
 				0F177E6E256548EF00D6E21F /* LingoCoach */,
 				0F177E88256548F000D6E21F /* LingoCoachTests */,
 				0F177E93256548F000D6E21F /* LingoCoachUITests */,
@@ -148,10 +151,8 @@
 		0F177EA825654B2400D6E21F /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				57E3AE052566B3D400C9F0E9 /* Level+CoreDataClass.swift */,
-				57E3AE062566B3D400C9F0E9 /* Level+CoreDataProperties.swift */,
-				57257EE72566AE7E00242978 /* Goal+CoreDataClass.swift */,
-				57257EE82566AE7E00242978 /* Goal+CoreDataProperties.swift */,
+				57843ED1256D3540001DE122 /* Goal+CoreDataClass.swift */,
+				57843ED2256D3540001DE122 /* Goal+CoreDataProperties.swift */,
 				0F177E78256548EF00D6E21F /* LingoCoach.xcdatamodeld */,
 				57CEC34A25669E5B0014AF32 /* DaysOfTheWeek.swift */,
 				573541D82566B8650002473A /* Period.swift */,
@@ -176,6 +177,8 @@
 				0F177E6F256548EF00D6E21F /* AppDelegate.swift */,
 				0F177E73256548EF00D6E21F /* ViewController.swift */,
 				696FE9D1256D2D8700DC6401 /* DetailsViewController.swift */,
+				57138CD3256D3C2700BD99DD /* NoteListViewController.swift */,
+				57138CDB256D3C3400BD99DD /* ProgressViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -218,7 +221,7 @@
 				0F177E68256548EF00D6E21F /* Sources */,
 				0F177E69256548EF00D6E21F /* Frameworks */,
 				0F177E6A256548EF00D6E21F /* Resources */,
-				6931D4CE256D3557009F19D5 /* ShellScript */,
+				577651B5256D2F290044D17D /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -312,6 +315,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				570CDE96256D39D400E217FA /* .swiftlint.yml in Resources */,
 				0F177E7F256548F000D6E21F /* LaunchScreen.storyboard in Resources */,
 				0F177E7C256548F000D6E21F /* Assets.xcassets in Resources */,
 			);
@@ -334,7 +338,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		6931D4CE256D3557009F19D5 /* ShellScript */ = {
+		577651B5256D2F290044D17D /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -349,7 +353,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\nif which swiftlint >/dev/null; then\nswiftlint\nelse\necho \"warning: Swiftlint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+			shellScript = "if which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -358,16 +362,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				57138CD4256D3C2700BD99DD /* NoteListViewController.swift in Sources */,
 				573541D92566B8650002473A /* Period.swift in Sources */,
-				57E3AE072566B3D400C9F0E9 /* Level+CoreDataClass.swift in Sources */,
 				57CEC34B25669E5B0014AF32 /* DaysOfTheWeek.swift in Sources */,
+				57138CDC256D3C3400BD99DD /* ProgressViewController.swift in Sources */,
+				57843ED3256D3540001DE122 /* Goal+CoreDataClass.swift in Sources */,
 				0F177E74256548EF00D6E21F /* ViewController.swift in Sources */,
 				573541EC2566B92A0002473A /* Statistics.swift in Sources */,
-				57257EE92566AE7E00242978 /* Goal+CoreDataClass.swift in Sources */,
+				57843ED4256D3540001DE122 /* Goal+CoreDataProperties.swift in Sources */,
 				0F177E70256548EF00D6E21F /* AppDelegate.swift in Sources */,
-				57257EEA2566AE7E00242978 /* Goal+CoreDataProperties.swift in Sources */,
 				0F177E7A256548EF00D6E21F /* LingoCoach.xcdatamodeld in Sources */,
-				57E3AE082566B3D400C9F0E9 /* Level+CoreDataProperties.swift in Sources */,
 				696FE9D2256D2D8700DC6401 /* DetailsViewController.swift in Sources */,
 				0F177E72256548EF00D6E21F /* SceneDelegate.swift in Sources */,
 			);
