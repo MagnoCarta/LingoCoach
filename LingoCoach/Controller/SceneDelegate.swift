@@ -20,10 +20,14 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             let noteListVC = NoteListViewController()
             let progressVC = ProgressViewController()
 
-            let tabBarVC = UITabBarController()
-            tabBarVC.viewControllers = [noteListVC, progressVC]
-            tabBarVC.tabBar.isHidden = true
-    
+//            let tabBarVC = UITabBarController()
+//            tabBarVC.viewControllers = [noteListVC, progressVC]
+//            tabBarVC.tabBar.isHidden = true
+//
+//
+            let viewController = DetailsViewController()
+            let tabBarVC = UINavigationController(rootViewController: viewController)
+            
             window.rootViewController = tabBarVC
 
             window.makeKeyAndVisible()
