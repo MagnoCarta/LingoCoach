@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 
 class NoteListView: UIView {
-    
+
     var filterButton: UIButton = {
         let button = UIButton(type: .system)
         button.setTitle("Filtrar", for: .normal)
@@ -17,27 +17,21 @@ class NoteListView: UIView {
         button.setTitleColor(.darkGreenLC, for: .normal)
         return button
     }()
- //   var delegate: NoteListDelegate!
- //   var navigationController: UINavigationController!
     
     override init(frame: CGRect) {
-        //navigationItem = delegate.getNavigationController()
         super.init(frame: frame)
-        
-        addConstraintFilter()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func addConstraintFilter() {
+    func addConstraintFilter(viewBar: UIView) {
         self.filterButton.translatesAutoresizingMaskIntoConstraints = false
-        self.addSubview(filterButton)
-        //self.navigationController.navigationItem.
+        viewBar.addSubview(filterButton)
         NSLayoutConstraint.activate([
-            self.filterButton.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 0),
-            self.filterButton.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -16)])
+            self.filterButton.bottomAnchor.constraint(equalTo: viewBar.bottomAnchor, constant: -8),
+            self.filterButton.trailingAnchor.constraint(equalTo: viewBar.trailingAnchor, constant: -16)])
     }
     
 }

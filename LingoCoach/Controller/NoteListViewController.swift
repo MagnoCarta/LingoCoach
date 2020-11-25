@@ -13,7 +13,11 @@ class NoteListViewController: UIViewController {
 
     override func loadView() {
         super.loadView()
+        if let navigationBar = navigationController?.navigationBar  {
+            noteListView.addConstraintFilter(viewBar: navigationBar)
+        }
         self.view = noteListView
+        
         
     }
     
@@ -40,3 +44,6 @@ class NoteListViewController: UIViewController {
     */
 
 }
+
+
+
