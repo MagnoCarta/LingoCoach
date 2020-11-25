@@ -10,7 +10,7 @@ import UIKit
 
 extension UIFont {
     
-    static let text = "SF Pro Text"
-    static let display = "SF Pro Display"
+    static let text = "Bold-SF Pro Text"
+    static let display = "Bold-SF Pro Display"
     
 }

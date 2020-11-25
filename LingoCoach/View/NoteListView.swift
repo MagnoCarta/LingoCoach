@@ -13,7 +13,8 @@ class NoteListView: UIView {
     var collectionView: UICollectionView = {
         let collectionViewFlowLayout = UICollectionViewFlowLayout()
         collectionViewFlowLayout.itemSize = CGSize(width: 150, height: 175)
-        collectionViewFlowLayout.minimumInteritemSpacing = 8
+        
+        collectionViewFlowLayout.minimumInteritemSpacing = 16
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: collectionViewFlowLayout)
         collectionView.backgroundColor = .white
         return collectionView
@@ -62,8 +63,8 @@ class NoteListView: UIView {
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             collectionView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 32),
-            collectionView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 24),
-            collectionView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -24),
+            collectionView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 40),
+            collectionView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -40),
             collectionView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant:0)
         ])
     }

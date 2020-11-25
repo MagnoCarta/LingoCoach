@@ -20,5 +20,17 @@ extension NoteListViewController: UICollectionViewDelegate, UICollectionViewData
         noteCell.set(note: notasMockadas[indexPath.row])
         return noteCell
     }
-    
+//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+//            let numberOfItemsPerRow:CGFloat = 4
+//            let spacingBetweenCells:CGFloat = 16
+//            
+//            let totalSpacing = (2 * self.spacing) + ((numberOfItemsPerRow - 1) * spacingBetweenCells) //Amount of total spacing in a row
+//            
+//            if let collection = self.collectionView{
+//                let width = (collection.bounds.width - totalSpacing)/numberOfItemsPerRow
+//                return CGSize(width: width, height: width)
+//            }else{
+//                return CGSize(width: 0, height: 0)
+//            }
+//        }
 }

@@ -67,7 +67,8 @@ class NoteCollectionViewCell: UICollectionViewCell {
     func addConstraintLanguageLabel() {
         noteLanguageLabel.font = UIFont(name: UIFont.text, size: 18)
         noteLanguageLabel.preferredMaxLayoutWidth = self.frame.width - 16
-        noteTitleLabel.numberOfLines = 1
+        noteLanguageLabel.textColor = .textWhite
+        noteLanguageLabel.numberOfLines = 1
         noteLanguageLabel.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             noteLanguageLabel.topAnchor.constraint(equalTo: self.noteIconView.bottomAnchor, constant: 8),
@@ -78,6 +79,7 @@ class NoteCollectionViewCell: UICollectionViewCell {
     func addConstraintTitleLabel() {
         noteTitleLabel.font = UIFont(name: UIFont.text, size: 18)
         noteTitleLabel.preferredMaxLayoutWidth = self.frame.width - 16
+        noteTitleLabel.textColor = .textWhite
         noteTitleLabel.numberOfLines = 2
         noteTitleLabel.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
