@@ -12,7 +12,7 @@ class Progress {
     /// Calculates the days of the current week in which the user was active
     /// - Parameter completedGoals: The goals which were completed
     /// - Returns: The days of the current week in which the user was active
-    func calculateSequence(completedGoals: [Goal]) -> [DaysOfTheWeek] {
+    func calculateSequence(completedGoals: [Note]) -> [DaysOfTheWeek] {
         return []
     }
     
@@ -21,7 +21,7 @@ class Progress {
     ///   - completedGoals: The goals which were completed
     ///   - period: The period of analysis
     /// - Returns: an array of pairs of subdivisions of a period and the points earned in that period
-    func generatePoints(completedGoals: [Goal], period: Period) -> [(Int, Int)] {
+    func generatePoints(completedGoals: [Note], period: Period) -> [(Int, Int)] {
         return []
     }
     

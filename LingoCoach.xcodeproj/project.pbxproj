@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		0F177E70256548EF00D6E21F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F177E6F256548EF00D6E21F /* AppDelegate.swift */; };
 		0F177E72256548EF00D6E21F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F177E71256548EF00D6E21F /* SceneDelegate.swift */; };
-		0F177E74256548EF00D6E21F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F177E73256548EF00D6E21F /* ViewController.swift */; };
 		0F177E7A256548EF00D6E21F /* LingoCoach.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0F177E78256548EF00D6E21F /* LingoCoach.xcdatamodeld */; };
 		0F177E7C256548F000D6E21F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0F177E7B256548F000D6E21F /* Assets.xcassets */; };
 		0F177E7F256548F000D6E21F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0F177E7D256548F000D6E21F /* LaunchScreen.storyboard */; };
@@ -18,13 +17,15 @@
 		0F43D4C0256D41910066509A /* UIFontExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F43D4BF256D41910066509A /* UIFontExtension.swift */; };
 		0F43D4D1256D4A590066509A /* NoteListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F43D4D0256D4A590066509A /* NoteListView.swift */; };
 		0F43D4D6256D521C0066509A /* UIResponderExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F43D4D5256D521C0066509A /* UIResponderExtension.swift */; };
+		0F43D4EC256E7D900066509A /* NoteCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F43D4EB256E7D900066509A /* NoteCollectionView.swift */; };
+		0F43D4F4256E8BB50066509A /* NoteListViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F43D4F3256E8BB50066509A /* NoteListViewExtension.swift */; };
+		0F43D506256E99890066509A /* Note+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F43D504256E99890066509A /* Note+CoreDataClass.swift */; };
+		0F43D507256E99890066509A /* Note+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F43D505256E99890066509A /* Note+CoreDataProperties.swift */; };
 		570CDE96256D39D400E217FA /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 570CDE95256D39D400E217FA /* .swiftlint.yml */; };
 		57138CD4256D3C2700BD99DD /* NoteListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57138CD3256D3C2700BD99DD /* NoteListViewController.swift */; };
 		57138CDC256D3C3400BD99DD /* ProgressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57138CDB256D3C3400BD99DD /* ProgressViewController.swift */; };
 		573541D92566B8650002473A /* Period.swift in Sources */ = {isa = PBXBuildFile; fileRef = 573541D82566B8650002473A /* Period.swift */; };
 		573541EC2566B92A0002473A /* Statistics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 573541EB2566B92A0002473A /* Statistics.swift */; };
-		57843ED3256D3540001DE122 /* Goal+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57843ED1256D3540001DE122 /* Goal+CoreDataClass.swift */; };
-		57843ED4256D3540001DE122 /* Goal+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57843ED2256D3540001DE122 /* Goal+CoreDataProperties.swift */; };
 		57CEC34B25669E5B0014AF32 /* DaysOfTheWeek.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57CEC34A25669E5B0014AF32 /* DaysOfTheWeek.swift */; };
 		696FE9D2256D2D8700DC6401 /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 696FE9D1256D2D8700DC6401 /* DetailsViewController.swift */; };
 		FF45203D256D41B7001E77AA /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF45203C256D41B7001E77AA /* Colors.swift */; };
@@ -51,7 +52,6 @@
 		0F177E6C256548EF00D6E21F /* LingoCoach.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LingoCoach.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0F177E6F256548EF00D6E21F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0F177E71256548EF00D6E21F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		0F177E73256548EF00D6E21F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		0F177E79256548EF00D6E21F /* LingoCoach.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = LingoCoach.xcdatamodel; sourceTree = "<group>"; };
 		0F177E7B256548F000D6E21F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0F177E7E256548F000D6E21F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -65,13 +65,15 @@
 		0F43D4BF256D41910066509A /* UIFontExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIFontExtension.swift; sourceTree = "<group>"; };
 		0F43D4D0256D4A590066509A /* NoteListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteListView.swift; sourceTree = "<group>"; };
 		0F43D4D5256D521C0066509A /* UIResponderExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIResponderExtension.swift; sourceTree = "<group>"; };
+		0F43D4EB256E7D900066509A /* NoteCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteCollectionView.swift; sourceTree = "<group>"; };
+		0F43D4F3256E8BB50066509A /* NoteListViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteListViewExtension.swift; sourceTree = "<group>"; };
+		0F43D504256E99890066509A /* Note+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Note+CoreDataClass.swift"; sourceTree = "<group>"; };
+		0F43D505256E99890066509A /* Note+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Note+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		570CDE95256D39D400E217FA /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 		57138CD3256D3C2700BD99DD /* NoteListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteListViewController.swift; sourceTree = "<group>"; };
 		57138CDB256D3C3400BD99DD /* ProgressViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressViewController.swift; sourceTree = "<group>"; };
 		573541D82566B8650002473A /* Period.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Period.swift; sourceTree = "<group>"; };
 		573541EB2566B92A0002473A /* Statistics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Statistics.swift; sourceTree = "<group>"; };
-		57843ED1256D3540001DE122 /* Goal+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Goal+CoreDataClass.swift"; sourceTree = "<group>"; };
-		57843ED2256D3540001DE122 /* Goal+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Goal+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		57CEC34A25669E5B0014AF32 /* DaysOfTheWeek.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DaysOfTheWeek.swift; sourceTree = "<group>"; };
 		696FE9D1256D2D8700DC6401 /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
 		FF45203C256D41B7001E77AA /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = SOURCE_ROOT; };
@@ -129,8 +131,8 @@
 				0F177E80256548F000D6E21F /* Info.plist */,
 				0F177EAE25654B7700D6E21F /* Protocols */,
 				0F177EAD25654B5D00D6E21F /* Services */,
-				0F177EAC25654B4300D6E21F /* Utilities */,
 				0F177EAB25654B3900D6E21F /* Extensions */,
+				0F177EAC25654B4300D6E21F /* Utilities */,
 				0F177EAA25654B3200D6E21F /* Controller */,
 				0F177EA925654B2C00D6E21F /* View */,
 				0F177EA825654B2400D6E21F /* Model */,
@@ -159,8 +161,8 @@
 		0F177EA825654B2400D6E21F /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				57843ED1256D3540001DE122 /* Goal+CoreDataClass.swift */,
-				57843ED2256D3540001DE122 /* Goal+CoreDataProperties.swift */,
+				0F43D504256E99890066509A /* Note+CoreDataClass.swift */,
+				0F43D505256E99890066509A /* Note+CoreDataProperties.swift */,
 				0F177E78256548EF00D6E21F /* LingoCoach.xcdatamodeld */,
 				57CEC34A25669E5B0014AF32 /* DaysOfTheWeek.swift */,
 				573541D82566B8650002473A /* Period.swift */,
@@ -175,6 +177,7 @@
 				0F177E7D256548F000D6E21F /* LaunchScreen.storyboard */,
 				0F177E7B256548F000D6E21F /* Assets.xcassets */,
 				0F43D4D0256D4A590066509A /* NoteListView.swift */,
+				0F43D4EB256E7D900066509A /* NoteCollectionView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -184,7 +187,6 @@
 			children = (
 				0F177E71256548EF00D6E21F /* SceneDelegate.swift */,
 				0F177E6F256548EF00D6E21F /* AppDelegate.swift */,
-				0F177E73256548EF00D6E21F /* ViewController.swift */,
 				696FE9D1256D2D8700DC6401 /* DetailsViewController.swift */,
 				57138CD3256D3C2700BD99DD /* NoteListViewController.swift */,
 				57138CDB256D3C3400BD99DD /* ProgressViewController.swift */,
@@ -198,6 +200,7 @@
 				0F43D4BF256D41910066509A /* UIFontExtension.swift */,
 				FF45203C256D41B7001E77AA /* Colors.swift */,
 				0F43D4D5256D521C0066509A /* UIResponderExtension.swift */,
+				0F43D4F3256E8BB50066509A /* NoteListViewExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -375,19 +378,20 @@
 			buildActionMask = 2147483647;
 			files = (
 				57138CD4256D3C2700BD99DD /* NoteListViewController.swift in Sources */,
+				0F43D4EC256E7D900066509A /* NoteCollectionView.swift in Sources */,
 				573541D92566B8650002473A /* Period.swift in Sources */,
 				0F43D4D6256D521C0066509A /* UIResponderExtension.swift in Sources */,
+				0F43D4F4256E8BB50066509A /* NoteListViewExtension.swift in Sources */,
 				0F43D4D1256D4A590066509A /* NoteListView.swift in Sources */,
 				57CEC34B25669E5B0014AF32 /* DaysOfTheWeek.swift in Sources */,
 				57138CDC256D3C3400BD99DD /* ProgressViewController.swift in Sources */,
-				57843ED3256D3540001DE122 /* Goal+CoreDataClass.swift in Sources */,
-				0F177E74256548EF00D6E21F /* ViewController.swift in Sources */,
 				573541EC2566B92A0002473A /* Statistics.swift in Sources */,
-				57843ED4256D3540001DE122 /* Goal+CoreDataProperties.swift in Sources */,
 				FF45203D256D41B7001E77AA /* Colors.swift in Sources */,
+				0F43D507256E99890066509A /* Note+CoreDataProperties.swift in Sources */,
 				0F177E70256548EF00D6E21F /* AppDelegate.swift in Sources */,
 				0F177E7A256548EF00D6E21F /* LingoCoach.xcdatamodeld in Sources */,
 				696FE9D2256D2D8700DC6401 /* DetailsViewController.swift in Sources */,
+				0F43D506256E99890066509A /* Note+CoreDataClass.swift in Sources */,
 				0F177E72256548EF00D6E21F /* SceneDelegate.swift in Sources */,
 				0F43D4C0256D41910066509A /* UIFontExtension.swift in Sources */,
 			);
