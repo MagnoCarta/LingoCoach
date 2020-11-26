@@ -33,13 +33,15 @@ class NoteListViewController: UIViewController {
         notaMockada.title = "Teste titulo"
         notes.append(notaMockada)
         notes.append(notaMockada)
+        notes.append(notaMockada)
+        notes.append(notaMockada)
         
         super.viewDidLoad()
         self.title = "Notas"
         self.navigationController?.navigationBar.prefersLargeTitles = true
         self.navigationItem.rightBarButtonItem = plusButton
         self.navigationItem.rightBarButtonItem?.tintColor = .brightGreenLC
-        self.view.backgroundColor = .white
+        self.view.backgroundColor = .background
         
         delegates(view: noteListView)
         
