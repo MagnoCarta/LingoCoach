@@ -26,15 +26,15 @@ class Description: UIView {
         return view
     }()
 
-    let descriptionView: UIView = {
+    fileprivate let descriptionView: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
         view.layer.cornerRadius = 12
         view.backgroundColor = #colorLiteral(red: 0.909702003, green: 0.9098611474, blue: 0.9097036719, alpha: 1)
         return view
-    }() 
+    }()
     
-    let notesView: UIView = {
+    fileprivate let notesView: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
         view.layer.cornerRadius = 12
@@ -42,7 +42,7 @@ class Description: UIView {
         return view
     }()
     
-    let addCategory: UIButton = {
+    fileprivate let addCategory: UIButton = {
         let button = UIButton()
         let icon = UIImage(named: "add")
         button.translatesAutoresizingMaskIntoConstraints = false
@@ -83,7 +83,7 @@ class Description: UIView {
     
     }()
     
-    let language: UILabel = {
+    fileprivate let language: UILabel = {
         let text = UILabel()
         text.text = "Idioma"
         text.textColor = .black
@@ -94,8 +94,32 @@ class Description: UIView {
         
     }()
     
+    let languageSelected: UILabel = {
+        let text = UILabel()
+        text.text = "Inglês"
+        text.textColor = .black
+        text.translatesAutoresizingMaskIntoConstraints = false
+        text.textAlignment = .left
+        text.font = UIFont.systemFont(ofSize: 17, weight: .medium)
+        return text
+        
+    }()
+    
+    let notes: UITextView = {
+        let text = UITextView()
+        text.translatesAutoresizingMaskIntoConstraints = false
+        text.textColor = .black
+//        text.text = "Digite suas anotações aqui.."
+//        text.textColor = UIColor.lightGray
+        text.font = UIFont.systemFont(ofSize: 15, weight: .regular)
+        text.backgroundColor = #colorLiteral(red: 0.9111861587, green: 0.9112922549, blue: 0.9111371636, alpha: 1)
+        return text
+    
+    }()
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
+        
         backgroundColor = .white
         addSubview(iconView)
         addSubview(icon)
@@ -103,8 +127,12 @@ class Description: UIView {
         addSubview(notesView)
         addSubview(category)
         addSubview(addCategory)
-//        addSubview(favorite)
-//        addSubview(language)
+        addSubview(favorite)
+        addSubview(language)
+        addSubview(languageSelected)
+        addSubview(notes)
+        
+        //Constraints da Descrição
         
         NSLayoutConstraint.activate([iconView.widthAnchor.constraint(equalToConstant: 120),
                                      iconView.heightAnchor.constraint(equalToConstant: 120),
@@ -122,11 +150,6 @@ class Description: UIView {
                                      descriptionView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
                                      descriptionView.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.2)])
         
-        NSLayoutConstraint.activate([notesView.topAnchor.constraint(equalTo: descriptionView.bottomAnchor, constant: 18),
-                                     notesView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
-                                     notesView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
-                                     notesView.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.5)])
-        
         NSLayoutConstraint.activate([category.topAnchor.constraint(equalTo: descriptionView.topAnchor, constant: 10),
                                      category.leadingAnchor.constraint(equalTo: descriptionView.leadingAnchor, constant: 16),
                                      category.widthAnchor.constraint(equalTo: self.widthAnchor, multiplier: 0.3)])
@@ -134,6 +157,27 @@ class Description: UIView {
         NSLayoutConstraint.activate([addCategory.topAnchor.constraint(equalTo: descriptionView.topAnchor, constant: 10),
                                      addCategory.leadingAnchor.constraint(equalTo: category.trailingAnchor, constant: 5)])
         
+        NSLayoutConstraint.activate([favorite.topAnchor.constraint(equalTo: descriptionView.topAnchor, constant: 12),
+                                     favorite.trailingAnchor.constraint(equalTo: descriptionView.trailingAnchor, constant: -16),
+                                     favorite.heightAnchor.constraint(equalTo: descriptionView.heightAnchor, multiplier: 0.25)])
+        
+        NSLayoutConstraint.activate([language.bottomAnchor.constraint(equalTo: descriptionView.bottomAnchor, constant: -12),
+                                     language.leadingAnchor.constraint(equalTo: descriptionView.leadingAnchor, constant: 16)])
+        
+        NSLayoutConstraint.activate([languageSelected.bottomAnchor.constraint(equalTo: descriptionView.bottomAnchor, constant: -12),
+                                     languageSelected.trailingAnchor.constraint(equalTo: descriptionView.trailingAnchor, constant: -16)])
+        
+        //Constraints das Notas
+        
+        NSLayoutConstraint.activate([notesView.topAnchor.constraint(equalTo: descriptionView.bottomAnchor, constant: 18),
+                                     notesView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
+                                     notesView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
+                                     notesView.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.5)])
+        
+        NSLayoutConstraint.activate([notes.topAnchor.constraint(equalTo: notesView.topAnchor, constant: 18),
+                                     notes.leadingAnchor.constraint(equalTo: notesView.leadingAnchor, constant: 16),
+                                     notes.trailingAnchor.constraint(equalTo: notesView.trailingAnchor, constant: -16),
+                                     notes.bottomAnchor.constraint(equalTo: notesView.bottomAnchor, constant: -18)])
     }
     
     required init?(coder: NSCoder) {
