@@ -31,7 +31,7 @@ class DetailsViewController: UIViewController {
         super.viewDidLoad()
         navigationItem.largeTitleDisplayMode = .never
         view.backgroundColor = .white
-
+        
         view.addSubview(botView)
         view.addSubview(topView)
         view.addSubview(content)
