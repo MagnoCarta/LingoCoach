@@ -10,7 +10,7 @@ import UIKit
 class NoteListViewController: UIViewController {
     var plusButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addNote))
     var noteListView = NoteListView()
-    var notasMockadas: [Note] = []
+    var notes: [Note] = []
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
     override func loadView() {
@@ -18,23 +18,21 @@ class NoteListViewController: UIViewController {
         if let navigationBar = navigationController?.navigationBar  {
             noteListView.addConstraintFilter(viewBar: navigationBar)
         }
-        
         self.view = noteListView
-        
-        
     }
     
     override func viewDidLoad() {
-        let note = Note(context: self.context)
-        note.icon = UIImage(systemName: "trash")
-        note.language = "Inglês"
-        note.title = "Aprender verbo to be"
-        notasMockadas.append(note)
-        notasMockadas.append(note)
-        notasMockadas.append(note)
-        notasMockadas.append(note)
-        notasMockadas.append(note)
-        notasMockadas.append(note)
+        do {
+            let notes = try (context.fetch(Note.fetchRequest()) as! [Note])
+            self.notes = notes
+        }catch {
+            fatalError("em fase de testes")
+        }
+        let notaMockada = Note(context: context.self)
+        notaMockada.icon = UIImage(systemName: "Trash")
+        notaMockada.language = "ingles"
+        notaMockada.title = "Teste titulo"
+        notes.append(notaMockada)
         
         super.viewDidLoad()
         self.title = "Notas"
@@ -47,7 +45,17 @@ class NoteListViewController: UIViewController {
         
         // Do any additional setup after loading the view.
     }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        noteListView.filterButton.removeFromSuperview()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        noteListView.addConstraintFilter(viewBar: navigationController!.navigationBar)
+    }
+    
     @objc func addNote() {
+        
     }
     
     func delegates(view: NoteListView) {

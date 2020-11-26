@@ -25,6 +25,11 @@ class NoteListView: UIView {
         button.setTitle("Filtrar", for: .normal)
         button.titleLabel?.font = UIFont(name: UIFont.text, size: 17)
         button.setTitleColor(.darkGreenLC, for: .normal)
+        
+        
+        
+        button.addTarget(self, action: #selector(filter), for: .touchUpInside)
+        
         return button
     }()
     
@@ -55,6 +60,10 @@ class NoteListView: UIView {
     }
     
     
+    @objc func filter() {
+        
+        
+    }
     
     
     
