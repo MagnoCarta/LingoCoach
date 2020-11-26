@@ -18,5 +18,5 @@ extension UIColor {
     static let oceanBlue = #colorLiteral(red: 0.1245598271, green: 0.3738183975, blue: 0.651450634, alpha: 1)
     static let orangeLC = #colorLiteral(red: 0.975635469, green: 0.418487817, blue: 0.2738820612, alpha: 1)
     static let grayLC = #colorLiteral(red: 0.399962306, green: 0.400024116, blue: 0.3999488652, alpha: 1)
-    static let paleteColor = [brightGreenLC,darkGreenLC,yellowMostard,lightGreenLC,oceanBlue,orangeLC,grayLC]
+    static let paleteColor = [brightGreenLC, darkGreenLC, yellowMostard, lightGreenLC, oceanBlue, orangeLC, grayLC]
 }

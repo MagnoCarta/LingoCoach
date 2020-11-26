@@ -10,6 +10,8 @@ import UIKit
 
 class NoteListView: UIView {
     
+    let scale = (x: 414 / UIScreen.main.bounds.width, y: 896 / UIScreen.main.bounds.height)
+    
     var collectionView: UICollectionView = {
         let collectionViewFlowLayout = UICollectionViewFlowLayout()
         collectionViewFlowLayout.itemSize = CGSize(width: 150, height: 175)
@@ -26,8 +28,6 @@ class NoteListView: UIView {
         button.titleLabel?.font = UIFont(name: UIFont.text, size: 17)
         button.setTitleColor(.darkGreenLC, for: .normal)
         
-        
-        
         button.addTarget(self, action: #selector(filter), for: .touchUpInside)
         
         return button
@@ -35,7 +35,7 @@ class NoteListView: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        organize()
+        setupViews()
     }
     
     required init?(coder: NSCoder) {
@@ -50,31 +50,26 @@ class NoteListView: UIView {
             self.filterButton.trailingAnchor.constraint(equalTo: viewBar.trailingAnchor, constant: -16)])
     }
     
-    
-    func organize(){
-        
+    func setupViews() {
+        // Prevents a navigation bar large title bug
+        self.addSubview(UIView())
         self.addSubview(collectionView)
-        
         addConstraintCollectionView()
         
     }
     
-    
     @objc func filter() {
         
-        
     }
-    
-    
     
     func addConstraintCollectionView() {
         
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            collectionView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 32),
-            collectionView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 40),
-            collectionView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -40),
-            collectionView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant:0)
+            collectionView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 32 * self.scale.y),
+            collectionView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 40 * self.scale.x),
+            collectionView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -40 * self.scale.x),
+            collectionView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: 0)
         ])
     }
 }

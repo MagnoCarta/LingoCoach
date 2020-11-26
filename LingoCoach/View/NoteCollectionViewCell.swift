@@ -18,9 +18,6 @@ class NoteCollectionViewCell: UICollectionViewCell {
         super.init(frame: frame)
         organize()
         configure()
-        
-       
-        
     }
     
     required init?(coder: NSCoder) {
@@ -48,7 +45,6 @@ class NoteCollectionViewCell: UICollectionViewCell {
         addConstraintTitleLabel()
     }
     
-    
     func organize() {
         
         self.layer.cornerRadius = 8
@@ -60,7 +56,7 @@ class NoteCollectionViewCell: UICollectionViewCell {
         noteIconView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             noteIconView.topAnchor.constraint(equalTo: self.topAnchor, constant: 24),
-            noteIconView.centerXAnchor.constraint(equalTo: self.centerXAnchor),
+            noteIconView.centerXAnchor.constraint(equalTo: self.centerXAnchor)
         ])
 //        noteIconView.contentMode = .scaleAspectFit
     }
