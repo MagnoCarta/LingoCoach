@@ -61,7 +61,7 @@ class Description: UIView {
         button.translatesAutoresizingMaskIntoConstraints = false
         button.layer.cornerRadius = 8
         button.clipsToBounds = true
-        button.setTitle("Teste Label", for: .normal)
+        button.setTitle("Categoria", for: .normal)
         button.titleLabel?.font = UIFont.systemFont(ofSize: 16, weight: .semibold)
         button.setTitleColor(UIColor.white, for: .normal)
         button.backgroundColor = #colorLiteral(red: 0.001636183239, green: 0.7755811214, blue: 0.6421516538, alpha: 1)
@@ -96,7 +96,7 @@ class Description: UIView {
     
     let languageSelected: UILabel = {
         let text = UILabel()
-        text.text = "Inglês"
+        text.text = "Nenhum"
         text.textColor = .black
         text.translatesAutoresizingMaskIntoConstraints = false
         text.textAlignment = .left

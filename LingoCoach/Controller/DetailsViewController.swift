@@ -27,9 +27,16 @@ class DetailsViewController: UIViewController {
         return content
     }()
     
+    @objc func editScreen() {
+        let nextVC = EditViewController()
+        navigationController?.pushViewController(nextVC, animated: true)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.largeTitleDisplayMode = .never
+        navigationItem.title = "Sem Título"
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Editar", style: .plain, target: self, action: #selector(editScreen))
         view.backgroundColor = .white
         
         view.addSubview(botView)
