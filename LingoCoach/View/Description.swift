@@ -50,6 +50,7 @@ class Description: UIView {
         button.layer.cornerRadius = 16
         button.setImage(icon, for: .normal)
         button.imageView?.contentMode = .scaleAspectFit
+        button.imageEdgeInsets = UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5)
         button.backgroundColor = #colorLiteral(red: 0, green: 0.7753016353, blue: 0.6421442628, alpha: 1)
 //        action
         return button
@@ -137,10 +138,10 @@ class Description: UIView {
         NSLayoutConstraint.activate([iconView.widthAnchor.constraint(equalToConstant: 120),
                                      iconView.heightAnchor.constraint(equalToConstant: 120),
                                      iconView.topAnchor.constraint(equalTo: topAnchor, constant: 30),
-                                     iconView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 127.5)])
+                                     iconView.centerXAnchor.constraint(equalTo: centerXAnchor)])
         
         NSLayoutConstraint.activate([icon.topAnchor.constraint(equalTo: iconView.topAnchor, constant: 13),
-                                     icon.leadingAnchor.constraint(equalTo: iconView.leadingAnchor, constant: 12),
+                                     icon.centerXAnchor.constraint(equalTo: iconView.centerXAnchor),
 //                                     icon.trailingAnchor.constraint(equalTo: iconView.trailingAnchor),
                                      icon.widthAnchor.constraint(equalTo: iconView.widthAnchor, multiplier: 0.8),
                                      icon.heightAnchor.constraint(equalTo: iconView.heightAnchor, multiplier: 0.8)])
@@ -159,7 +160,7 @@ class Description: UIView {
         
         NSLayoutConstraint.activate([favorite.topAnchor.constraint(equalTo: descriptionView.topAnchor, constant: 12),
                                      favorite.trailingAnchor.constraint(equalTo: descriptionView.trailingAnchor, constant: -16),
-                                     favorite.heightAnchor.constraint(equalTo: descriptionView.heightAnchor, multiplier: 0.25)])
+                                     favorite.heightAnchor.constraint(equalTo: descriptionView.heightAnchor, multiplier: 0.2)])
         
         NSLayoutConstraint.activate([language.bottomAnchor.constraint(equalTo: descriptionView.bottomAnchor, constant: -12),
                                      language.leadingAnchor.constraint(equalTo: descriptionView.leadingAnchor, constant: 16)])

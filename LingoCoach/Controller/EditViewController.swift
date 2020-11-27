@@ -69,6 +69,19 @@ class EditViewController: UIViewController {
         return button
     }()
     
+    fileprivate let deleteButton: UIButton = {
+        let button = UIButton()
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.layer.cornerRadius = 8
+        button.clipsToBounds = true
+        button.setTitle("Deletar Nota", for: .normal)
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 18, weight: .semibold)
+        button.setTitleColor(UIColor.white, for: .normal)
+//        button.addTarget(<#T##target: Any?##Any?#>, action: <#T##Selector#>, for: <#T##UIControl.Event#>)
+        button.backgroundColor = #colorLiteral(red: 0.8666666667, green: 0.2509803922, blue: 0.3333333333, alpha: 1)
+        return button
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -80,6 +93,7 @@ class EditViewController: UIViewController {
         view.addSubview(titleView)
         view.addSubview(titleField)
         view.addSubview(editButton)
+        view.addSubview(deleteButton)
         
         topView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
         topView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
@@ -94,10 +108,10 @@ class EditViewController: UIViewController {
         NSLayoutConstraint.activate([iconView.widthAnchor.constraint(equalToConstant: 120),
                                      iconView.heightAnchor.constraint(equalToConstant: 120),
                                      iconView.topAnchor.constraint(equalTo: topView.bottomAnchor, constant: 30),
-                                     iconView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 127.5)])
+                                     iconView.centerXAnchor.constraint(equalTo: view.centerXAnchor)])
         
         NSLayoutConstraint.activate([icon.topAnchor.constraint(equalTo: iconView.topAnchor, constant: 13),
-                                     icon.leadingAnchor.constraint(equalTo: iconView.leadingAnchor, constant: 12),
+                                     icon.centerXAnchor.constraint(equalTo: iconView.centerXAnchor),
 //                                     icon.trailingAnchor.constraint(equalTo: iconView.trailingAnchor),
                                      icon.widthAnchor.constraint(equalTo: iconView.widthAnchor, multiplier: 0.8),
                                      icon.heightAnchor.constraint(equalTo: iconView.heightAnchor, multiplier: 0.8)])
@@ -105,7 +119,7 @@ class EditViewController: UIViewController {
         NSLayoutConstraint.activate([titleView.topAnchor.constraint(equalTo: editButton.bottomAnchor, constant: 16),
                                      titleView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
                                      titleView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
-                                     titleView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.07)])
+                                     titleView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.05)])
         
         NSLayoutConstraint.activate([titleField.topAnchor.constraint(equalTo: titleView.topAnchor),
                                      titleField.leadingAnchor.constraint(equalTo: titleView.leadingAnchor, constant: 16),
@@ -113,7 +127,10 @@ class EditViewController: UIViewController {
                                      titleField.bottomAnchor.constraint(equalTo: titleView.bottomAnchor)])
         
         NSLayoutConstraint.activate([editButton.topAnchor.constraint(equalTo: iconView.bottomAnchor, constant: 13),
-                                     editButton.leadingAnchor.constraint(equalTo: iconView.leadingAnchor),
-                                     editButton.trailingAnchor.constraint(equalTo: iconView.trailingAnchor)])
+                                     editButton.centerXAnchor.constraint(equalTo: iconView.centerXAnchor)])
+        
+        NSLayoutConstraint.activate([deleteButton.topAnchor.constraint(equalTo: titleView.bottomAnchor, constant: 30),
+                                     deleteButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+                                     deleteButton.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.6)])
     }
 }
