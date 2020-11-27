@@ -14,7 +14,6 @@ class NoteCollectionViewCell: UICollectionViewCell {
     var noteLanguageLabel = UILabel()
     var noteTitleLabel = UILabel()
     
-    
     override init(frame: CGRect) {
         super.init(frame: frame)
         organize()

@@ -11,7 +11,6 @@ class NoteListViewController: UIViewController {
     
     var noteListView = NoteListView()
     var notes: [Note] = []
-    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
     override func loadView() {
         super.loadView()
@@ -42,32 +41,33 @@ class NoteListViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        load()
         noteListView.addConstraintFilter(viewBar: navigationController!.navigationBar)
     }
     
     @objc func addNote() {
-        let notaMockada = Note(context: context.self)
-        notaMockada.icon = UIImage(named: "translate")
-        notaMockada.language = "Idioma"
-        notaMockada.title = "Nota \(notes.count+1)"
+        let context = UIApplication.shared.context
+        let noteToAdd = Note(context: context.self)
+        noteToAdd.icon = UIImage(named: "translate")
+        noteToAdd.language = "Idioma"
+        noteToAdd.title = "Nota \(notes.count+1)"
         do {
             try context.save()
         } catch {
             fatalError("")
         }
-        notes.append(notaMockada)
+        notes.append(noteToAdd)
         noteListView.collectionView.reloadData()
-        
     }
     
     func load() {
-        
+        let context = UIApplication.shared.context
         do {
             self.notes = try (context.fetch(Note.fetchRequest()) as! [Note])
         } catch {
             fatalError("Não foi possível carregar as notas.")
         }
-        
+        noteListView.collectionView.reloadData()
     }
     
     func delegates(view: NoteListView) {
@@ -93,8 +93,7 @@ extension NoteListViewController: UICollectionViewDelegate, UICollectionViewData
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        navigationController?.pushViewController(DetailsViewController(), animated: true)
-        
+        navigationController?.pushViewController(DetailsViewController(note: notes[indexPath.row]), animated: true)
     }
     //    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
     //            let numberOfItemsPerRow:CGFloat = 4

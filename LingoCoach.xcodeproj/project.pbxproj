@@ -25,6 +25,7 @@
 		57138CDC256D3C3400BD99DD /* ProgressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57138CDB256D3C3400BD99DD /* ProgressViewController.swift */; };
 		573541D92566B8650002473A /* Period.swift in Sources */ = {isa = PBXBuildFile; fileRef = 573541D82566B8650002473A /* Period.swift */; };
 		573541EC2566B92A0002473A /* Statistics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 573541EB2566B92A0002473A /* Statistics.swift */; };
+		5785E57125713BDE00652C99 /* UIApplicationExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5785E57025713BDE00652C99 /* UIApplicationExtension.swift */; };
 		57CEC34B25669E5B0014AF32 /* DaysOfTheWeek.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57CEC34A25669E5B0014AF32 /* DaysOfTheWeek.swift */; };
 		57FEA816256FEF6D005F0F43 /* UIScreenExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57FEA815256FEF6D005F0F43 /* UIScreenExtension.swift */; };
 		6931D4F1256D452B009F19D5 /* Description.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6931D4F0256D452B009F19D5 /* Description.swift */; };
@@ -75,6 +76,7 @@
 		57138CDB256D3C3400BD99DD /* ProgressViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressViewController.swift; sourceTree = "<group>"; };
 		573541D82566B8650002473A /* Period.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Period.swift; sourceTree = "<group>"; };
 		573541EB2566B92A0002473A /* Statistics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Statistics.swift; sourceTree = "<group>"; };
+		5785E57025713BDE00652C99 /* UIApplicationExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIApplicationExtension.swift; sourceTree = "<group>"; };
 		57CEC34A25669E5B0014AF32 /* DaysOfTheWeek.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DaysOfTheWeek.swift; sourceTree = "<group>"; };
 		57FEA815256FEF6D005F0F43 /* UIScreenExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIScreenExtension.swift; sourceTree = "<group>"; };
 		6931D4F0256D452B009F19D5 /* Description.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Description.swift; sourceTree = "<group>"; };
@@ -207,6 +209,7 @@
 				FF45203C256D41B7001E77AA /* Colors.swift */,
 				0F43D4D5256D521C0066509A /* UIResponderExtension.swift */,
 				57FEA815256FEF6D005F0F43 /* UIScreenExtension.swift */,
+				5785E57025713BDE00652C99 /* UIApplicationExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -385,6 +388,7 @@
 			files = (
 				57138CD4256D3C2700BD99DD /* NoteListViewController.swift in Sources */,
 				57FEA816256FEF6D005F0F43 /* UIScreenExtension.swift in Sources */,
+				5785E57125713BDE00652C99 /* UIApplicationExtension.swift in Sources */,
 				0F43D4EC256E7D900066509A /* NoteCollectionViewCell.swift in Sources */,
 				573541D92566B8650002473A /* Period.swift in Sources */,
 				0F43D4D6256D521C0066509A /* UIResponderExtension.swift in Sources */,

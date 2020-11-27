@@ -8,6 +8,8 @@
 import UIKit
 
 class EditViewController: UIViewController {
+    
+    var note: Note!
 
     fileprivate let botView: UIView = {
         let botView = UIView()
@@ -77,14 +79,41 @@ class EditViewController: UIViewController {
         button.setTitle("Deletar Nota", for: .normal)
         button.titleLabel?.font = UIFont.systemFont(ofSize: 18, weight: .semibold)
         button.setTitleColor(UIColor.white, for: .normal)
-//        button.addTarget(<#T##target: Any?##Any?#>, action: <#T##Selector#>, for: <#T##UIControl.Event#>)
+        button.addTarget(self, action: #selector(deleteNote), for: .touchUpInside)
         button.backgroundColor = #colorLiteral(red: 0.8666666667, green: 0.2509803922, blue: 0.3333333333, alpha: 1)
         return button
     }()
     
+    init(note: Note) {
+        super.init(nibName: nil, bundle: nil)
+        self.note = note
+        self.titleField.text = note.title
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    @objc func saveNote() {
+//        let context = UIApplication.shared.context
+
+    }
+    
+    @objc func deleteNote() {
+        let context = UIApplication.shared.context
+        context.delete(self.note)
+        do {
+            try context.save()
+        } catch {
+            print("It was not possible to delete the note.")
+        }
+        navigationController?.popToRootViewController(animated: true)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Salvar", style: .plain, target: self, action: #selector(saveNote))
         view.backgroundColor = .white
         view.addSubview(botView)
         view.addSubview(topView)

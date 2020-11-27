@@ -8,6 +8,8 @@
 import UIKit
 
 class DetailsViewController: UIViewController {
+    
+    var note: Note!
 
     fileprivate let botView: UIView = {
         let botView = UIView()
@@ -28,14 +30,25 @@ class DetailsViewController: UIViewController {
     }()
     
     @objc func editScreen() {
-        let nextVC = EditViewController()
+        let nextVC = EditViewController(note: note)
         navigationController?.pushViewController(nextVC, animated: true)
+    }
+    
+    init(note: Note) {
+        super.init(nibName: nil, bundle: nil)
+        self.note = note
+        content.icon.image = note.icon
+        content.languageSelected.text = note.language
+        navigationItem.title = note.title
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.largeTitleDisplayMode = .never
-        navigationItem.title = "Sem Título"
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Editar", style: .plain, target: self, action: #selector(editScreen))
         view.backgroundColor = .white
         
