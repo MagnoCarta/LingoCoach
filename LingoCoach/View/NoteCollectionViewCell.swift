@@ -14,6 +14,7 @@ class NoteCollectionViewCell: UICollectionViewCell {
     var noteLanguageLabel = UILabel()
     var noteTitleLabel = UILabel()
     
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         organize()
@@ -29,11 +30,11 @@ class NoteCollectionViewCell: UICollectionViewCell {
         noteIconView.image = note.icon
         noteLanguageLabel.text = note.language
         noteTitleLabel.text = note.title
-        randomColor()
+
     }
     
-    func randomColor() {
-        self.backgroundColor = UIColor.paleteColor.randomElement()
+    func generateColor(row: Int) {
+        self.backgroundColor = UIColor.paleteColor[row%7]
     }
     
     func configure() {

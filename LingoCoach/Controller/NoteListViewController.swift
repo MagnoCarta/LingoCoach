@@ -8,7 +8,7 @@
 import UIKit
 
 class NoteListViewController: UIViewController {
-    var plusButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addNote))
+    
     var noteListView = NoteListView()
     var notes: [Note] = []
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
@@ -22,19 +22,8 @@ class NoteListViewController: UIViewController {
     }
     
     override func viewDidLoad() {
-        do {
-            self.notes = try (context.fetch(Note.fetchRequest()) as! [Note])
-        } catch {
-            fatalError("Não foi possível carregar as notas.")
-        }
-        let notaMockada = Note(context: context.self)
-        notaMockada.icon = UIImage(systemName: "Trash")
-        notaMockada.language = "ingles"
-        notaMockada.title = "Teste titulo"
-        notes.append(notaMockada)
-        notes.append(notaMockada)
-        notes.append(notaMockada)
-        notes.append(notaMockada)
+        let plusButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addNote))
+        load()
         
         super.viewDidLoad()
         self.title = "Notas"
@@ -57,6 +46,27 @@ class NoteListViewController: UIViewController {
     }
     
     @objc func addNote() {
+        let notaMockada = Note(context: context.self)
+        notaMockada.icon = UIImage(named: "translate")
+        notaMockada.language = "Idioma"
+        notaMockada.title = "Nota \(notes.count+1)"
+        do {
+            try context.save()
+        } catch {
+            fatalError("")
+        }
+        notes.append(notaMockada)
+        noteListView.collectionView.reloadData()
+        
+    }
+    
+    func load() {
+        
+        do {
+            self.notes = try (context.fetch(Note.fetchRequest()) as! [Note])
+        } catch {
+            fatalError("Não foi possível carregar as notas.")
+        }
         
     }
     
@@ -65,12 +75,12 @@ class NoteListViewController: UIViewController {
         view.collectionView.delegate = self
         view.collectionView.dataSource = self
     }
-
+    
 }
 
 extension NoteListViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-      
+        
         self.notes.count
     }
     
@@ -78,24 +88,25 @@ extension NoteListViewController: UICollectionViewDelegate, UICollectionViewData
         let noteCell = (collectionView.dequeueReusableCell(withReuseIdentifier: "NoteCell", for: indexPath) as! NoteCollectionViewCell)
         
         noteCell.set(note: self.notes[indexPath.row])
+        noteCell.generateColor(row: indexPath.row)
         return noteCell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         navigationController?.pushViewController(DetailsViewController(), animated: true)
-       
+        
     }
-//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-//            let numberOfItemsPerRow:CGFloat = 4
-//            let spacingBetweenCells:CGFloat = 16
-//
-//            let totalSpacing = (2 * self.spacing) + ((numberOfItemsPerRow - 1) * spacingBetweenCells) //Amount of total spacing in a row
-//
-//            if let collection = self.collectionView{
-//                let width = (collection.bounds.width - totalSpacing)/numberOfItemsPerRow
-//                return CGSize(width: width, height: width)
-//            }else{
-//                return CGSize(width: 0, height: 0)
-//            }
-//        }
+    //    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+    //            let numberOfItemsPerRow:CGFloat = 4
+    //            let spacingBetweenCells:CGFloat = 16
+    //
+    //            let totalSpacing = (2 * self.spacing) + ((numberOfItemsPerRow - 1) * spacingBetweenCells) //Amount of total spacing in a row
+    //
+    //            if let collection = self.collectionView{
+    //                let width = (collection.bounds.width - totalSpacing)/numberOfItemsPerRow
+    //                return CGSize(width: width, height: width)
+    //            }else{
+    //                return CGSize(width: 0, height: 0)
+    //            }
+    //        }
 }
