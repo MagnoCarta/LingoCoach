@@ -50,6 +50,7 @@ class Description: UIView {
         button.layer.cornerRadius = 16
         button.setImage(icon, for: .normal)
         button.imageView?.contentMode = .scaleAspectFit
+        button.imageEdgeInsets = UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5)
         button.backgroundColor = #colorLiteral(red: 0, green: 0.7753016353, blue: 0.6421442628, alpha: 1)
 //        action
         return button
