@@ -8,7 +8,13 @@
 import Foundation
 import UIKit
 
+protocol delegateFilter: class {
+    func filterAction()
+}
+
 class NoteListView: UIView {
+    
+    weak var delegate: delegateFilter?
     
     var collectionView: UICollectionView = {
         let collectionViewFlowLayout = UICollectionViewFlowLayout()
@@ -25,14 +31,16 @@ class NoteListView: UIView {
         button.setTitle("Filtrar", for: .normal)
         button.titleLabel?.font = UIFont(name: UIFont.text, size: 17)
         button.setTitleColor(.darkGreenLC, for: .normal)
-        
-        button.addTarget(self, action: #selector(filter), for: .touchUpInside)
-        
         return button
     }()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
+        filterButton.addTarget(self, action: #selector(addFilter), for: .touchUpInside)
+    }
+    
+    @objc func addFilter() {
+        delegate!.filterAction()
         setupViews()
     }
     

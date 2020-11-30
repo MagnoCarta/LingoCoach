@@ -31,6 +31,8 @@ class NoteListViewController: UIViewController {
         self.navigationItem.rightBarButtonItem?.tintColor = .brightGreenLC
         self.view.backgroundColor = .background
         
+        self.noteListView.delegate = self
+        
         delegates(view: noteListView)
         
         // Do any additional setup after loading the view.
@@ -74,6 +76,17 @@ class NoteListViewController: UIViewController {
         view.collectionView.register(NoteCollectionViewCell.self, forCellWithReuseIdentifier: "NoteCell")
         view.collectionView.delegate = self
         view.collectionView.dataSource = self
+    }
+}
+
+extension NoteListViewController: delegateFilter {
+    func filterAction() {
+        // navigationController?.pushViewController(FiltroViewController(), animated: true )
+        
+        let modalFilter = FilterViewController()
+        modalFilter.modalPresentationStyle = .fullScreen
+        modalFilter.backingImage = self.navigationController?.view.asImage()
+        navigationController?.present(modalFilter, animated: false, completion: nil)
     }
     
 }
