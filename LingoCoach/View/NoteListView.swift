@@ -18,11 +18,11 @@ class NoteListView: UIView {
     
     var collectionView: UICollectionView = {
         let collectionViewFlowLayout = UICollectionViewFlowLayout()
-        collectionViewFlowLayout.itemSize = CGSize(width: 150, height: 175)
+        collectionViewFlowLayout.itemSize = CGSize(width: 150 * UIScreen.scale.x, height: 200 * UIScreen.scale.y)
         
         collectionViewFlowLayout.minimumInteritemSpacing = 16
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: collectionViewFlowLayout)
-        collectionView.backgroundColor = .white
+        collectionView.backgroundColor = .background
         return collectionView
     }()
     
@@ -31,18 +31,28 @@ class NoteListView: UIView {
         button.setTitle("Filtrar", for: .normal)
         button.titleLabel?.font = UIFont(name: UIFont.text, size: 17)
         button.setTitleColor(.darkGreenLC, for: .normal)
+<<<<<<< HEAD
 //        button.addTarget(self, action: #selector(AddFilter), for: .touchUpInside)
+=======
+        
+        button.addTarget(self, action: #selector(filter), for: .touchUpInside)
+        
+>>>>>>> develop
         return button
     }()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
+<<<<<<< HEAD
         organize()
         filterButton.addTarget(self, action: #selector(AddFilter), for: .touchUpInside)
     }
     
     @objc func AddFilter() {
         delegate!.filterAction()
+=======
+        setupViews()
+>>>>>>> develop
     }
     
     required init?(coder: NSCoder) {
@@ -57,27 +67,26 @@ class NoteListView: UIView {
             self.filterButton.trailingAnchor.constraint(equalTo: viewBar.trailingAnchor, constant: -16)])
     }
     
-    
-    func organize(){
-        
+    func setupViews() {
+        // Prevents a navigation bar large title bug
+        self.addSubview(UIView())
         self.addSubview(collectionView)
-        
         addConstraintCollectionView()
         
     }
     
-    
-    
-    
+    @objc func filter() {
+        
+    }
     
     func addConstraintCollectionView() {
         
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            collectionView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 32),
-            collectionView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 40),
-            collectionView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -40),
-            collectionView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant:0)
+            collectionView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 32 * UIScreen.scale.y),
+            collectionView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 40 * UIScreen.scale.x),
+            collectionView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -40 * UIScreen.scale.x),
+            collectionView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: 0)
         ])
     }
 }

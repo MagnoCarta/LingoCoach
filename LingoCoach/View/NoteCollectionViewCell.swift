@@ -18,9 +18,6 @@ class NoteCollectionViewCell: UICollectionViewCell {
         super.init(frame: frame)
         organize()
         configure()
-        
-       
-        
     }
     
     required init?(coder: NSCoder) {
@@ -32,11 +29,11 @@ class NoteCollectionViewCell: UICollectionViewCell {
         noteIconView.image = note.icon
         noteLanguageLabel.text = note.language
         noteTitleLabel.text = note.title
-        randomColor()
+
     }
     
-    func randomColor() {
-        self.backgroundColor = UIColor.paleteColor.randomElement()
+    func generateColor(row: Int) {
+        self.backgroundColor = UIColor.paleteColor[row%7]
     }
     
     func configure() {
@@ -47,7 +44,6 @@ class NoteCollectionViewCell: UICollectionViewCell {
         self.addSubview(noteTitleLabel)
         addConstraintTitleLabel()
     }
-    
     
     func organize() {
         
@@ -60,7 +56,7 @@ class NoteCollectionViewCell: UICollectionViewCell {
         noteIconView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             noteIconView.topAnchor.constraint(equalTo: self.topAnchor, constant: 24),
-            noteIconView.centerXAnchor.constraint(equalTo: self.centerXAnchor),
+            noteIconView.centerXAnchor.constraint(equalTo: self.centerXAnchor)
         ])
 //        noteIconView.contentMode = .scaleAspectFit
     }
