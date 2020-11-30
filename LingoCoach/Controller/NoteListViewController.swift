@@ -43,6 +43,8 @@ class NoteListViewController: UIViewController {
         self.navigationItem.rightBarButtonItem?.tintColor = .brightGreenLC
         self.view.backgroundColor = .white
         
+        self.noteListView.delegate = self
+        
         delegates(view: noteListView)
         
         // Do any additional setup after loading the view.
@@ -55,17 +57,15 @@ class NoteListViewController: UIViewController {
         view.collectionView.delegate = self
         view.collectionView.dataSource = self
     }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
 
-
-
+extension NoteListViewController: delegateFilter {
+    func filterAction() {
+        // navigationController?.pushViewController(FiltroViewController(), animated: true )
+        
+        let modalFilter = FilterViewController()
+        modalFilter.modalPresentationStyle = .fullScreen
+        modalFilter.backingImage = self.navigationController?.view.asImage()
+        navigationController?.present(modalFilter, animated: false, completion: nil)
+    }
+}
