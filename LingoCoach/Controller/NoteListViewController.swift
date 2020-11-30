@@ -77,7 +77,6 @@ class NoteListViewController: UIViewController {
         view.collectionView.delegate = self
         view.collectionView.dataSource = self
     }
-<<<<<<< HEAD
 }
 
 extension NoteListViewController: delegateFilter {
@@ -89,7 +88,6 @@ extension NoteListViewController: delegateFilter {
         modalFilter.backingImage = self.navigationController?.view.asImage()
         navigationController?.present(modalFilter, animated: false, completion: nil)
     }
-=======
     
 }
 
@@ -123,5 +121,4 @@ extension NoteListViewController: UICollectionViewDelegate, UICollectionViewData
     //                return CGSize(width: 0, height: 0)
     //            }
     //        }
->>>>>>> develop
 }

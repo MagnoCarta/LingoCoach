@@ -31,28 +31,17 @@ class NoteListView: UIView {
         button.setTitle("Filtrar", for: .normal)
         button.titleLabel?.font = UIFont(name: UIFont.text, size: 17)
         button.setTitleColor(.darkGreenLC, for: .normal)
-<<<<<<< HEAD
-//        button.addTarget(self, action: #selector(AddFilter), for: .touchUpInside)
-=======
-        
-        button.addTarget(self, action: #selector(filter), for: .touchUpInside)
-        
->>>>>>> develop
         return button
     }()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-<<<<<<< HEAD
-        organize()
-        filterButton.addTarget(self, action: #selector(AddFilter), for: .touchUpInside)
+        filterButton.addTarget(self, action: #selector(addFilter), for: .touchUpInside)
     }
     
-    @objc func AddFilter() {
+    @objc func addFilter() {
         delegate!.filterAction()
-=======
         setupViews()
->>>>>>> develop
     }
     
     required init?(coder: NSCoder) {
