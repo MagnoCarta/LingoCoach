@@ -10,7 +10,7 @@ import UIKit
 class EditViewController: UIViewController {
     
     var note: Note!
-
+    
     fileprivate let botView: UIView = {
         let botView = UIView()
         botView.translatesAutoresizingMaskIntoConstraints = false
@@ -38,7 +38,7 @@ class EditViewController: UIViewController {
         view.backgroundColor = #colorLiteral(red: 0, green: 0.3953939676, blue: 0.378708303, alpha: 1)
         view.layer.cornerRadius = 8
         return view
-    
+        
     }()
     
     fileprivate let titleView: UIView = {
@@ -47,7 +47,7 @@ class EditViewController: UIViewController {
         view.layer.cornerRadius = 12
         view.backgroundColor = #colorLiteral(red: 0.909702003, green: 0.9098611474, blue: 0.9097036719, alpha: 1)
         return view
-    
+        
     }()
     
     let titleField: UITextField = {
@@ -56,7 +56,7 @@ class EditViewController: UIViewController {
         text.placeholder = "Sem Título"
         text.textColor = .black
         return text
-    
+        
     }()
     
     fileprivate let editButton: UIButton = {
@@ -67,7 +67,7 @@ class EditViewController: UIViewController {
         button.setTitle("Editar Ícone", for: .normal)
         button.titleLabel?.font = UIFont.systemFont(ofSize: 16, weight: .semibold)
         button.setTitleColor(#colorLiteral(red: 0.09411764706, green: 0.3882352941, blue: 0.3764705882, alpha: 1), for: .normal)
-//        button.backgroundColor = #colorLiteral(red: 0.001636183239, green: 0.7755811214, blue: 0.6421516538, alpha: 1)
+        //        button.backgroundColor = #colorLiteral(red: 0.001636183239, green: 0.7755811214, blue: 0.6421516538, alpha: 1)
         return button
     }()
     
@@ -95,19 +95,29 @@ class EditViewController: UIViewController {
     }
     
     @objc func saveNote() {
-//        let context = UIApplication.shared.context
-
+        //        let context = UIApplication.shared.context
+        
     }
     
     @objc func deleteNote() {
-        let context = UIApplication.shared.context
-        context.delete(self.note)
-        do {
-            try context.save()
-        } catch {
-            print("It was not possible to delete the note.")
-        }
-        navigationController?.popToRootViewController(animated: true)
+        let alert = UIAlertController(title: "Deletar Nota?", message: "Essa nota será excluído permanentemente.", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Cancelar", style: .default, handler: { action in
+            
+            alert.dismiss(animated: true, completion: nil)
+            
+        }))
+        alert.addAction(UIAlertAction(title: "Deletar", style: .destructive, handler: { action in
+            let context = UIApplication.shared.context
+            context.delete(self.note)
+            do {
+                try context.save()
+            } catch {
+                print("It was not possible to delete the note.")
+            }
+            self.dismiss(animated: true, completion: nil)
+            self.navigationController?.popToRootViewController(animated: true)
+        }))
+        self.present(alert, animated: true)
     }
     
     override func viewDidLoad() {
@@ -141,7 +151,7 @@ class EditViewController: UIViewController {
         
         NSLayoutConstraint.activate([icon.topAnchor.constraint(equalTo: iconView.topAnchor, constant: 13),
                                      icon.centerXAnchor.constraint(equalTo: iconView.centerXAnchor),
-//                                     icon.trailingAnchor.constraint(equalTo: iconView.trailingAnchor),
+                                     //                                     icon.trailingAnchor.constraint(equalTo: iconView.trailingAnchor),
                                      icon.widthAnchor.constraint(equalTo: iconView.widthAnchor, multiplier: 0.8),
                                      icon.heightAnchor.constraint(equalTo: iconView.heightAnchor, multiplier: 0.8)])
         

@@ -21,6 +21,7 @@ class NoteListView: UIView {
         collectionViewFlowLayout.itemSize = CGSize(width: 150 * UIScreen.scale.x, height: 200 * UIScreen.scale.y)
         
         collectionViewFlowLayout.minimumInteritemSpacing = 16
+        collectionViewFlowLayout.sectionInset = UIEdgeInsets(top: 0, left: 40, bottom: 0, right: 40)
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: collectionViewFlowLayout)
         collectionView.backgroundColor = .background
         return collectionView
@@ -37,11 +38,11 @@ class NoteListView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         filterButton.addTarget(self, action: #selector(addFilter), for: .touchUpInside)
+        setupViews()
     }
     
     @objc func addFilter() {
         delegate!.filterAction()
-        setupViews()
     }
     
     required init?(coder: NSCoder) {
@@ -73,8 +74,8 @@ class NoteListView: UIView {
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             collectionView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 32 * UIScreen.scale.y),
-            collectionView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 40 * UIScreen.scale.x),
-            collectionView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -40 * UIScreen.scale.x),
+            collectionView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 0 * UIScreen.scale.x),
+            collectionView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: 0 * UIScreen.scale.x),
             collectionView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: 0)
         ])
     }
