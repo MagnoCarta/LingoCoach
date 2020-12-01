@@ -32,7 +32,11 @@
 		69525843256FF1EB000A5188 /* EditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69525842256FF1EB000A5188 /* EditViewController.swift */; };
 		696FE9D2256D2D8700DC6401 /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 696FE9D1256D2D8700DC6401 /* DetailsViewController.swift */; };
 		698EB05525751C4C0062E786 /* DetailsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 698EB05425751C4C0062E786 /* DetailsUITests.swift */; };
-		FF45203D256D41B7001E77AA /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF45203C256D41B7001E77AA /* Colors.swift */; };
+		FF45203D256D41B7001E77AA /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF45203C256D41B7001E77AA /* ColorExtension.swift */; };
+		FFC0A52F256FC8C900845E47 /* FilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFC0A52E256FC8C900845E47 /* FilterViewController.swift */; };
+		FFC0A534256FCE2A00845E47 /* GroupFilterCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFC0A533256FCE2A00845E47 /* GroupFilterCollectionViewCell.swift */; };
+		FFC0A539256FCEA500845E47 /* HeaderFilterCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFC0A538256FCEA500845E47 /* HeaderFilterCollectionReusableView.swift */; };
+		FFD690BD25712CDE00A94530 /* UIViewSnapshot.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFD690BC25712CDE00A94530 /* UIViewSnapshot.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -84,7 +88,11 @@
 		69525842256FF1EB000A5188 /* EditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditViewController.swift; sourceTree = "<group>"; };
 		696FE9D1256D2D8700DC6401 /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
 		698EB05425751C4C0062E786 /* DetailsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsUITests.swift; sourceTree = "<group>"; };
-		FF45203C256D41B7001E77AA /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = SOURCE_ROOT; };
+		FF45203C256D41B7001E77AA /* ColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtension.swift; sourceTree = SOURCE_ROOT; };
+		FFC0A52E256FC8C900845E47 /* FilterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterViewController.swift; sourceTree = "<group>"; };
+		FFC0A533256FCE2A00845E47 /* GroupFilterCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupFilterCollectionViewCell.swift; sourceTree = "<group>"; };
+		FFC0A538256FCEA500845E47 /* HeaderFilterCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderFilterCollectionReusableView.swift; sourceTree = "<group>"; };
+		FFD690BC25712CDE00A94530 /* UIViewSnapshot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewSnapshot.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -186,6 +194,8 @@
 				0F177E7D256548F000D6E21F /* LaunchScreen.storyboard */,
 				0F177E7B256548F000D6E21F /* Assets.xcassets */,
 				0F43D4D0256D4A590066509A /* NoteListView.swift */,
+				FFC0A533256FCE2A00845E47 /* GroupFilterCollectionViewCell.swift */,
+				FFC0A538256FCEA500845E47 /* HeaderFilterCollectionReusableView.swift */,
 				0F43D4EB256E7D900066509A /* NoteCollectionViewCell.swift */,
 				6931D4F0256D452B009F19D5 /* Description.swift */,
 			);
@@ -200,6 +210,7 @@
 				696FE9D1256D2D8700DC6401 /* DetailsViewController.swift */,
 				57138CD3256D3C2700BD99DD /* NoteListViewController.swift */,
 				57138CDB256D3C3400BD99DD /* ProgressViewController.swift */,
+				FFC0A52E256FC8C900845E47 /* FilterViewController.swift */,
 				69525842256FF1EB000A5188 /* EditViewController.swift */,
 			);
 			path = Controller;
@@ -208,8 +219,9 @@
 		0F177EAB25654B3900D6E21F /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				FF45203C256D41B7001E77AA /* ColorExtension.swift */,
 				0F43D4BF256D41910066509A /* UIFontExtension.swift */,
-				FF45203C256D41B7001E77AA /* Colors.swift */,
+				FFD690BC25712CDE00A94530 /* UIViewSnapshot.swift */,
 				0F43D4D5256D521C0066509A /* UIResponderExtension.swift */,
 				57FEA815256FEF6D005F0F43 /* UIScreenExtension.swift */,
 				5785E57025713BDE00652C99 /* UIApplicationExtension.swift */,
@@ -396,14 +408,18 @@
 				573541D92566B8650002473A /* Period.swift in Sources */,
 				0F43D4D6256D521C0066509A /* UIResponderExtension.swift in Sources */,
 				0F43D4D1256D4A590066509A /* NoteListView.swift in Sources */,
+				FFD690BD25712CDE00A94530 /* UIViewSnapshot.swift in Sources */,
 				57CEC34B25669E5B0014AF32 /* DaysOfTheWeek.swift in Sources */,
 				57138CDC256D3C3400BD99DD /* ProgressViewController.swift in Sources */,
+				FFC0A534256FCE2A00845E47 /* GroupFilterCollectionViewCell.swift in Sources */,
 				6931D4F1256D452B009F19D5 /* Description.swift in Sources */,
 				69525843256FF1EB000A5188 /* EditViewController.swift in Sources */,
 				573541EC2566B92A0002473A /* Statistics.swift in Sources */,
-				FF45203D256D41B7001E77AA /* Colors.swift in Sources */,
+				FF45203D256D41B7001E77AA /* ColorExtension.swift in Sources */,
 				0F43D507256E99890066509A /* Note+CoreDataProperties.swift in Sources */,
+				FFC0A539256FCEA500845E47 /* HeaderFilterCollectionReusableView.swift in Sources */,
 				0F177E70256548EF00D6E21F /* AppDelegate.swift in Sources */,
+				FFC0A52F256FC8C900845E47 /* FilterViewController.swift in Sources */,
 				0F177E7A256548EF00D6E21F /* LingoCoach.xcdatamodeld in Sources */,
 				696FE9D2256D2D8700DC6401 /* DetailsViewController.swift in Sources */,
 				0F43D506256E99890066509A /* Note+CoreDataClass.swift in Sources */,
