@@ -7,7 +7,6 @@
 
 import UIKit
 
-
 class NoteListViewController: UIViewController {
     
     var noteListView = NoteListView()
