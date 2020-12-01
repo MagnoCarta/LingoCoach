@@ -8,6 +8,8 @@
 import UIKit
 
 class Description: UIView, UIGestureRecognizerDelegate, UITextViewDelegate {
+    
+    var delegate: DescriptionDelegate!
 
     let icon: UIImageView = {
         let image = UIImageView()
@@ -146,9 +148,10 @@ class Description: UIView, UIGestureRecognizerDelegate, UITextViewDelegate {
 //            }
 //        }
 //    }
-    @objc func dismisssKeyboard(_ sender: UITapGestureRecognizer) {
+    @objc func dismissKeyboard() {
         notes.resignFirstResponder()
         //Metodo de salvar aqui
+        delegate.changeDescription(description: notes.text)
     }
     
     func textViewDidBeginEditing(_ textView: UITextView) {
@@ -173,7 +176,7 @@ class Description: UIView, UIGestureRecognizerDelegate, UITextViewDelegate {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.dismisssKeyboard(_:)))
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.dismissKeyboard))
         self.addGestureRecognizer(tapGesture)
         
         backgroundColor = .white

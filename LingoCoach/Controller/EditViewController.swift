@@ -95,8 +95,14 @@ class EditViewController: UIViewController {
     }
     
     @objc func saveNote() {
-        //        let context = UIApplication.shared.context
-        
+        let context = UIApplication.shared.context
+        note.title = titleField.text
+        do {
+            try context.save()
+        } catch {
+            print(error.localizedDescription)
+        }
+        navigationController?.popViewController(animated: true)
     }
     
     @objc func deleteNote() {
@@ -171,5 +177,9 @@ class EditViewController: UIViewController {
         NSLayoutConstraint.activate([deleteButton.topAnchor.constraint(equalTo: titleView.bottomAnchor, constant: 30),
                                      deleteButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
                                      deleteButton.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.6)])
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
     }
 }
