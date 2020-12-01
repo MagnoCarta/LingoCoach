@@ -34,12 +34,30 @@ class DetailsViewController: UIViewController {
         navigationController?.pushViewController(nextVC, animated: true)
     }
     
+    @objc func keyboardWillShow(notification: NSNotification) {
+            if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
+                if self.view.frame.origin.y == 0 {
+                    self.view.frame.origin.y -= keyboardSize.height - 60
+                }
+            }
+    }
+
+    @objc func keyboardWillHide(notification: NSNotification) {
+        if self.view.frame.origin.y != 0 {
+            self.view.frame.origin.y = 0
+        }
+    }
+    
     init(note: Note) {
         super.init(nibName: nil, bundle: nil)
         self.note = note
         content.icon.image = note.icon
         content.languageSelected.text = note.language
         navigationItem.title = note.title
+        
+        if note.summary != nil && note.summary != " " {
+            content.notes.text = note.summary
+        }
     }
     
     required init?(coder: NSCoder) {
@@ -51,6 +69,9 @@ class DetailsViewController: UIViewController {
         navigationItem.largeTitleDisplayMode = .never
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Editar", style: .plain, target: self, action: #selector(editScreen))
         view.backgroundColor = .white
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
         
         view.addSubview(botView)
         view.addSubview(topView)

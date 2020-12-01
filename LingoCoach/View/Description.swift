@@ -146,9 +146,13 @@ class Description: UIView, UIGestureRecognizerDelegate, UITextViewDelegate {
 //            }
 //        }
 //    }
+    @objc func dismisssKeyboard(_ sender: UITapGestureRecognizer) {
+        notes.resignFirstResponder()
+        //Metodo de salvar aqui
+    }
     
     func textViewDidBeginEditing(_ textView: UITextView) {
-        if (textView.text == "Digite suas anotações aqui" && textView.textColor == .lightGray) {
+        if textView.text == "Digite suas anotações aqui" && textView.textColor == .lightGray {
             textView.text = ""
             textView.textColor = .black
         
@@ -158,7 +162,7 @@ class Description: UIView, UIGestureRecognizerDelegate, UITextViewDelegate {
     }
     
     func textViewDidEndEditing(_ textView: UITextView) {
-        if (textView.text == "") {
+        if textView.text == "" {
             textView.text = "Digite suas anotações aqui"
             textView.textColor = .lightGray
             
@@ -168,6 +172,9 @@ class Description: UIView, UIGestureRecognizerDelegate, UITextViewDelegate {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
+        
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.dismisssKeyboard(_:)))
+        self.addGestureRecognizer(tapGesture)
         
         backgroundColor = .white
         addSubview(iconView)
