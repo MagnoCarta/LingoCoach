@@ -51,9 +51,9 @@ class DetailsViewController: UIViewController {
     init(note: Note) {
         super.init(nibName: nil, bundle: nil)
         self.note = note
+        content.delegate = self
         content.icon.image = note.icon
         content.languageSelected.text = note.language
-        navigationItem.title = note.title
         
         if note.summary != nil && note.summary != " " {
             content.notes.text = note.summary
@@ -92,5 +92,30 @@ class DetailsViewController: UIViewController {
         content.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
         content.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationItem.title = note.title
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        if content.notes.isFirstResponder {
+            content.dismissKeyboard()
+        }
+    }
 
+}
+
+extension DetailsViewController: DescriptionDelegate {
+    func changeDescription(description: String) {
+        let context = UIApplication.shared.context
+        note.summary = description
+        do {
+            try context.save()
+        } catch {
+            print(error.localizedDescription)
+        }
+    }
+    
 }

@@ -26,6 +26,7 @@
 		573541D92566B8650002473A /* Period.swift in Sources */ = {isa = PBXBuildFile; fileRef = 573541D82566B8650002473A /* Period.swift */; };
 		573541EC2566B92A0002473A /* Statistics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 573541EB2566B92A0002473A /* Statistics.swift */; };
 		5785E57125713BDE00652C99 /* UIApplicationExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5785E57025713BDE00652C99 /* UIApplicationExtension.swift */; };
+		57BE9BF325768F8E006EB1BD /* DescriptionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57BE9BF225768F8E006EB1BD /* DescriptionDelegate.swift */; };
 		57CEC34B25669E5B0014AF32 /* DaysOfTheWeek.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57CEC34A25669E5B0014AF32 /* DaysOfTheWeek.swift */; };
 		57FEA816256FEF6D005F0F43 /* UIScreenExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57FEA815256FEF6D005F0F43 /* UIScreenExtension.swift */; };
 		6931D4F1256D452B009F19D5 /* Description.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6931D4F0256D452B009F19D5 /* Description.swift */; };
@@ -82,6 +83,7 @@
 		573541D82566B8650002473A /* Period.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Period.swift; sourceTree = "<group>"; };
 		573541EB2566B92A0002473A /* Statistics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Statistics.swift; sourceTree = "<group>"; };
 		5785E57025713BDE00652C99 /* UIApplicationExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIApplicationExtension.swift; sourceTree = "<group>"; };
+		57BE9BF225768F8E006EB1BD /* DescriptionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DescriptionDelegate.swift; path = LingoCoachUITests/DescriptionDelegate.swift; sourceTree = SOURCE_ROOT; };
 		57CEC34A25669E5B0014AF32 /* DaysOfTheWeek.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DaysOfTheWeek.swift; sourceTree = "<group>"; };
 		57FEA815256FEF6D005F0F43 /* UIScreenExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIScreenExtension.swift; sourceTree = "<group>"; };
 		6931D4F0256D452B009F19D5 /* Description.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Description.swift; sourceTree = "<group>"; };
@@ -246,6 +248,7 @@
 		0F177EAE25654B7700D6E21F /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
+				57BE9BF225768F8E006EB1BD /* DescriptionDelegate.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -416,6 +419,7 @@
 				69525843256FF1EB000A5188 /* EditViewController.swift in Sources */,
 				573541EC2566B92A0002473A /* Statistics.swift in Sources */,
 				FF45203D256D41B7001E77AA /* ColorExtension.swift in Sources */,
+				57BE9BF325768F8E006EB1BD /* DescriptionDelegate.swift in Sources */,
 				0F43D507256E99890066509A /* Note+CoreDataProperties.swift in Sources */,
 				FFC0A539256FCEA500845E47 /* HeaderFilterCollectionReusableView.swift in Sources */,
 				0F177E70256548EF00D6E21F /* AppDelegate.swift in Sources */,
@@ -595,7 +599,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = B5BH4949Y8;
+				DEVELOPMENT_TEAM = 828XYUZTZQ;
 				INFOPLIST_FILE = LingoCoach/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -617,7 +621,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = B5BH4949Y8;
+				DEVELOPMENT_TEAM = 828XYUZTZQ;
 				INFOPLIST_FILE = LingoCoach/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
 				LD_RUNPATH_SEARCH_PATHS = (
