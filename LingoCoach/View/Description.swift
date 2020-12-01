@@ -7,7 +7,7 @@
 
 import UIKit
 
-class Description: UIView {
+class Description: UIView, UIGestureRecognizerDelegate, UITextViewDelegate {
 
     let icon: UIImageView = {
         let image = UIImageView()
@@ -107,9 +107,10 @@ class Description: UIView {
     }()
     
     let notes: UITextView = {
-        let text = UITextView()
+        let text = UITextView.init()
+        text.text = "Digite suas anotações aqui"
         text.translatesAutoresizingMaskIntoConstraints = false
-        text.textColor = .black
+        text.textColor = .lightGray
 //        text.text = "Digite suas anotações aqui.."
 //        text.textColor = UIColor.lightGray
         text.font = UIFont.systemFont(ofSize: 15, weight: .regular)
@@ -118,8 +119,62 @@ class Description: UIView {
     
     }()
     
+//    func registerTap() {
+//        let tap = UITapGestureRecognizer(target: self, action: #selector(handleTap))
+//
+//        tap.delegate = self
+//        notes.isUserInteractionEnabled = true
+//        notes.addGestureRecognizer(tap)
+//
+//    }
+//
+//    @objc func handleTap(sender: UITapGestureRecognizer) {
+//        let sentTextView = sender.view as? UITextView
+//
+//        if let notes = sentTextView {
+//            let layoutManager = notes.layoutManager
+//            var location = sender.location(in: sentTextView)
+//
+//            location.x -= notes.textContainerInset.left
+//            location.y -= notes.textContainerInset.top
+//
+//            let characterIndex = layoutManager.characterIndex(for: location, in: notes.textContainer, fractionOfDistanceBetweenInsertionPoints: nil)
+//            guard let text = notes.text else { return }
+//
+//            if characterIndex < notes.textStorage.length {
+//
+//            }
+//        }
+//    }
+    @objc func dismisssKeyboard(_ sender: UITapGestureRecognizer) {
+        notes.resignFirstResponder()
+        //Metodo de salvar aqui
+    }
+    
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        if textView.text == "Digite suas anotações aqui" && textView.textColor == .lightGray {
+            textView.text = ""
+            textView.textColor = .black
+        
+        }
+        textView.becomeFirstResponder()
+        
+    }
+    
+    func textViewDidEndEditing(_ textView: UITextView) {
+        if textView.text == "" {
+            textView.text = "Digite suas anotações aqui"
+            textView.textColor = .lightGray
+            
+        }
+        textView.resignFirstResponder()
+    }
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
+        
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.dismisssKeyboard(_:)))
+        self.addGestureRecognizer(tapGesture)
         
         backgroundColor = .white
         addSubview(iconView)
@@ -179,6 +234,8 @@ class Description: UIView {
                                      notes.leadingAnchor.constraint(equalTo: notesView.leadingAnchor, constant: 16),
                                      notes.trailingAnchor.constraint(equalTo: notesView.trailingAnchor, constant: -16),
                                      notes.bottomAnchor.constraint(equalTo: notesView.bottomAnchor, constant: -18)])
+        
+        notes.delegate = self
     }
     
     required init?(coder: NSCoder) {
