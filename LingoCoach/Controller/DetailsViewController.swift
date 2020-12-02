@@ -68,11 +68,12 @@ class DetailsViewController: UIViewController {
         super.viewDidLoad()
         navigationItem.largeTitleDisplayMode = .never
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Editar", style: .plain, target: self, action: #selector(editScreen))
-        view.backgroundColor = .white
+        view.backgroundColor = .background
         
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
         
+        content.backgroundColor = .background
         view.addSubview(botView)
         view.addSubview(topView)
         view.addSubview(content)

@@ -32,7 +32,7 @@ class Description: UIView, UIGestureRecognizerDelegate, UITextViewDelegate {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
         view.layer.cornerRadius = 12
-        view.backgroundColor = #colorLiteral(red: 0.909702003, green: 0.9098611474, blue: 0.9097036719, alpha: 1)
+        view.backgroundColor = .grayLC
         return view
     }()
     
@@ -40,7 +40,7 @@ class Description: UIView, UIGestureRecognizerDelegate, UITextViewDelegate {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
         view.layer.cornerRadius = 12
-        view.backgroundColor = #colorLiteral(red: 0.9111861587, green: 0.9112922549, blue: 0.9111371636, alpha: 1)
+        view.backgroundColor = .grayLC
         return view
     }()
     
@@ -66,7 +66,7 @@ class Description: UIView, UIGestureRecognizerDelegate, UITextViewDelegate {
         button.clipsToBounds = true
         button.setTitle("Categoria", for: .normal)
         button.titleLabel?.font = UIFont.systemFont(ofSize: 16, weight: .semibold)
-        button.setTitleColor(UIColor.white, for: .normal)
+        button.setTitleColor(.textBlack, for: .normal)
         button.backgroundColor = #colorLiteral(red: 0.001636183239, green: 0.7755811214, blue: 0.6421516538, alpha: 1)
         return button
         
@@ -89,7 +89,7 @@ class Description: UIView, UIGestureRecognizerDelegate, UITextViewDelegate {
     fileprivate let language: UILabel = {
         let text = UILabel()
         text.text = "Idioma"
-        text.textColor = .black
+        text.textColor = .textBlack
         text.translatesAutoresizingMaskIntoConstraints = false
         text.textAlignment = .left
         text.font = UIFont.systemFont(ofSize: 17, weight: .medium)
@@ -100,7 +100,7 @@ class Description: UIView, UIGestureRecognizerDelegate, UITextViewDelegate {
     let languageSelected: UILabel = {
         let text = UILabel()
         text.text = "Nenhum"
-        text.textColor = .black
+        text.textColor = .textBlack
         text.translatesAutoresizingMaskIntoConstraints = false
         text.textAlignment = .left
         text.font = UIFont.systemFont(ofSize: 17, weight: .medium)
@@ -112,11 +112,11 @@ class Description: UIView, UIGestureRecognizerDelegate, UITextViewDelegate {
         let text = UITextView.init()
         text.text = "Digite suas anotações aqui"
         text.translatesAutoresizingMaskIntoConstraints = false
-        text.textColor = .lightGray
+        text.textColor = .textBlack
 //        text.text = "Digite suas anotações aqui.."
 //        text.textColor = UIColor.lightGray
         text.font = UIFont.systemFont(ofSize: 15, weight: .regular)
-        text.backgroundColor = #colorLiteral(red: 0.9111861587, green: 0.9112922549, blue: 0.9111371636, alpha: 1)
+        text.backgroundColor = .grayLC
         return text
     
     }()
