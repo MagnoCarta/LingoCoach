@@ -99,6 +99,11 @@ class EditViewController: UIViewController {
         
     }
     
+    @objc func dismisssKeyboard(_ sender: UITapGestureRecognizer) {
+        titleField.resignFirstResponder()
+        
+    }
+    
     @objc func deleteNote() {
         let alert = UIAlertController(title: "Deletar Nota?", message: "Essa nota será excluído permanentemente.", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Cancelar", style: .default, handler: { action in
@@ -122,6 +127,9 @@ class EditViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.dismisssKeyboard(_:)))
+        self.view.addGestureRecognizer(tapGesture)
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Salvar", style: .plain, target: self, action: #selector(saveNote))
         view.backgroundColor = .white

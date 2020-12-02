@@ -56,18 +56,13 @@ class Description: UIView, UIGestureRecognizerDelegate, UITextViewDelegate {
         return button
         
     }()
-    
-    let category: UIButton = {
-        let button = UIButton()
-        button.translatesAutoresizingMaskIntoConstraints = false
-        button.layer.cornerRadius = 8
-        button.clipsToBounds = true
-        button.setTitle("Categoria", for: .normal)
-        button.titleLabel?.font = UIFont.systemFont(ofSize: 16, weight: .semibold)
-        button.setTitleColor(UIColor.white, for: .normal)
-        button.backgroundColor = #colorLiteral(red: 0.001636183239, green: 0.7755811214, blue: 0.6421516538, alpha: 1)
-        return button
-        
+    let category: UICollectionView = {
+        let layout = UICollectionViewFlowLayout()
+        let category = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        category.translatesAutoresizingMaskIntoConstraints = false
+        category.showsVerticalScrollIndicator = false
+//        category.register(<#T##cellClass: AnyClass?##AnyClass?#>, forCellWithReuseIdentifier: <#T##String#>)
+        return category
     }()
     
     let favorite: UIButton = {
@@ -95,9 +90,9 @@ class Description: UIView, UIGestureRecognizerDelegate, UITextViewDelegate {
         
     }()
     
-    let languageSelected: UILabel = {
-        let text = UILabel()
-        text.text = "Nenhum"
+    let languageSelected: UITextField = {
+        let text = UITextField()
+//        text.text = "Nenhum"
         text.textColor = .black
         text.translatesAutoresizingMaskIntoConstraints = false
         text.textAlignment = .left
@@ -118,7 +113,7 @@ class Description: UIView, UIGestureRecognizerDelegate, UITextViewDelegate {
         return text
     
     }()
-    
+
 //    func registerTap() {
 //        let tap = UITapGestureRecognizer(target: self, action: #selector(handleTap))
 //
@@ -148,6 +143,7 @@ class Description: UIView, UIGestureRecognizerDelegate, UITextViewDelegate {
 //    }
     @objc func dismisssKeyboard(_ sender: UITapGestureRecognizer) {
         notes.resignFirstResponder()
+        languageSelected.resignFirstResponder()
         //Metodo de salvar aqui
     }
     
