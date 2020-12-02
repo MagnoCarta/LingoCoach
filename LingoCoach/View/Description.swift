@@ -23,7 +23,7 @@ class Description: UIView, UIGestureRecognizerDelegate, UITextViewDelegate {
     let iconView: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
-        view.backgroundColor = #colorLiteral(red: 0, green: 0.3953939676, blue: 0.378708303, alpha: 1)
+        view.backgroundColor = .darkGreenLC
         view.layer.cornerRadius = 8
         return view
     }()
@@ -58,18 +58,14 @@ class Description: UIView, UIGestureRecognizerDelegate, UITextViewDelegate {
         return button
         
     }()
+    let category: UICollectionView = {
+        let layout = UICollectionViewFlowLayout()
+        let category = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        category.translatesAutoresizingMaskIntoConstraints = false
+        category.showsVerticalScrollIndicator = false
+//        category.register(<#T##cellClass: AnyClass?##AnyClass?#>, forCellWithReuseIdentifier: <#T##String#>)
+        return category
     
-    let category: UIButton = {
-        let button = UIButton()
-        button.translatesAutoresizingMaskIntoConstraints = false
-        button.layer.cornerRadius = 8
-        button.clipsToBounds = true
-        button.setTitle("Categoria", for: .normal)
-        button.titleLabel?.font = UIFont.systemFont(ofSize: 16, weight: .semibold)
-        button.setTitleColor(.textBlack, for: .normal)
-        button.backgroundColor = #colorLiteral(red: 0.001636183239, green: 0.7755811214, blue: 0.6421516538, alpha: 1)
-        return button
-        
     }()
     
     let favorite: UIButton = {
@@ -94,18 +90,18 @@ class Description: UIView, UIGestureRecognizerDelegate, UITextViewDelegate {
         text.textAlignment = .left
         text.font = UIFont.systemFont(ofSize: 17, weight: .medium)
         return text
-        
+    
     }()
     
-    let languageSelected: UILabel = {
-        let text = UILabel()
-        text.text = "Nenhum"
-        text.textColor = .textBlack
+    let languageSelected: UITextField = {
+        let text = UITextField()
+//        text.text = "Nenhum"
+        text.textColor = .black
         text.translatesAutoresizingMaskIntoConstraints = false
         text.textAlignment = .left
         text.font = UIFont.systemFont(ofSize: 17, weight: .medium)
         return text
-        
+    
     }()
     
     let notes: UITextView = {
@@ -116,11 +112,11 @@ class Description: UIView, UIGestureRecognizerDelegate, UITextViewDelegate {
 //        text.text = "Digite suas anotações aqui.."
 //        text.textColor = UIColor.lightGray
         text.font = UIFont.systemFont(ofSize: 15, weight: .regular)
-        text.backgroundColor = .grayLC
+        text.backgroundColor = .clear
         return text
     
     }()
-    
+
 //    func registerTap() {
 //        let tap = UITapGestureRecognizer(target: self, action: #selector(handleTap))
 //
@@ -150,6 +146,7 @@ class Description: UIView, UIGestureRecognizerDelegate, UITextViewDelegate {
 //    }
     @objc func dismissKeyboard() {
         notes.resignFirstResponder()
+        languageSelected.resignFirstResponder()
         //Metodo de salvar aqui
         delegate.changeDescription(description: notes.text)
     }

@@ -81,7 +81,7 @@ extension UIColor {
             return UIColor { (traits) -> UIColor in
                 // Return one of two colors depending on light or dark mode
                 return traits.userInterfaceStyle == .dark ?
-                    UIColor(red: 46 / 255, green: 191 / 255, blue: 185 / 255, alpha: 1) :
+                    #colorLiteral(red: 0.1649802823, green: 0.6805436644, blue: 0.6633582183, alpha: 1) :
                     UIColor(red: 24 / 255, green: 99 / 255, blue: 96 / 255, alpha: 1)
                     
             }
@@ -148,7 +148,7 @@ extension UIColor {
             return UIColor { (traits) -> UIColor in
                 // Return one of two colors depending on light or dark mode
                 return traits.userInterfaceStyle == .dark ?
-                    #colorLiteral(red: 0.1568627451, green: 0.1568627451, blue: 0.1568627451, alpha: 1) :
+                    #colorLiteral(red: 0.768627451, green: 0.768627451, blue: 0.768627451, alpha: 0.22) :
                     UIColor(red: 232 / 255, green: 232 / 255, blue: 232 / 255, alpha: 1)
             }
         } else {

@@ -35,7 +35,7 @@ class EditViewController: UIViewController {
     let iconView: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
-        view.backgroundColor = #colorLiteral(red: 0, green: 0.3953939676, blue: 0.378708303, alpha: 1)
+        view.backgroundColor = .darkGreenLC
         view.layer.cornerRadius = 8
         return view
         
@@ -45,7 +45,7 @@ class EditViewController: UIViewController {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
         view.layer.cornerRadius = 12
-        view.backgroundColor = #colorLiteral(red: 0.909702003, green: 0.9098611474, blue: 0.9097036719, alpha: 1)
+        view.backgroundColor = .grayLC
         return view
         
     }()
@@ -54,7 +54,7 @@ class EditViewController: UIViewController {
         let text = UITextField()
         text.translatesAutoresizingMaskIntoConstraints = false
         text.placeholder = "Sem Título"
-        text.textColor = .black
+        text.textColor = .textBlack
         return text
         
     }()
@@ -66,7 +66,7 @@ class EditViewController: UIViewController {
         button.clipsToBounds = true
         button.setTitle("Editar Ícone", for: .normal)
         button.titleLabel?.font = UIFont.systemFont(ofSize: 16, weight: .semibold)
-        button.setTitleColor(#colorLiteral(red: 0.09411764706, green: 0.3882352941, blue: 0.3764705882, alpha: 1), for: .normal)
+        button.setTitleColor(.darkGreenLC, for: .normal)
         //        button.backgroundColor = #colorLiteral(red: 0.001636183239, green: 0.7755811214, blue: 0.6421516538, alpha: 1)
         return button
     }()
@@ -105,6 +105,11 @@ class EditViewController: UIViewController {
         navigationController?.popViewController(animated: true)
     }
     
+    @objc func dismisssKeyboard(_ sender: UITapGestureRecognizer) {
+        titleField.resignFirstResponder()
+        
+    }
+    
     @objc func deleteNote() {
         let alert = UIAlertController(title: "Deletar Nota?", message: "Essa nota será excluído permanentemente.", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Cancelar", style: .default, handler: { action in
@@ -129,8 +134,11 @@ class EditViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.dismisssKeyboard(_:)))
+        self.view.addGestureRecognizer(tapGesture)
+        
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Salvar", style: .plain, target: self, action: #selector(saveNote))
-        view.backgroundColor = .white
+        view.backgroundColor = .background
         view.addSubview(botView)
         view.addSubview(topView)
         view.addSubview(iconView)
