@@ -16,16 +16,18 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             guard let windowScene = (scene as? UIWindowScene) else { return }
 
             let window = UIWindow(windowScene: windowScene)
-            
+            let layout = UICollectionViewFlowLayout()
+            let onBoarding = SwipingController(collectionViewLayout: layout)
             let noteListVC = NoteListViewController()
             let progressVC = ProgressViewController()
+            
             let navigationController = UINavigationController(rootViewController: noteListVC)
 
             let tabBarController = UITabBarController()
             tabBarController.viewControllers = [navigationController, progressVC]
             tabBarController.tabBar.isHidden = true
     
-            window.rootViewController = tabBarController
+            window.rootViewController = onBoarding
 
             window.makeKeyAndVisible()
 

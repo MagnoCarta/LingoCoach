@@ -20,6 +20,9 @@
 		0F43D4EC256E7D900066509A /* NoteCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F43D4EB256E7D900066509A /* NoteCollectionViewCell.swift */; };
 		0F43D506256E99890066509A /* Note+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F43D504256E99890066509A /* Note+CoreDataClass.swift */; };
 		0F43D507256E99890066509A /* Note+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F43D505256E99890066509A /* Note+CoreDataProperties.swift */; };
+		0F5E88792577BD9300CFC3CC /* SwipingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F5E88782577BD9300CFC3CC /* SwipingController.swift */; };
+		0F5E887E2577BDB700CFC3CC /* PageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F5E887D2577BDB700CFC3CC /* PageCell.swift */; };
+		0F5E88832577BDFC00CFC3CC /* Page.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F5E88822577BDFC00CFC3CC /* Page.swift */; };
 		570CDE96256D39D400E217FA /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 570CDE95256D39D400E217FA /* .swiftlint.yml */; };
 		57138CD4256D3C2700BD99DD /* NoteListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57138CD3256D3C2700BD99DD /* NoteListViewController.swift */; };
 		57138CDC256D3C3400BD99DD /* ProgressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57138CDB256D3C3400BD99DD /* ProgressViewController.swift */; };
@@ -77,6 +80,9 @@
 		0F43D4EB256E7D900066509A /* NoteCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteCollectionViewCell.swift; sourceTree = "<group>"; };
 		0F43D504256E99890066509A /* Note+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Note+CoreDataClass.swift"; sourceTree = "<group>"; };
 		0F43D505256E99890066509A /* Note+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Note+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		0F5E88782577BD9300CFC3CC /* SwipingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipingController.swift; sourceTree = "<group>"; };
+		0F5E887D2577BDB700CFC3CC /* PageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageCell.swift; sourceTree = "<group>"; };
+		0F5E88822577BDFC00CFC3CC /* Page.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Page.swift; sourceTree = "<group>"; };
 		570CDE95256D39D400E217FA /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 		57138CD3256D3C2700BD99DD /* NoteListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteListViewController.swift; sourceTree = "<group>"; };
 		57138CDB256D3C3400BD99DD /* ProgressViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressViewController.swift; sourceTree = "<group>"; };
@@ -186,6 +192,7 @@
 				57CEC34A25669E5B0014AF32 /* DaysOfTheWeek.swift */,
 				573541D82566B8650002473A /* Period.swift */,
 				573541EB2566B92A0002473A /* Statistics.swift */,
+				0F5E88822577BDFC00CFC3CC /* Page.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -200,6 +207,7 @@
 				FFC0A538256FCEA500845E47 /* HeaderFilterCollectionReusableView.swift */,
 				0F43D4EB256E7D900066509A /* NoteCollectionViewCell.swift */,
 				6931D4F0256D452B009F19D5 /* Description.swift */,
+				0F5E887D2577BDB700CFC3CC /* PageCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -214,6 +222,7 @@
 				57138CDB256D3C3400BD99DD /* ProgressViewController.swift */,
 				FFC0A52E256FC8C900845E47 /* FilterViewController.swift */,
 				69525842256FF1EB000A5188 /* EditViewController.swift */,
+				0F5E88782577BD9300CFC3CC /* SwipingController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -418,11 +427,14 @@
 				6931D4F1256D452B009F19D5 /* Description.swift in Sources */,
 				69525843256FF1EB000A5188 /* EditViewController.swift in Sources */,
 				573541EC2566B92A0002473A /* Statistics.swift in Sources */,
+				0F5E887E2577BDB700CFC3CC /* PageCell.swift in Sources */,
 				FF45203D256D41B7001E77AA /* ColorExtension.swift in Sources */,
 				57BE9BF325768F8E006EB1BD /* DescriptionDelegate.swift in Sources */,
 				0F43D507256E99890066509A /* Note+CoreDataProperties.swift in Sources */,
+				0F5E88832577BDFC00CFC3CC /* Page.swift in Sources */,
 				FFC0A539256FCEA500845E47 /* HeaderFilterCollectionReusableView.swift in Sources */,
 				0F177E70256548EF00D6E21F /* AppDelegate.swift in Sources */,
+				0F5E88792577BD9300CFC3CC /* SwipingController.swift in Sources */,
 				FFC0A52F256FC8C900845E47 /* FilterViewController.swift in Sources */,
 				0F177E7A256548EF00D6E21F /* LingoCoach.xcdatamodeld in Sources */,
 				696FE9D2256D2D8700DC6401 /* DetailsViewController.swift in Sources */,
