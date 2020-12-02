@@ -10,6 +10,7 @@ import UIKit
 class EditViewController: UIViewController {
     
     var note: Note!
+    var delegate: EditViewControllerDelegate!
     
     fileprivate let botView: UIView = {
         let botView = UIView()
@@ -102,7 +103,8 @@ class EditViewController: UIViewController {
         } catch {
             print(error.localizedDescription)
         }
-        navigationController?.popViewController(animated: true)
+        dismiss(animated: true, completion: nil)
+        delegate.hasSavedNote()
     }
     
     @objc func dismisssKeyboard(_ sender: UITapGestureRecognizer) {
@@ -126,7 +128,7 @@ class EditViewController: UIViewController {
                 print("It was not possible to delete the note.")
             }
             self.dismiss(animated: true, completion: nil)
-            self.navigationController?.popToRootViewController(animated: true)
+            self.delegate.hasDeletedNote()
         }))
         self.present(alert, animated: true)
     }
@@ -138,7 +140,17 @@ class EditViewController: UIViewController {
         self.view.addGestureRecognizer(tapGesture)
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Salvar", style: .plain, target: self, action: #selector(saveNote))
+        navigationItem.title = "Editar Nota"
+        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Cancelar", style: .plain, target: self, action: #selector(cancelNoteChanges))
         view.backgroundColor = .background
+        setupViews()
+    }
+    
+    @objc func cancelNoteChanges() {
+        dismiss(animated: true, completion: nil)
+    }
+    
+    func setupViews() {
         view.addSubview(botView)
         view.addSubview(topView)
         view.addSubview(iconView)

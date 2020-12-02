@@ -26,6 +26,7 @@
 		573541D92566B8650002473A /* Period.swift in Sources */ = {isa = PBXBuildFile; fileRef = 573541D82566B8650002473A /* Period.swift */; };
 		573541EC2566B92A0002473A /* Statistics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 573541EB2566B92A0002473A /* Statistics.swift */; };
 		5785E57125713BDE00652C99 /* UIApplicationExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5785E57025713BDE00652C99 /* UIApplicationExtension.swift */; };
+		57A65C6C2577EEE80012F347 /* EditViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57A65C6B2577EEE80012F347 /* EditViewControllerDelegate.swift */; };
 		57BE9BF325768F8E006EB1BD /* DescriptionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57BE9BF225768F8E006EB1BD /* DescriptionDelegate.swift */; };
 		57CEC34B25669E5B0014AF32 /* DaysOfTheWeek.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57CEC34A25669E5B0014AF32 /* DaysOfTheWeek.swift */; };
 		57FEA816256FEF6D005F0F43 /* UIScreenExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57FEA815256FEF6D005F0F43 /* UIScreenExtension.swift */; };
@@ -83,6 +84,7 @@
 		573541D82566B8650002473A /* Period.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Period.swift; sourceTree = "<group>"; };
 		573541EB2566B92A0002473A /* Statistics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Statistics.swift; sourceTree = "<group>"; };
 		5785E57025713BDE00652C99 /* UIApplicationExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIApplicationExtension.swift; sourceTree = "<group>"; };
+		57A65C6B2577EEE80012F347 /* EditViewControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = EditViewControllerDelegate.swift; path = LingoCoachUITests/EditViewControllerDelegate.swift; sourceTree = SOURCE_ROOT; };
 		57BE9BF225768F8E006EB1BD /* DescriptionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DescriptionDelegate.swift; path = LingoCoachUITests/DescriptionDelegate.swift; sourceTree = SOURCE_ROOT; };
 		57CEC34A25669E5B0014AF32 /* DaysOfTheWeek.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DaysOfTheWeek.swift; sourceTree = "<group>"; };
 		57FEA815256FEF6D005F0F43 /* UIScreenExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIScreenExtension.swift; sourceTree = "<group>"; };
@@ -249,6 +251,7 @@
 			isa = PBXGroup;
 			children = (
 				57BE9BF225768F8E006EB1BD /* DescriptionDelegate.swift */,
+				57A65C6B2577EEE80012F347 /* EditViewControllerDelegate.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -424,6 +427,7 @@
 				FFC0A539256FCEA500845E47 /* HeaderFilterCollectionReusableView.swift in Sources */,
 				0F177E70256548EF00D6E21F /* AppDelegate.swift in Sources */,
 				FFC0A52F256FC8C900845E47 /* FilterViewController.swift in Sources */,
+				57A65C6C2577EEE80012F347 /* EditViewControllerDelegate.swift in Sources */,
 				0F177E7A256548EF00D6E21F /* LingoCoach.xcdatamodeld in Sources */,
 				696FE9D2256D2D8700DC6401 /* DetailsViewController.swift in Sources */,
 				0F43D506256E99890066509A /* Note+CoreDataClass.swift in Sources */,
