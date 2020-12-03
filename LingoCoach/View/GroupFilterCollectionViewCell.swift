@@ -12,19 +12,19 @@ class GroupFilterCollectionViewCell: UICollectionViewCell {
     var active: Bool = false {
         didSet {
             if active {
-                backgroundColor = .brightGreenLC
-                titleLabel.textColor = .background
+                backgroundColor = .brightBlueNL
+                titleLabel.textColor = .textWhite
                 
             } else {
                 backgroundColor = UIColor.darkGrayLC
-                titleLabel.textColor = .background
+                titleLabel.textColor = .textWhite
             }
         }
     }
 
     let titleLabel: UILabel = {
         let label = UILabel()
-        label.textColor = .background
+        label.textColor = .textWhite
         label.font = UIFont.systemFont(ofSize: 17, weight: .medium)
         label.text = "Categoria X"
         return label

@@ -8,6 +8,8 @@
 import UIKit
 
 class Description: UIView, UIGestureRecognizerDelegate, UITextViewDelegate {
+    
+    weak var delegate: DescriptionDelegate!
 
     let categories = [""]
     
@@ -23,7 +25,7 @@ class Description: UIView, UIGestureRecognizerDelegate, UITextViewDelegate {
     let iconView: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
-        view.backgroundColor = #colorLiteral(red: 0, green: 0.3953939676, blue: 0.378708303, alpha: 1)
+        view.backgroundColor = #colorLiteral(red: 0.2156862745, green: 0.3137254902, blue: 0.5490196078, alpha: 1)
         view.layer.cornerRadius = 8
         return view
     }()
@@ -32,7 +34,7 @@ class Description: UIView, UIGestureRecognizerDelegate, UITextViewDelegate {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
         view.layer.cornerRadius = 12
-        view.backgroundColor = #colorLiteral(red: 0.909702003, green: 0.9098611474, blue: 0.9097036719, alpha: 1)
+        view.backgroundColor = #colorLiteral(red: 0.9647058824, green: 0.9647058824, blue: 0.9647058824, alpha: 1)
         return view
     }()
     
@@ -40,7 +42,7 @@ class Description: UIView, UIGestureRecognizerDelegate, UITextViewDelegate {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
         view.layer.cornerRadius = 12
-        view.backgroundColor = #colorLiteral(red: 0.9111861587, green: 0.9112922549, blue: 0.9111371636, alpha: 1)
+        view.backgroundColor = #colorLiteral(red: 0.9647058824, green: 0.9647058824, blue: 0.9647058824, alpha: 1)
         return view
     }()
     
@@ -53,7 +55,7 @@ class Description: UIView, UIGestureRecognizerDelegate, UITextViewDelegate {
         button.setImage(icon, for: .normal)
         button.imageView?.contentMode = .scaleAspectFit
         button.imageEdgeInsets = UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5)
-        button.backgroundColor = #colorLiteral(red: 0, green: 0.7764705882, blue: 0.6431372549, alpha: 1)
+        button.backgroundColor = #colorLiteral(red: 0.1176470588, green: 0.337254902, blue: 0.6274509804, alpha: 1)
 //        action
         return button
         
@@ -64,7 +66,7 @@ class Description: UIView, UIGestureRecognizerDelegate, UITextViewDelegate {
         let category = UICollectionView(frame: .zero, collectionViewLayout: layout)
         category.translatesAutoresizingMaskIntoConstraints = false
         category.showsVerticalScrollIndicator = false
-        category.backgroundColor = .white
+        category.backgroundColor = #colorLiteral(red: 0.9647058824, green: 0.9647058824, blue: 0.9647058824, alpha: 1)
         category.register(CategoryViewCell.self, forCellWithReuseIdentifier: "cell")
         return category
     }()
@@ -113,7 +115,7 @@ class Description: UIView, UIGestureRecognizerDelegate, UITextViewDelegate {
 //        text.text = "Digite suas anotações aqui.."
 //        text.textColor = UIColor.lightGray
         text.font = UIFont.systemFont(ofSize: 15, weight: .regular)
-        text.backgroundColor = #colorLiteral(red: 0.9111861587, green: 0.9112922549, blue: 0.9111371636, alpha: 1)
+        text.backgroundColor = #colorLiteral(red: 0.9647058824, green: 0.9647058824, blue: 0.9647058824, alpha: 1)
         return text
     
     }()
@@ -145,10 +147,11 @@ class Description: UIView, UIGestureRecognizerDelegate, UITextViewDelegate {
 //            }
 //        }
 //    }
-    @objc func dismisssKeyboard(_ sender: UITapGestureRecognizer) {
+    @objc func dismissKeyboard() {
         notes.resignFirstResponder()
         languageSelected.resignFirstResponder()
         //Metodo de salvar aqui
+        delegate.changeDescription(description: notes.text)
     }
     
     func textViewDidBeginEditing(_ textView: UITextView) {
@@ -173,10 +176,10 @@ class Description: UIView, UIGestureRecognizerDelegate, UITextViewDelegate {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.dismisssKeyboard(_:)))
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.dismissKeyboard))
         self.addGestureRecognizer(tapGesture)
         
-        backgroundColor = .white
+        backgroundColor = .background
         addSubview(iconView)
         addSubview(icon)
         addSubview(descriptionView)
@@ -195,11 +198,11 @@ class Description: UIView, UIGestureRecognizerDelegate, UITextViewDelegate {
                                      iconView.topAnchor.constraint(equalTo: topAnchor, constant: 30),
                                      iconView.centerXAnchor.constraint(equalTo: centerXAnchor)])
         
-        NSLayoutConstraint.activate([icon.topAnchor.constraint(equalTo: iconView.topAnchor, constant: 13),
+        NSLayoutConstraint.activate([icon.centerYAnchor.constraint(equalTo: iconView.centerYAnchor),
                                      icon.centerXAnchor.constraint(equalTo: iconView.centerXAnchor),
 //                                     icon.trailingAnchor.constraint(equalTo: iconView.trailingAnchor),
-                                     icon.widthAnchor.constraint(equalTo: iconView.widthAnchor, multiplier: 0.8),
-                                     icon.heightAnchor.constraint(equalTo: iconView.heightAnchor, multiplier: 0.8)])
+                                     icon.widthAnchor.constraint(equalTo: iconView.widthAnchor, multiplier: 0.65),
+                                     icon.heightAnchor.constraint(equalTo: iconView.heightAnchor, multiplier: 0.65)])
         
         NSLayoutConstraint.activate([descriptionView.topAnchor.constraint(equalTo: iconView.bottomAnchor, constant: 26),
                                      descriptionView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),

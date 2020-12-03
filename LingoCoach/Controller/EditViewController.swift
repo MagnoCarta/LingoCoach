@@ -10,6 +10,7 @@ import UIKit
 class EditViewController: UIViewController {
     
     var note: Note!
+    weak var delegate: EditViewControllerDelegate!
     
     fileprivate let botView: UIView = {
         let botView = UIView()
@@ -35,7 +36,7 @@ class EditViewController: UIViewController {
     let iconView: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
-        view.backgroundColor = #colorLiteral(red: 0, green: 0.3953939676, blue: 0.378708303, alpha: 1)
+        view.backgroundColor = #colorLiteral(red: 0.2156862745, green: 0.3137254902, blue: 0.5490196078, alpha: 1)
         view.layer.cornerRadius = 8
         return view
         
@@ -45,7 +46,7 @@ class EditViewController: UIViewController {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
         view.layer.cornerRadius = 12
-        view.backgroundColor = #colorLiteral(red: 0.909702003, green: 0.9098611474, blue: 0.9097036719, alpha: 1)
+        view.backgroundColor = #colorLiteral(red: 0.9647058824, green: 0.9647058824, blue: 0.9647058824, alpha: 1)
         return view
         
     }()
@@ -66,7 +67,7 @@ class EditViewController: UIViewController {
         button.clipsToBounds = true
         button.setTitle("Editar Ícone", for: .normal)
         button.titleLabel?.font = UIFont.systemFont(ofSize: 16, weight: .semibold)
-        button.setTitleColor(#colorLiteral(red: 0.09411764706, green: 0.3882352941, blue: 0.3764705882, alpha: 1), for: .normal)
+        button.setTitleColor(#colorLiteral(red: 0.1176470588, green: 0.337254902, blue: 0.6274509804, alpha: 1), for: .normal)
         //        button.backgroundColor = #colorLiteral(red: 0.001636183239, green: 0.7755811214, blue: 0.6421516538, alpha: 1)
         return button
     }()
@@ -95,8 +96,15 @@ class EditViewController: UIViewController {
     }
     
     @objc func saveNote() {
-        //        let context = UIApplication.shared.context
-        
+        let context = UIApplication.shared.context
+        note.title = titleField.text
+        do {
+            try context.save()
+        } catch {
+            print(error.localizedDescription)
+        }
+        dismiss(animated: true, completion: nil)
+        delegate.hasSavedNote()
     }
     
     @objc func dismisssKeyboard(_ sender: UITapGestureRecognizer) {
@@ -120,7 +128,7 @@ class EditViewController: UIViewController {
                 print("It was not possible to delete the note.")
             }
             self.dismiss(animated: true, completion: nil)
-            self.navigationController?.popToRootViewController(animated: true)
+            self.delegate.hasDeletedNote()
         }))
         self.present(alert, animated: true)
     }
@@ -132,7 +140,17 @@ class EditViewController: UIViewController {
         self.view.addGestureRecognizer(tapGesture)
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Salvar", style: .plain, target: self, action: #selector(saveNote))
-        view.backgroundColor = .white
+        navigationItem.title = "Editar Nota"
+        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Cancelar", style: .plain, target: self, action: #selector(cancelNoteChanges))
+        view.backgroundColor = .background
+        setupViews()
+    }
+    
+    @objc func cancelNoteChanges() {
+        dismiss(animated: true, completion: nil)
+    }
+    
+    func setupViews() {
         view.addSubview(botView)
         view.addSubview(topView)
         view.addSubview(iconView)
@@ -157,11 +175,11 @@ class EditViewController: UIViewController {
                                      iconView.topAnchor.constraint(equalTo: topView.bottomAnchor, constant: 30),
                                      iconView.centerXAnchor.constraint(equalTo: view.centerXAnchor)])
         
-        NSLayoutConstraint.activate([icon.topAnchor.constraint(equalTo: iconView.topAnchor, constant: 13),
+        NSLayoutConstraint.activate([icon.centerYAnchor.constraint(equalTo: iconView.centerYAnchor),
                                      icon.centerXAnchor.constraint(equalTo: iconView.centerXAnchor),
                                      //                                     icon.trailingAnchor.constraint(equalTo: iconView.trailingAnchor),
-                                     icon.widthAnchor.constraint(equalTo: iconView.widthAnchor, multiplier: 0.8),
-                                     icon.heightAnchor.constraint(equalTo: iconView.heightAnchor, multiplier: 0.8)])
+                                     icon.widthAnchor.constraint(equalTo: iconView.widthAnchor, multiplier: 0.65),
+                                     icon.heightAnchor.constraint(equalTo: iconView.heightAnchor, multiplier: 0.65)])
         
         NSLayoutConstraint.activate([titleView.topAnchor.constraint(equalTo: editButton.bottomAnchor, constant: 16),
                                      titleView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
@@ -179,5 +197,9 @@ class EditViewController: UIViewController {
         NSLayoutConstraint.activate([deleteButton.topAnchor.constraint(equalTo: titleView.bottomAnchor, constant: 30),
                                      deleteButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
                                      deleteButton.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.6)])
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
     }
 }

@@ -12,7 +12,7 @@ class CategoryViewCell: UICollectionViewCell {
     let background: UIView = {
         let background = UIView()
         background.translatesAutoresizingMaskIntoConstraints = false
-        background.backgroundColor = #colorLiteral(red: 0, green: 0.7764705882, blue: 0.6431372549, alpha: 1)
+        background.backgroundColor = #colorLiteral(red: 0.1176470588, green: 0.337254902, blue: 0.6274509804, alpha: 1)
         background.layer.cornerRadius = 8
         background.clipsToBounds = true
         
@@ -22,6 +22,7 @@ class CategoryViewCell: UICollectionViewCell {
     let title: UILabel = {
         let title = UILabel()
         title.textColor = .white
+        title.text = "Categoria"
         title.translatesAutoresizingMaskIntoConstraints = false
         title.font = UIFont.systemFont(ofSize: 16, weight: .semibold)
         title.textAlignment = .center
@@ -36,11 +37,11 @@ class CategoryViewCell: UICollectionViewCell {
         
         NSLayoutConstraint.activate([background.topAnchor.constraint(equalTo: contentView.topAnchor),
                                      background.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
-                                     background.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
+                                     background.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: -20),
                                      background.trailingAnchor.constraint(equalTo: contentView.trailingAnchor)])
         
-        NSLayoutConstraint.activate([title.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
-                                     title.centerYAnchor.constraint(equalTo: contentView.centerYAnchor)])
+        NSLayoutConstraint.activate([title.centerXAnchor.constraint(equalTo: background.centerXAnchor),
+                                     title.centerYAnchor.constraint(equalTo: background.centerYAnchor)])
     }
     
     required init?(coder: NSCoder) {

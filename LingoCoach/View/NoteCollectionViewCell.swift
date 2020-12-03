@@ -33,7 +33,7 @@ class NoteCollectionViewCell: UICollectionViewCell {
     }
     
     func generateColor(row: Int) {
-        self.backgroundColor = UIColor.paleteColor[row%7]
+        self.backgroundColor = UIColor.paleteColor[row%6]
     }
     
     func configure() {
@@ -56,6 +56,8 @@ class NoteCollectionViewCell: UICollectionViewCell {
         noteIconView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             noteIconView.topAnchor.constraint(equalTo: self.topAnchor, constant: 24),
+            noteIconView.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.65),
+            noteIconView.heightAnchor.constraint(equalTo: widthAnchor, multiplier: 0.65),
             noteIconView.centerXAnchor.constraint(equalTo: self.centerXAnchor)
         ])
 //        noteIconView.contentMode = .scaleAspectFit

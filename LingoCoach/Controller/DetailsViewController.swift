@@ -10,7 +10,7 @@ import UIKit
 class DetailsViewController: UIViewController {
     
     var note: Note!
-
+    
     fileprivate let botView: UIView = {
         let botView = UIView()
         botView.translatesAutoresizingMaskIntoConstraints = false
@@ -31,17 +31,19 @@ class DetailsViewController: UIViewController {
     
     @objc func editScreen() {
         let nextVC = EditViewController(note: note)
-        navigationController?.pushViewController(nextVC, animated: true)
+        nextVC.delegate = self
+        let navController = UINavigationController(rootViewController: nextVC)
+        present(navController, animated: true, completion: nil)
     }
     
     @objc func keyboardWillShow(notification: NSNotification) {
-            if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
-                if self.view.frame.origin.y == 0 {
-                    self.view.frame.origin.y -= keyboardSize.height - 60
-                }
+        if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
+            if self.view.frame.origin.y == 0 {
+                self.view.frame.origin.y -= keyboardSize.height - 60
             }
+        }
     }
-
+    
     @objc func keyboardWillHide(notification: NSNotification) {
         if self.view.frame.origin.y != 0 {
             self.view.frame.origin.y = 0
@@ -51,9 +53,9 @@ class DetailsViewController: UIViewController {
     init(note: Note) {
         super.init(nibName: nil, bundle: nil)
         self.note = note
+        content.delegate = self
         content.icon.image = note.icon
         content.languageSelected.text = note.language
-        navigationItem.title = note.title
         
         if note.summary != nil && note.summary != " " {
             content.notes.text = note.summary
@@ -66,13 +68,18 @@ class DetailsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationItem.title = note.title
+        navigationController?.navigationBar.tintColor = .brightBlueNL
         navigationItem.largeTitleDisplayMode = .never
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Editar", style: .plain, target: self, action: #selector(editScreen))
-        view.backgroundColor = .white
+        view.backgroundColor = .background
         
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
-        
+        setupViews()
+    }
+    
+    func setupViews() {
         view.addSubview(botView)
         view.addSubview(topView)
         view.addSubview(content)
@@ -92,5 +99,35 @@ class DetailsViewController: UIViewController {
         content.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
         content.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
     }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        if content.notes.isFirstResponder {
+            content.dismissKeyboard()
+        }
+    }
+    
+}
 
+extension DetailsViewController: DescriptionDelegate {
+    func changeDescription(description: String) {
+        let context = UIApplication.shared.context
+        note.summary = description
+        do {
+            try context.save()
+        } catch {
+            print(error.localizedDescription)
+        }
+    }
+    
+}
+
+extension DetailsViewController: EditViewControllerDelegate {
+    func hasSavedNote() {
+        navigationItem.title = note.title
+    }
+    
+    func hasDeletedNote() {
+        navigationController?.popViewController(animated: false)
+    }
 }
