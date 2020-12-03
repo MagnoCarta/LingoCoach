@@ -130,7 +130,7 @@ class FilterViewController: UIViewController {
         let button = UIButton()
         button.titleLabel?.font = UIFont.systemFont(ofSize: 17, weight: .semibold)
         button.setTitle("Filtrar", for: .normal)
-        button.setTitleColor(.background, for: .normal)
+        button.setTitleColor(.textWhite, for: .normal)
         button.backgroundColor = .brightBlueNL
         button.layer.cornerRadius = 15
         button.addTarget(self, action: #selector(filterAction), for: .touchUpInside)
