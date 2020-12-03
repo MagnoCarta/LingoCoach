@@ -9,6 +9,8 @@ import UIKit
 
 class Description: UIView, UIGestureRecognizerDelegate, UITextViewDelegate {
 
+    let categories = [""]
+    
     let icon: UIImageView = {
         let image = UIImageView()
         image.image = #imageLiteral(resourceName: "translate")
@@ -51,17 +53,18 @@ class Description: UIView, UIGestureRecognizerDelegate, UITextViewDelegate {
         button.setImage(icon, for: .normal)
         button.imageView?.contentMode = .scaleAspectFit
         button.imageEdgeInsets = UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5)
-        button.backgroundColor = #colorLiteral(red: 0, green: 0.7753016353, blue: 0.6421442628, alpha: 1)
+        button.backgroundColor = #colorLiteral(red: 0, green: 0.7764705882, blue: 0.6431372549, alpha: 1)
 //        action
         return button
         
     }()
     let category: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .vertical
         let category = UICollectionView(frame: .zero, collectionViewLayout: layout)
         category.translatesAutoresizingMaskIntoConstraints = false
         category.showsVerticalScrollIndicator = false
-//        category.register(<#T##cellClass: AnyClass?##AnyClass?#>, forCellWithReuseIdentifier: <#T##String#>)
+        category.register(CategoryViewCell.self, forCellWithReuseIdentifier: "cell")
         return category
     }()
     
@@ -202,9 +205,12 @@ class Description: UIView, UIGestureRecognizerDelegate, UITextViewDelegate {
                                      descriptionView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
                                      descriptionView.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.2)])
         
+        category.backgroundColor = .white
         NSLayoutConstraint.activate([category.topAnchor.constraint(equalTo: descriptionView.topAnchor, constant: 10),
                                      category.leadingAnchor.constraint(equalTo: descriptionView.leadingAnchor, constant: 16),
-                                     category.widthAnchor.constraint(equalTo: self.widthAnchor, multiplier: 0.3)])
+//                                     category.widthAnchor.constraint(equalTo: self.widthAnchor, multiplier: 0.5),
+                                     category.trailingAnchor.constraint(equalTo: descriptionView.centerXAnchor),
+                                     category.bottomAnchor.constraint(equalTo: language.topAnchor, constant: -10)])
         
         NSLayoutConstraint.activate([addCategory.topAnchor.constraint(equalTo: descriptionView.topAnchor, constant: 10),
                                      addCategory.leadingAnchor.constraint(equalTo: category.trailingAnchor, constant: 5)])
@@ -232,9 +238,28 @@ class Description: UIView, UIGestureRecognizerDelegate, UITextViewDelegate {
                                      notes.bottomAnchor.constraint(equalTo: notesView.bottomAnchor, constant: -18)])
         
         notes.delegate = self
+        
+        category.delegate = self
+        category.dataSource = self
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+}
+
+extension Description: UICollectionViewDelegate, UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: category.frame.width, height: category.frame.height)
+    }
+
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 1
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! CategoryViewCell
+        return cell
+    }
+    
 }
