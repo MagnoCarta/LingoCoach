@@ -64,6 +64,7 @@ class Description: UIView, UIGestureRecognizerDelegate, UITextViewDelegate {
         let category = UICollectionView(frame: .zero, collectionViewLayout: layout)
         category.translatesAutoresizingMaskIntoConstraints = false
         category.showsVerticalScrollIndicator = false
+        category.backgroundColor = .white
         category.register(CategoryViewCell.self, forCellWithReuseIdentifier: "cell")
         return category
     }()
@@ -205,7 +206,6 @@ class Description: UIView, UIGestureRecognizerDelegate, UITextViewDelegate {
                                      descriptionView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
                                      descriptionView.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.2)])
         
-        category.backgroundColor = .white
         NSLayoutConstraint.activate([category.topAnchor.constraint(equalTo: descriptionView.topAnchor, constant: 10),
                                      category.leadingAnchor.constraint(equalTo: descriptionView.leadingAnchor, constant: 16),
 //                                     category.widthAnchor.constraint(equalTo: self.widthAnchor, multiplier: 0.5),
@@ -248,9 +248,9 @@ class Description: UIView, UIGestureRecognizerDelegate, UITextViewDelegate {
     }
 }
 
-extension Description: UICollectionViewDelegate, UICollectionViewDataSource {
+extension Description: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: category.frame.width, height: category.frame.height)
+        return CGSize(width: category.frame.width/1.5, height: category.frame.height/2)
     }
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
