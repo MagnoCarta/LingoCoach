@@ -7,6 +7,6 @@
 
 import Foundation
 
-protocol DescriptionDelegate {
+protocol DescriptionDelegate: AnyObject {
     func changeDescription(description: String)
 }

@@ -7,7 +7,7 @@
 
 import Foundation
 
-protocol EditViewControllerDelegate {
+protocol EditViewControllerDelegate: AnyObject {
     func hasSavedNote()
     func hasDeletedNote()
 }

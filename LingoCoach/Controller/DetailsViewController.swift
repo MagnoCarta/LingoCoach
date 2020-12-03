@@ -124,7 +124,6 @@ extension DetailsViewController: DescriptionDelegate {
 
 extension DetailsViewController: EditViewControllerDelegate {
     func hasSavedNote() {
-        print(note.title)
         navigationItem.title = note.title
     }
     

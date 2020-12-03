@@ -10,7 +10,7 @@ import UIKit
 class EditViewController: UIViewController {
     
     var note: Note!
-    var delegate: EditViewControllerDelegate!
+    weak var delegate: EditViewControllerDelegate!
     
     fileprivate let botView: UIView = {
         let botView = UIView()
@@ -167,11 +167,11 @@ class EditViewController: UIViewController {
                                      iconView.topAnchor.constraint(equalTo: topView.bottomAnchor, constant: 30),
                                      iconView.centerXAnchor.constraint(equalTo: view.centerXAnchor)])
         
-        NSLayoutConstraint.activate([icon.topAnchor.constraint(equalTo: iconView.topAnchor, constant: 13),
+        NSLayoutConstraint.activate([icon.centerYAnchor.constraint(equalTo: iconView.centerYAnchor),
                                      icon.centerXAnchor.constraint(equalTo: iconView.centerXAnchor),
                                      //                                     icon.trailingAnchor.constraint(equalTo: iconView.trailingAnchor),
-                                     icon.widthAnchor.constraint(equalTo: iconView.widthAnchor, multiplier: 0.8),
-                                     icon.heightAnchor.constraint(equalTo: iconView.heightAnchor, multiplier: 0.8)])
+                                     icon.widthAnchor.constraint(equalTo: iconView.widthAnchor, multiplier: 0.65),
+                                     icon.heightAnchor.constraint(equalTo: iconView.heightAnchor, multiplier: 0.65)])
         
         NSLayoutConstraint.activate([titleView.topAnchor.constraint(equalTo: editButton.bottomAnchor, constant: 16),
                                      titleView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
