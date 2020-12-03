@@ -9,7 +9,7 @@ import UIKit
 
 class Description: UIView, UIGestureRecognizerDelegate, UITextViewDelegate {
     
-    var delegate: DescriptionDelegate!
+    weak var delegate: DescriptionDelegate!
 
     let icon: UIImageView = {
         let image = UIImageView()
@@ -198,11 +198,11 @@ class Description: UIView, UIGestureRecognizerDelegate, UITextViewDelegate {
                                      iconView.topAnchor.constraint(equalTo: topAnchor, constant: 30),
                                      iconView.centerXAnchor.constraint(equalTo: centerXAnchor)])
         
-        NSLayoutConstraint.activate([icon.topAnchor.constraint(equalTo: iconView.topAnchor, constant: 13),
+        NSLayoutConstraint.activate([icon.centerYAnchor.constraint(equalTo: iconView.centerYAnchor),
                                      icon.centerXAnchor.constraint(equalTo: iconView.centerXAnchor),
 //                                     icon.trailingAnchor.constraint(equalTo: iconView.trailingAnchor),
-                                     icon.widthAnchor.constraint(equalTo: iconView.widthAnchor, multiplier: 0.8),
-                                     icon.heightAnchor.constraint(equalTo: iconView.heightAnchor, multiplier: 0.8)])
+                                     icon.widthAnchor.constraint(equalTo: iconView.widthAnchor, multiplier: 0.65),
+                                     icon.heightAnchor.constraint(equalTo: iconView.heightAnchor, multiplier: 0.65)])
         
         NSLayoutConstraint.activate([descriptionView.topAnchor.constraint(equalTo: iconView.bottomAnchor, constant: 26),
                                      descriptionView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
