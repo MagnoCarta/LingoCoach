@@ -67,7 +67,7 @@ class EditViewController: UIViewController {
         button.clipsToBounds = true
         button.setTitle("Editar Ícone", for: .normal)
         button.titleLabel?.font = UIFont.systemFont(ofSize: 16, weight: .semibold)
-        button.setTitleColor(#colorLiteral(red: 0.1176470588, green: 0.337254902, blue: 0.6274509804, alpha: 1), for: .normal)
+        button.setTitleColor(.brightBlueNL, for: .normal)
         //        button.backgroundColor = #colorLiteral(red: 0.001636183239, green: 0.7755811214, blue: 0.6421516538, alpha: 1)
         return button
     }()
@@ -132,6 +132,7 @@ class EditViewController: UIViewController {
         super.viewDidLoad()
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Salvar", style: .plain, target: self, action: #selector(saveNote))
+        navigationController?.navigationBar.tintColor = .brightBlueNL
         navigationItem.title = "Editar Nota"
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Cancelar", style: .plain, target: self, action: #selector(cancelNoteChanges))
         view.backgroundColor = .background

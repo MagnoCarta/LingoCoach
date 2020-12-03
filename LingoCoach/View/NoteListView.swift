@@ -31,7 +31,6 @@ class NoteListView: UIView {
         let button = UIButton(type: .system)
         button.setTitle("Filtrar", for: .normal)
         button.titleLabel?.font = UIFont(name: UIFont.text, size: 17)
-        button.setTitleColor(.darkGreenLC, for: .normal)
         return button
     }()
     

@@ -7,7 +7,6 @@
 
 import UIKit
 
-
 class NoteListViewController: UIViewController {
     
     var noteListView = NoteListView()
@@ -29,7 +28,7 @@ class NoteListViewController: UIViewController {
         self.title = "Notas"
         self.navigationController?.navigationBar.prefersLargeTitles = true
         self.navigationItem.rightBarButtonItem = plusButton
-        self.navigationItem.rightBarButtonItem?.tintColor = .brightBlueNL
+        navigationController?.navigationBar.tintColor = .brightBlueNL
         self.view.backgroundColor = .background
         
         self.noteListView.delegate = self
