@@ -40,7 +40,7 @@ class FilterViewController: UIViewController {
     let darkView: UIView = {
         let view = UIView(frame: .zero)
         view.clipsToBounds = true
-        view.backgroundColor = UIColor.darkGreenLC.withAlphaComponent(0.7)
+        view.backgroundColor = UIColor.darkBlueNL.withAlphaComponent(0.7)
         return view
     }()
     
