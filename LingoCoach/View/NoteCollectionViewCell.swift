@@ -33,7 +33,7 @@ class NoteCollectionViewCell: UICollectionViewCell {
     }
     
     func generateColor(row: Int) {
-        self.backgroundColor = UIColor.paleteColor[row%7]
+        self.backgroundColor = UIColor.paleteColor[row%6]
     }
     
     func configure() {

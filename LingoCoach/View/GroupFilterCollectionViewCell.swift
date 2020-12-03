@@ -12,7 +12,7 @@ class GroupFilterCollectionViewCell: UICollectionViewCell {
     var active: Bool = false {
         didSet {
             if active {
-                backgroundColor = .brightGreenLC
+                backgroundColor = .brightBlueNL
                 titleLabel.textColor = .background
                 
             } else {

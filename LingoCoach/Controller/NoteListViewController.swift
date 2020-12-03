@@ -29,7 +29,7 @@ class NoteListViewController: UIViewController {
         self.title = "Notas"
         self.navigationController?.navigationBar.prefersLargeTitles = true
         self.navigationItem.rightBarButtonItem = plusButton
-        self.navigationItem.rightBarButtonItem?.tintColor = .brightGreenLC
+        self.navigationItem.rightBarButtonItem?.tintColor = .brightBlueNL
         self.view.backgroundColor = .background
         
         self.noteListView.delegate = self

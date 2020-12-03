@@ -36,7 +36,7 @@ class EditViewController: UIViewController {
     let iconView: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
-        view.backgroundColor = #colorLiteral(red: 0, green: 0.3953939676, blue: 0.378708303, alpha: 1)
+        view.backgroundColor = #colorLiteral(red: 0.2156862745, green: 0.3137254902, blue: 0.5490196078, alpha: 1)
         view.layer.cornerRadius = 8
         return view
         
@@ -46,7 +46,7 @@ class EditViewController: UIViewController {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
         view.layer.cornerRadius = 12
-        view.backgroundColor = #colorLiteral(red: 0.909702003, green: 0.9098611474, blue: 0.9097036719, alpha: 1)
+        view.backgroundColor = #colorLiteral(red: 0.9647058824, green: 0.9647058824, blue: 0.9647058824, alpha: 1)
         return view
         
     }()
@@ -67,7 +67,7 @@ class EditViewController: UIViewController {
         button.clipsToBounds = true
         button.setTitle("Editar Ícone", for: .normal)
         button.titleLabel?.font = UIFont.systemFont(ofSize: 16, weight: .semibold)
-        button.setTitleColor(#colorLiteral(red: 0.09411764706, green: 0.3882352941, blue: 0.3764705882, alpha: 1), for: .normal)
+        button.setTitleColor(#colorLiteral(red: 0.1176470588, green: 0.337254902, blue: 0.6274509804, alpha: 1), for: .normal)
         //        button.backgroundColor = #colorLiteral(red: 0.001636183239, green: 0.7755811214, blue: 0.6421516538, alpha: 1)
         return button
     }()
@@ -134,7 +134,7 @@ class EditViewController: UIViewController {
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Salvar", style: .plain, target: self, action: #selector(saveNote))
         navigationItem.title = "Editar Nota"
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Cancelar", style: .plain, target: self, action: #selector(cancelNoteChanges))
-        view.backgroundColor = .white
+        view.backgroundColor = .background
         setupViews()
     }
     

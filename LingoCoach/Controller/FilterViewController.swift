@@ -46,7 +46,7 @@ class FilterViewController: UIViewController {
     
     let cardView: UIView = {
         let view = UIView(frame: .zero)
-        view.backgroundColor = .background
+        view.backgroundColor = .textWhite
         view.clipsToBounds = true
         view.layer.cornerRadius = 30
         return view
@@ -79,8 +79,8 @@ class FilterViewController: UIViewController {
         let button = UIButton(type: .system)
         button.titleLabel?.font = UIFont.systemFont(ofSize: 17, weight: .medium)
         button.setTitle("Limpar", for: .normal)
-        button.setTitleColor(.brightGreenLC, for: .normal)
-        button.tintColor = UIColor.brightGreenLC
+        button.setTitleColor(.brightBlueNL, for: .normal)
+        button.tintColor = UIColor.brightBlueNL
         button.addTarget(self, action: #selector(clearFilter), for: .touchUpInside)
         return button
     }()
@@ -89,8 +89,8 @@ class FilterViewController: UIViewController {
         let button = UIButton(type: .system)
         button.titleLabel?.font = UIFont.systemFont(ofSize: 17, weight: .medium)
         button.setTitle("Fechar", for: .normal)
-        button.setTitleColor(.brightGreenLC, for: .normal)
-        button.tintColor = UIColor.brightGreenLC
+        button.setTitleColor(.brightBlueNL, for: .normal)
+        button.tintColor = UIColor.brightBlueNL
         button.addTarget(self, action: #selector(closeFilter), for: .touchUpInside)
         return button
     }()
@@ -131,7 +131,7 @@ class FilterViewController: UIViewController {
         button.titleLabel?.font = UIFont.systemFont(ofSize: 17, weight: .semibold)
         button.setTitle("Filtrar", for: .normal)
         button.setTitleColor(.background, for: .normal)
-        button.backgroundColor = .brightGreenLC
+        button.backgroundColor = .brightBlueNL
         button.layer.cornerRadius = 15
         button.addTarget(self, action: #selector(filterAction), for: .touchUpInside)
         return button
