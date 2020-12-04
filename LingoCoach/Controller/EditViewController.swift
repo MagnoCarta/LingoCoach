@@ -46,7 +46,7 @@ class EditViewController: UIViewController {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
         view.layer.cornerRadius = 12
-        view.backgroundColor = #colorLiteral(red: 0.9647058824, green: 0.9647058824, blue: 0.9647058824, alpha: 1)
+        view.backgroundColor = .foreground
         return view
         
     }()
@@ -55,7 +55,7 @@ class EditViewController: UIViewController {
         let text = UITextField()
         text.translatesAutoresizingMaskIntoConstraints = false
         text.placeholder = "Sem Título"
-        text.textColor = .black
+        text.textColor = .textBlack
         return text
         
     }()
@@ -141,6 +141,7 @@ class EditViewController: UIViewController {
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Salvar", style: .plain, target: self, action: #selector(saveNote))
         navigationController?.navigationBar.tintColor = .brightBlueNL
+        navigationController?.navigationBar.barTintColor = .navColor
         navigationItem.title = "Editar Nota"
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Cancelar", style: .plain, target: self, action: #selector(cancelNoteChanges))
         view.backgroundColor = .background
