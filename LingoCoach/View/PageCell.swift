@@ -7,62 +7,37 @@
 
 
 import UIKit
-
-
-
 class PageCell : UICollectionViewCell {
-    
-    
     var page: Page? {
-            didSet{
-                
+            didSet {
                 guard let unwrappedPage = page else {return}
                 let atributtedText = NSMutableAttributedString(string: unwrappedPage.headerText, attributes: [NSAttributedString.Key.font : UIFont.boldSystemFont(ofSize: 22)])
                 atributtedText.append(NSAttributedString(string:unwrappedPage.otherText, attributes: [NSAttributedString.Key.font : UIFont.systemFont(ofSize: 16), NSAttributedString.Key.foregroundColor : UIColor.gray]))
                 primeiraImageView.image = UIImage(named: unwrappedPage.imageName)
                 primeiroTexto.attributedText = atributtedText
                 primeiroTexto.textAlignment = .center
-               
             }
         }
-        
-        
-        
         let primeiraImageView: UIImageView = {
           let imageView = UIImageView(image: UIImage(named: "Ipad_1"))
             imageView.translatesAutoresizingMaskIntoConstraints = false
             imageView.contentMode = .scaleAspectFit
             return imageView
         }()
-        
-        
         public let primeiroTexto: UITextView = {
                     let texto1 = UITextView()
-                    let atributtedText = NSMutableAttributedString(string: "Receba Suporte Diário!", attributes: [NSAttributedString.Key.font : UIFont.boldSystemFont(ofSize: 22)])
-                    atributtedText.append(NSAttributedString(string: "\n\nPrátique exercícios e Escute música enquanto cuida da sua Saúde Mental!", attributes: [NSAttributedString.Key.font : UIFont.systemFont(ofSize: 16), NSAttributedString.Key.foregroundColor : UIColor.gray]))
+                    let atributtedText = NSMutableAttributedString(string: "", attributes: [NSAttributedString.Key.font : UIFont.boldSystemFont(ofSize: 22)])
+                    atributtedText.append(NSAttributedString(string: "", attributes: [NSAttributedString.Key.font : UIFont.systemFont(ofSize: 16), NSAttributedString.Key.foregroundColor : UIColor.gray]))
                     texto1.attributedText = atributtedText
-        
                     texto1.translatesAutoresizingMaskIntoConstraints = false
-                    
                     texto1.textAlignment = .center
                     texto1.isEditable = false
                     texto1.isScrollEnabled = false
-                
                     return texto1
                 }()
-        
-        
-        
         var pageID: Int = 0
-        
-           
-        
-        
         var primeiroTextFilBottomConstraint: NSLayoutConstraint!
         var originalConstantBottom: CGFloat = -190
-        
-      
-        
         override init(frame: CGRect) {
             super.init(frame: frame)
             backgroundColor = .white
@@ -71,14 +46,11 @@ class PageCell : UICollectionViewCell {
             configure()
             setupObservers()
         }
-        
         private func setupObservers() {
             NotificationCenter.default.addObserver(self, selector: #selector(keyboardDissapeared), name: UIResponder.keyboardWillHideNotification, object: nil)
             
             NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillAppear), name: UIResponder.keyboardWillShowNotification, object: nil)
         }
-        
-        
         @objc private func keyboardWillAppear(notification: Notification) {
             let keyboardSize = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as! CGRect
             UIView.animate(withDuration: 1) {
@@ -109,8 +81,4 @@ class PageCell : UICollectionViewCell {
                 primeiroTexto.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -20),
              ])
             }
-    
-    
-    
 }
-

@@ -155,7 +155,7 @@ class SwipingController: UICollectionViewController , UICollectionViewDelegateFl
             let tabBarController = UITabBarController()
             tabBarController.viewControllers = [navigationController, progressVC]
             tabBarController.tabBar.isHidden = true
-            self.view.window?.rootViewController = UINavigationController(rootViewController: tabBarController)
+            self.view.window?.rootViewController = UINavigationController(rootViewController: navigationController)
         }
         
     }
