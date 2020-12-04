@@ -19,19 +19,19 @@ extension UIColor {
 //    static let orangeLC = #colorLiteral(red: 0.975635469, green: 0.418487817, blue: 0.2738820612, alpha: 1)
 //    static let grayLC = #colorLiteral(red: 0.399962306, green: 0.400024116, blue: 0.3999488652, alpha: 1)
 //    static let darkGrayLC = #colorLiteral(red: 0.462745098, green: 0.462745098, blue: 0.462745098, alpha: 1)
-    static let paleteColor = [darkGreenLC, yellowMostard, lightGreenLC, oceanBlue, orangeLC, grayLC]
+    static let paleteColor = [darkBlueNL, oldRedNL, darkGreenNL, oldBlueNL, orangeLC, grayLC]
     static var background: UIColor {
         if #available(iOS 13.0, *) {
             return UIColor { (traits) -> UIColor in
                 // Return one of two colors depending on light or dark mode
                 return traits.userInterfaceStyle == .dark ?
-                    UIColor(red: 22 / 255, green: 26 / 255, blue: 29 / 255, alpha: 1) :
+                    #colorLiteral(red: 0.066351812, green: 0.1364721698, blue: 0.1978274829, alpha: 1) :
                     UIColor(red: 214 / 255, green: 228 / 255, blue: 240 / 255, alpha: 1)
                     
             }
         } else {
             // Same old color used for iOS 12 and earlier
-            return UIColor(red: 245 / 255, green: 243 / 255, blue: 244 / 255, alpha: 1)
+            return UIColor(red: 214 / 255, green: 228 / 255, blue: 240 / 255, alpha: 1)
         }
     }
     static var textBlack: UIColor {
@@ -59,7 +59,7 @@ extension UIColor {
             }
         } else {
             // Same old color used for iOS 12 and earlier
-            return UIColor(red: 245 / 255, green: 243 / 255, blue: 244 / 255, alpha: 1)
+            return UIColor(red: 246 / 255, green: 246 / 255, blue: 246 / 255, alpha: 1)
         }
     }
     static var brightBlueNL: UIColor {
@@ -67,50 +67,50 @@ extension UIColor {
             return UIColor { (traits) -> UIColor in
                 // Return one of two colors depending on light or dark mode
                 return traits.userInterfaceStyle == .dark ?
-                    UIColor(red: 53 / 255, green: 217 / 255, blue: 184 / 255, alpha: 1) :
+                    #colorLiteral(red: 0.2308433219, green: 0.5641445491, blue: 1, alpha: 1) :
                     UIColor(red: 30 / 255, green: 86 / 255, blue: 160 / 255, alpha: 1)
                     
             }
         } else {
             // Same old color used for iOS 12 and earlier
-            return UIColor(red: 47 / 255, green: 194 / 255, blue: 165 / 255, alpha: 1)
+            return UIColor(red: 30 / 255, green: 86 / 255, blue: 160 / 255, alpha: 1)
         }
     }
-    static var darkGreenLC: UIColor {
+    static var darkBlueNL: UIColor {
         if #available(iOS 13.0, *) {
             return UIColor { (traits) -> UIColor in
                 // Return one of two colors depending on light or dark mode
                 return traits.userInterfaceStyle == .dark ?
-                    UIColor(red: 46 / 255, green: 191 / 255, blue: 185 / 255, alpha: 1) :
+                    #colorLiteral(red: 0.3753248838, green: 0.5459271038, blue: 0.9553724315, alpha: 1) :
                     UIColor(red: 55 / 255, green: 80 / 255, blue: 140 / 255, alpha: 1)
                     
             }
         } else {
             // Same old color used for iOS 12 and earlier
-            return UIColor(red: 24 / 255, green: 99 / 255, blue: 96 / 255, alpha: 1)
+            return UIColor(red: 55 / 255, green: 80 / 255, blue: 140 / 255, alpha: 1)
         }
     }
     // Vermelho tomate
-    static var yellowMostard: UIColor {
+    static var oldRedNL: UIColor {
         if #available(iOS 13.0, *) {
             return UIColor { (traits) -> UIColor in
                 // Return one of two colors depending on light or dark mode
                 return traits.userInterfaceStyle == .dark ?
-                    UIColor(red: 230 / 255, green: 142 / 255, blue: 57 / 255, alpha: 1) :
+                    #colorLiteral(red: 0.95, green: 0.4829166667, blue: 0.475, alpha: 1) :
                     UIColor(red: 213 / 255, green: 114 / 255, blue: 113 / 255, alpha: 1)
                     
             }
         } else {
             // Same old color used for iOS 12 and earlier
-            return UIColor(red: 208 / 255, green: 129 / 255, blue: 52 / 255, alpha: 1)
+            return UIColor(red: 213 / 255, green: 114 / 255, blue: 113 / 255, alpha: 1)
         }
     }
-    static var lightGreenLC: UIColor {
+    static var darkGreenNL: UIColor {
         if #available(iOS 13.0, *) {
             return UIColor { (traits) -> UIColor in
                 // Return one of two colors depending on light or dark mode
                 return traits.userInterfaceStyle == .dark ?
-                    UIColor(red: 48 / 255, green: 140 / 255, blue: 52 / 255, alpha: 1) :
+                    #colorLiteral(red: 0.375, green: 0.75, blue: 0.3875, alpha: 1) :
                     UIColor(red: 41 / 255, green: 119 / 255, blue: 44 / 255, alpha: 1)
             }
         } else {
@@ -118,17 +118,17 @@ extension UIColor {
             return UIColor(red: 41 / 255, green: 119 / 255, blue: 44 / 255, alpha: 1)
         }
     }
-    static var oceanBlue: UIColor {
+    static var oldBlueNL: UIColor {
         if #available(iOS 13.0, *) {
             return UIColor { (traits) -> UIColor in
                 // Return one of two colors depending on light or dark mode
                 return traits.userInterfaceStyle == .dark ?
-                    UIColor(red: 99 / 255, green: 173 / 255, blue: 255 / 255, alpha: 1) :
+                    #colorLiteral(red: 0.425, green: 0.7154166667, blue: 0.85, alpha: 1) :
                     UIColor(red: 82 / 255, green: 143 / 255, blue: 171 / 255, alpha: 1)
             }
         } else {
             // Same old color used for iOS 12 and earlier
-            return UIColor(red: 32 / 255, green: 95 / 255, blue: 166 / 255, alpha: 1)
+            return UIColor(red: 82 / 255, green: 143 / 255, blue: 171 / 255, alpha: 1)
         }
     }
     static var orangeLC: UIColor {
@@ -136,12 +136,12 @@ extension UIColor {
             return UIColor { (traits) -> UIColor in
                 // Return one of two colors depending on light or dark mode
                 return traits.userInterfaceStyle == .dark ?
-                    UIColor(red: 250 / 255, green: 151 / 255, blue: 125 / 255, alpha: 1) :
+                    #colorLiteral(red: 0.95, green: 0.6333333333, blue: 0.475, alpha: 1) :
                     UIColor(red: 217 / 255, green: 142 / 255, blue: 104 / 255, alpha: 1)
             }
         } else {
             // Same old color used for iOS 12 and earlier
-            return UIColor(red: 249 / 255, green: 107 / 255, blue: 70 / 255, alpha: 1)
+            return UIColor(red: 217 / 255, green: 142 / 255, blue: 104 / 255, alpha: 1)
         }
     }
     static var grayLC: UIColor {
@@ -149,7 +149,7 @@ extension UIColor {
             return UIColor { (traits) -> UIColor in
                 // Return one of two colors depending on light or dark mode
                 return traits.userInterfaceStyle == .dark ?
-                    UIColor(red: 203 / 255, green: 203 / 255, blue: 203 / 255, alpha: 1) :
+                    #colorLiteral(red: 0.65, green: 0.65, blue: 0.65, alpha: 1) :
                     UIColor(red: 102 / 255, green: 102 / 255, blue: 102 / 255, alpha: 1)
             }
         } else {

@@ -186,7 +186,7 @@ class Description: UIView, UIGestureRecognizerDelegate, UITextViewDelegate {
         addSubview(notesView)
         addSubview(category)
         addSubview(addCategory)
-        addSubview(favorite)
+//        addSubview(favorite)
         addSubview(language)
         addSubview(languageSelected)
         addSubview(notes)
@@ -218,9 +218,9 @@ class Description: UIView, UIGestureRecognizerDelegate, UITextViewDelegate {
         NSLayoutConstraint.activate([addCategory.topAnchor.constraint(equalTo: descriptionView.topAnchor, constant: 10),
                                      addCategory.leadingAnchor.constraint(equalTo: category.trailingAnchor, constant: 5)])
         
-        NSLayoutConstraint.activate([favorite.topAnchor.constraint(equalTo: descriptionView.topAnchor, constant: 12),
-                                     favorite.trailingAnchor.constraint(equalTo: descriptionView.trailingAnchor, constant: -16),
-                                     favorite.heightAnchor.constraint(equalTo: descriptionView.heightAnchor, multiplier: 0.2)])
+//        NSLayoutConstraint.activate([favorite.topAnchor.constraint(equalTo: descriptionView.topAnchor, constant: 12),
+//                                     favorite.trailingAnchor.constraint(equalTo: descriptionView.trailingAnchor, constant: -16),
+//                                     favorite.heightAnchor.constraint(equalTo: descriptionView.heightAnchor, multiplier: 0.2)])
         
         NSLayoutConstraint.activate([language.bottomAnchor.constraint(equalTo: descriptionView.bottomAnchor, constant: -12),
                                      language.leadingAnchor.constraint(equalTo: descriptionView.leadingAnchor, constant: 16)])
@@ -253,7 +253,7 @@ class Description: UIView, UIGestureRecognizerDelegate, UITextViewDelegate {
 
 extension Description: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: category.frame.width/1.5, height: category.frame.height/2)
+        return CGSize(width: category.frame.width/1.5, height: category.frame.height/3)
     }
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
