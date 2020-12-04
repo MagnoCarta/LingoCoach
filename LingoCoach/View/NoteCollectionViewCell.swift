@@ -26,7 +26,9 @@ class NoteCollectionViewCell: UICollectionViewCell {
     
     func set(note: Note) {
         self.note = note
-        noteIconView.image = note.icon
+        let noteIcon = note.icon?.withRenderingMode(.alwaysTemplate)
+        noteIconView.image = noteIcon
+        noteIconView.tintColor = .textWhite
         noteLanguageLabel.text = note.language
         noteTitleLabel.text = note.title
 

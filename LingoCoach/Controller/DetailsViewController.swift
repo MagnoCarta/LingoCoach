@@ -57,9 +57,9 @@ class DetailsViewController: UIViewController {
         content.icon.image = note.icon
         content.languageSelected.text = note.language
         
-        if note.summary != nil && note.summary != " " && note.summary != "Digite suas anotações aqui"{
+        if note.summary != nil && note.summary != " " && note.summary != "Digite suas anotações aqui" {
             content.notes.text = note.summary
-            content.notes.textColor = .black
+            content.notes.textColor = .textBlack
         }
     }
     
