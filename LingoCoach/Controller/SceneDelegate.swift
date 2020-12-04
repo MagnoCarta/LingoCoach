@@ -20,13 +20,19 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             let noteListVC = NoteListViewController()
             let progressVC = ProgressViewController()
             let navigationController = UINavigationController(rootViewController: noteListVC)
+            
+            noteListVC.tabBarItem = UITabBarItem(title: "Notas", image: UIImage(named: "note"), tag: 0)
+            progressVC.tabBarItem = UITabBarItem(title: "Estatísticas", image: UIImage(named: "note"), tag: 1)
 
             let tabBarController = UITabBarController()
             tabBarController.viewControllers = [navigationController, progressVC]
-            tabBarController.tabBar.isHidden = true
+//            tabBarController.tabBar.isHidden = true
+            
+            tabBarController.tabBar.tintColor = .brightBlueNL
+            tabBarController.tabBar.unselectedItemTintColor = .gray
+            tabBarController.tabBar.barTintColor = .textWhite
     
             window.rootViewController = tabBarController
-
             window.makeKeyAndVisible()
 
             self.window = window
