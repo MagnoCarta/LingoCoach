@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="17511" systemVersion="20B29" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="17511" systemVersion="19G2021" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="Note" representedClassName=".Note" syncable="YES">
-        <attribute name="categories" optional="YES" attributeType="Transformable" customClassName="[String]"/>
+        <attribute name="category" optional="YES" attributeType="String" customClassName="[String]"/>
         <attribute name="icon" optional="YES" attributeType="Transformable" customClassName="UIImage"/>
         <attribute name="language" optional="YES" attributeType="String"/>
         <attribute name="summary" optional="YES" attributeType="String"/>
         <attribute name="title" optional="YES" attributeType="String"/>
     </entity>
     <elements>
-        <element name="Note" positionX="-63" positionY="-18" width="128" height="104"/>
+        <element name="Note" positionX="-63" positionY="-18" width="128" height="118"/>
     </elements>
 </model>
