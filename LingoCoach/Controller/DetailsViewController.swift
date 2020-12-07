@@ -56,6 +56,7 @@ class DetailsViewController: UIViewController {
         content.delegate = self
         content.icon.image = note.icon
         content.languageSelected.text = note.language
+        content.categorySelected.text = note.category
         
         if note.summary != nil && note.summary != " " && note.summary != "Digite suas anotações aqui" {
             content.notes.text = note.summary
@@ -102,17 +103,17 @@ class DetailsViewController: UIViewController {
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        if content.notes.isFirstResponder {
-            content.dismissKeyboard()
-        }
+        content.dismissKeyboardIfNeeded()
     }
     
 }
 
 extension DetailsViewController: DescriptionDelegate {
-    func changeDescription(description: String) {
+    func changeNote() {
         let context = UIApplication.shared.context
-        note.summary = description
+        note.summary = content.notes.text
+        note.language = content.languageSelected.text
+        note.category = content.categorySelected.text
         do {
             try context.save()
         } catch {
