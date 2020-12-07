@@ -10,8 +10,8 @@ import UIKit
 class Description: UIView, UIGestureRecognizerDelegate, UITextViewDelegate {
     
     weak var delegate: DescriptionDelegate!
-
-    let categories = [""]
+    
+    var categories: [String] = ["Modos verbais"]
     
     let icon: UIImageView = {
         let image = UIImageView()
@@ -56,13 +56,13 @@ class Description: UIView, UIGestureRecognizerDelegate, UITextViewDelegate {
         button.imageView?.contentMode = .scaleAspectFit
         button.imageEdgeInsets = UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5)
         button.backgroundColor = #colorLiteral(red: 0.1176470588, green: 0.337254902, blue: 0.6274509804, alpha: 1)
-//        action
+        button.addTarget(self, action: #selector(createCategory), for: .touchUpInside)
         return button
         
     }()
     let category: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
-        layout.scrollDirection = .vertical
+        layout.scrollDirection = .horizontal
         let category = UICollectionView(frame: .zero, collectionViewLayout: layout)
         category.translatesAutoresizingMaskIntoConstraints = false
         category.showsVerticalScrollIndicator = false
@@ -147,6 +147,11 @@ class Description: UIView, UIGestureRecognizerDelegate, UITextViewDelegate {
 //            }
 //        }
 //    }
+    @objc func createCategory() {
+        categories.append("123")
+        category.reloadData()
+    }
+    
     @objc func dismissKeyboard() {
         notes.resignFirstResponder()
         languageSelected.resignFirstResponder()
@@ -209,11 +214,11 @@ class Description: UIView, UIGestureRecognizerDelegate, UITextViewDelegate {
                                      descriptionView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
                                      descriptionView.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.2)])
         
-        NSLayoutConstraint.activate([category.topAnchor.constraint(equalTo: descriptionView.topAnchor, constant: 10),
+        NSLayoutConstraint.activate([category.topAnchor.constraint(equalTo: descriptionView.topAnchor, constant: 12),
                                      category.leadingAnchor.constraint(equalTo: descriptionView.leadingAnchor, constant: 16),
 //                                     category.widthAnchor.constraint(equalTo: self.widthAnchor, multiplier: 0.5),
                                      category.trailingAnchor.constraint(equalTo: descriptionView.centerXAnchor),
-                                     category.bottomAnchor.constraint(equalTo: language.topAnchor, constant: -10)])
+                                     category.bottomAnchor.constraint(equalTo: language.topAnchor, constant: -5)])
         
         NSLayoutConstraint.activate([addCategory.topAnchor.constraint(equalTo: descriptionView.topAnchor, constant: 10),
                                      addCategory.leadingAnchor.constraint(equalTo: category.trailingAnchor, constant: 5)])
@@ -253,15 +258,16 @@ class Description: UIView, UIGestureRecognizerDelegate, UITextViewDelegate {
 
 extension Description: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: category.frame.width/1.5, height: category.frame.height/3)
+        return CGSize(width: category.frame.width, height: 25)
     }
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 1
+        return categories.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! CategoryViewCell
+        cell.title.text = categories[indexPath.row]
         return cell
     }
     

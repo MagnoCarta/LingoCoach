@@ -19,7 +19,7 @@ class CategoryViewCell: UICollectionViewCell {
         return background
     }()
     
-    let title: UILabel = {
+    var title: UILabel = {
         let title = UILabel()
         title.textColor = .white
         title.text = "Categoria"
@@ -37,7 +37,8 @@ class CategoryViewCell: UICollectionViewCell {
         
         NSLayoutConstraint.activate([background.topAnchor.constraint(equalTo: contentView.topAnchor),
                                      background.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
-                                     background.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: -20),
+                                     background.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 0
+                                     ),
                                      background.trailingAnchor.constraint(equalTo: contentView.trailingAnchor)])
         
         NSLayoutConstraint.activate([title.centerXAnchor.constraint(equalTo: background.centerXAnchor),
