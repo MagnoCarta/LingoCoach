@@ -2,7 +2,7 @@
 //  Note+CoreDataClass.swift
 //  LingoCoach
 //
-//  Created by Gilberto Magno on 11/25/20.
+//  Created by Rodrigo Matos Aguiar on 07/12/20.
 //
 //
 

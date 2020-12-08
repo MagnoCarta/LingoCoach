@@ -10,8 +10,9 @@ import UIKit
 class Description: UIView, UIGestureRecognizerDelegate, UITextViewDelegate {
     
     weak var delegate: DescriptionDelegate!
-
-    let categories = [""]
+    
+//    let categories = [""]
+    var descriptionFields: [UIView]!
     
     let icon: UIImageView = {
         let image = UIImageView()
@@ -46,29 +47,26 @@ class Description: UIView, UIGestureRecognizerDelegate, UITextViewDelegate {
         return view
     }()
     
-    fileprivate let addCategory: UIButton = {
-        let button = UIButton()
-        let icon = UIImage(named: "add")
-        button.translatesAutoresizingMaskIntoConstraints = false
-        button.clipsToBounds = true
-        button.layer.cornerRadius = 16
-        button.setImage(icon, for: .normal)
-        button.imageView?.contentMode = .scaleAspectFit
-        button.imageEdgeInsets = UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5)
-        button.backgroundColor = #colorLiteral(red: 0.1176470588, green: 0.337254902, blue: 0.6274509804, alpha: 1)
-//        action
-        return button
+    fileprivate let category: UILabel = {
+        let text = UILabel()
+        text.text = "Categoria"
+        text.textColor = .textBlack
+        text.translatesAutoresizingMaskIntoConstraints = false
+        text.textAlignment = .left
+        text.font = UIFont.systemFont(ofSize: 17, weight: .medium)
+        return text
         
     }()
-    let category: UICollectionView = {
-        let layout = UICollectionViewFlowLayout()
-        layout.scrollDirection = .vertical
-        let category = UICollectionView(frame: .zero, collectionViewLayout: layout)
-        category.translatesAutoresizingMaskIntoConstraints = false
-        category.showsVerticalScrollIndicator = false
-        category.backgroundColor = .clear
-        category.register(CategoryViewCell.self, forCellWithReuseIdentifier: "cell")
-        return category
+    
+    let categorySelected: UITextField = {
+        let text = UITextField()
+        text.placeholder = "Informe a categoria"
+        text.textColor = .textBlack
+        text.translatesAutoresizingMaskIntoConstraints = false
+        text.textAlignment = .right
+        text.font = UIFont.systemFont(ofSize: 17, weight: .medium)
+        return text
+        
     }()
     
     let favorite: UIButton = {
@@ -98,10 +96,10 @@ class Description: UIView, UIGestureRecognizerDelegate, UITextViewDelegate {
     
     let languageSelected: UITextField = {
         let text = UITextField()
-//        text.text = "Nenhum"
+        text.placeholder = "Informe o idioma"
         text.textColor = .textBlack
         text.translatesAutoresizingMaskIntoConstraints = false
-        text.textAlignment = .left
+        text.textAlignment = .right
         text.font = UIFont.systemFont(ofSize: 17, weight: .medium)
         return text
         
@@ -147,11 +145,13 @@ class Description: UIView, UIGestureRecognizerDelegate, UITextViewDelegate {
 //            }
 //        }
 //    }
-    @objc func dismissKeyboard() {
-        notes.resignFirstResponder()
-        languageSelected.resignFirstResponder()
-        //Metodo de salvar aqui
-        delegate.changeDescription(description: notes.text)
+    @objc func dismissKeyboardIfNeeded() {
+        let frFields = descriptionFields.filter {$0.isFirstResponder}
+        if let frField = frFields.first {
+            frField.resignFirstResponder()
+            //Metodo de salvar aqui
+            delegate.changeNote()
+        }
     }
     
     func textViewDidBeginEditing(_ textView: UITextView) {
@@ -175,8 +175,9 @@ class Description: UIView, UIGestureRecognizerDelegate, UITextViewDelegate {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
+        self.descriptionFields = [notes, languageSelected, categorySelected]
         
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.dismissKeyboard))
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.dismissKeyboardIfNeeded))
         self.addGestureRecognizer(tapGesture)
         
         backgroundColor = .background
@@ -185,7 +186,7 @@ class Description: UIView, UIGestureRecognizerDelegate, UITextViewDelegate {
         addSubview(descriptionView)
         addSubview(notesView)
         addSubview(category)
-        addSubview(addCategory)
+        addSubview(categorySelected)
 //        addSubview(favorite)
         addSubview(language)
         addSubview(languageSelected)
@@ -207,16 +208,13 @@ class Description: UIView, UIGestureRecognizerDelegate, UITextViewDelegate {
         NSLayoutConstraint.activate([descriptionView.topAnchor.constraint(equalTo: iconView.bottomAnchor, constant: 26),
                                      descriptionView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
                                      descriptionView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
-                                     descriptionView.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.2)])
+                                     descriptionView.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.1)])
         
-        NSLayoutConstraint.activate([category.topAnchor.constraint(equalTo: descriptionView.topAnchor, constant: 10),
-                                     category.leadingAnchor.constraint(equalTo: descriptionView.leadingAnchor, constant: 16),
-//                                     category.widthAnchor.constraint(equalTo: self.widthAnchor, multiplier: 0.5),
-                                     category.trailingAnchor.constraint(equalTo: descriptionView.centerXAnchor),
-                                     category.bottomAnchor.constraint(equalTo: language.topAnchor, constant: -10)])
+        NSLayoutConstraint.activate([category.topAnchor.constraint(equalTo: descriptionView.topAnchor, constant: 12),
+                                     category.leadingAnchor.constraint(equalTo: descriptionView.leadingAnchor, constant: 16)])
         
-        NSLayoutConstraint.activate([addCategory.topAnchor.constraint(equalTo: descriptionView.topAnchor, constant: 10),
-                                     addCategory.leadingAnchor.constraint(equalTo: category.trailingAnchor, constant: 5)])
+        NSLayoutConstraint.activate([categorySelected.topAnchor.constraint(equalTo: descriptionView.topAnchor, constant: 12),
+                                     categorySelected.trailingAnchor.constraint(equalTo: descriptionView.trailingAnchor, constant: -16)])
         
 //        NSLayoutConstraint.activate([favorite.topAnchor.constraint(equalTo: descriptionView.topAnchor, constant: 12),
 //                                     favorite.trailingAnchor.constraint(equalTo: descriptionView.trailingAnchor, constant: -16),
@@ -242,8 +240,8 @@ class Description: UIView, UIGestureRecognizerDelegate, UITextViewDelegate {
         
         notes.delegate = self
         
-        category.delegate = self
-        category.dataSource = self
+//        category.delegate = self
+//        category.dataSource = self
     }
     
     required init?(coder: NSCoder) {
@@ -251,18 +249,18 @@ class Description: UIView, UIGestureRecognizerDelegate, UITextViewDelegate {
     }
 }
 
-extension Description: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: category.frame.width/1.5, height: category.frame.height/3)
-    }
-
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 1
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! CategoryViewCell
-        return cell
-    }
-    
-}
+//extension Description: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+//        return CGSize(width: category.frame.width/1.5, height: category.frame.height/3)
+//    }
+//
+//    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+//        return 1
+//    }
+//
+//    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+//        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! CategoryViewCell
+//        return cell
+//    }
+//
+//}

@@ -2,7 +2,7 @@
 //  Note+CoreDataProperties.swift
 //  LingoCoach
 //
-//  Created by Gilberto Magno on 11/25/20.
+//  Created by Rodrigo Matos Aguiar on 07/12/20.
 //
 //
 
@@ -16,7 +16,7 @@ extension Note {
         return NSFetchRequest<Note>(entityName: "Note")
     }
 
-    @NSManaged public var categories: [String]?
+    @NSManaged public var category: String?
     @NSManaged public var icon: UIImage?
     @NSManaged public var language: String?
     @NSManaged public var summary: String?

@@ -8,5 +8,5 @@
 import Foundation
 
 protocol DescriptionDelegate: AnyObject {
-    func changeDescription(description: String)
+    func changeNote()
 }
