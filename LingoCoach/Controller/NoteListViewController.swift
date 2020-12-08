@@ -47,6 +47,7 @@ class NoteListViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         load()
         noteListView.addConstraintFilter(viewBar: navigationController!.navigationBar)
+        noteListView.collectionView.reloadData()
     }
     
     @objc func addNote() {
@@ -85,12 +86,20 @@ extension NoteListViewController: delegateFilter {
     func filterAction() {
         // navigationController?.pushViewController(FiltroViewController(), animated: true )
         
-        let modalFilter = FilterViewController()
+        let modalFilter = FilterViewController(notesFiltered: notes)
+        modalFilter.delegate = self
         modalFilter.modalPresentationStyle = .fullScreen
         modalFilter.backingImage = self.navigationController?.view.asImage()
         navigationController?.present(modalFilter, animated: false, completion: nil)
     }
     
+}
+
+extension NoteListViewController: FilterViewControllerDelegate {
+    func updateView(notesDelegate: [Note]) {
+        self.notes = notesDelegate
+        self.noteListView.collectionView.reloadData()
+    }
 }
 
 extension NoteListViewController: UICollectionViewDelegate, UICollectionViewDataSource {

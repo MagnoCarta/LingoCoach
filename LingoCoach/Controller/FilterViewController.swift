@@ -10,6 +10,8 @@ import UIKit
 class FilterViewController: UIViewController {
 
     var filterList = [(title: "Inglês", icon: "Dolar"), (title: "Espanhol", icon: "Dolar"), (title: "Japonês", icon: "Dolar")]
+    var notesFiltered: [Note] = []
+    weak var delegate: FilterViewControllerDelegate!
     
     var ultimoFiltro: GroupFilterCollectionViewCell?
     var filtrosSelecionados: [GroupFilterCollectionViewCell]?
@@ -17,6 +19,15 @@ class FilterViewController: UIViewController {
     enum CardViewState {
         case expanded
         case normal
+    }
+    
+    init(notesFiltered: [Note]) {
+        super.init(nibName: nil, bundle: nil)
+        self.notesFiltered = notesFiltered
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
     
     // to store backing (snapshot) image
@@ -289,18 +300,16 @@ class FilterViewController: UIViewController {
     }
     
     @objc func filterAction() {
-//        if ultimoFiltro?.titleLabel.text == "Menor Preço" {
+        if (ultimoFiltro != nil) || !(filtrosSelecionados!.isEmpty) {
+//            ultimoFiltro?.titleLabel.text == "Idioma"
+            let list = notesFiltered.filter({$0.language == ultimoFiltro?.titleLabel.text})
+            delegate.updateView(notesDelegate: list)
+            
+        }
 //            let list = EstoqueViewController.productList.sorted(by: {$0.costPrice < $1.costPrice})
 //            NoteListViewController.showedProductList = list
-//
-//        } else if ultimoFiltro?.titleLabel.text == "Maior Preço" {
-//            let list = EstoqueViewController.productList.sorted(by: {$0.costPrice > $1.costPrice})
-//            NoteListViewController[.showedProductList = list
-//
-//        } else if ultimoFiltro?.titleLabel.text == "Quantidade" {
-//            let list = EstoqueViewController.productList.sorted(by: {$0.quantity > $1.quantity})
-//            NoteListViewController.showedProductList = list
-//        }
+
+        
         
 //        let filtered = EstoqueViewController.showedProductList.filter({categoriasSelecionadas.contains($0.category)})
 //        EstoqueViewController.showedProductList = filtered
