@@ -208,7 +208,7 @@ class Description: UIView, UIGestureRecognizerDelegate, UITextViewDelegate {
         NSLayoutConstraint.activate([descriptionView.topAnchor.constraint(equalTo: iconView.bottomAnchor, constant: 26),
                                      descriptionView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
                                      descriptionView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
-                                     descriptionView.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.1)])
+                                     descriptionView.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.14)])
         
         NSLayoutConstraint.activate([category.topAnchor.constraint(equalTo: descriptionView.topAnchor, constant: 12),
                                      category.leadingAnchor.constraint(equalTo: descriptionView.leadingAnchor, constant: 16)])
@@ -221,9 +221,11 @@ class Description: UIView, UIGestureRecognizerDelegate, UITextViewDelegate {
 //                                     favorite.heightAnchor.constraint(equalTo: descriptionView.heightAnchor, multiplier: 0.2)])
         
         NSLayoutConstraint.activate([language.bottomAnchor.constraint(equalTo: descriptionView.bottomAnchor, constant: -12),
+//                                     language.topAnchor.constraint(equalTo: category.bottomAnchor, constant: 10),
                                      language.leadingAnchor.constraint(equalTo: descriptionView.leadingAnchor, constant: 16)])
         
         NSLayoutConstraint.activate([languageSelected.bottomAnchor.constraint(equalTo: descriptionView.bottomAnchor, constant: -12),
+//                                     languageSelected.topAnchor.constraint(equalTo: category.bottomAnchor, constant: 10),
                                      languageSelected.trailingAnchor.constraint(equalTo: descriptionView.trailingAnchor, constant: -16)])
         
         //Constraints das Notas
