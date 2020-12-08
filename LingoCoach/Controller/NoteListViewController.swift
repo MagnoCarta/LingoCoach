@@ -52,7 +52,7 @@ class NoteListViewController: UIViewController {
     @objc func addNote() {
         let context = UIApplication.shared.context
         let noteToAdd = Note(context: context.self)
-        noteToAdd.icon = UIImage(named: "translate")
+        noteToAdd.icon = UIImage(named: "translate-japanese")
         noteToAdd.language = ""
         noteToAdd.title = "Nota \(notes.count+1)"
         do {
