@@ -11,6 +11,7 @@ class DetailsViewController: UIViewController {
     
     var note: Note!
     
+    
     fileprivate let botView: UIView = {
         let botView = UIView()
         botView.translatesAutoresizingMaskIntoConstraints = false
@@ -57,6 +58,8 @@ class DetailsViewController: UIViewController {
         content.icon.image = note.icon
         content.languageSelected.text = note.language
         
+        
+        
         if note.summary != nil && note.summary != " " && note.summary != "Digite suas anotações aqui" {
             content.notes.text = note.summary
             content.notes.textColor = .textBlack
@@ -69,6 +72,8 @@ class DetailsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
         navigationItem.title = note.title
         navigationItem.largeTitleDisplayMode = .never
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Editar", style: .plain, target: self, action: #selector(editScreen))
@@ -98,6 +103,11 @@ class DetailsViewController: UIViewController {
         content.bottomAnchor.constraint(equalTo: botView.topAnchor).isActive = true
         content.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
         content.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+    }
+    
+    @objc func pickNewImage(){
+        
+        
     }
     
     override func viewWillDisappear(_ animated: Bool) {

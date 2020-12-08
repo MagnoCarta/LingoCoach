@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0F05857C257E6E87005B29F7 /* imagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F05857B257E6E87005B29F7 /* imagePicker.swift */; };
 		0F177E70256548EF00D6E21F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F177E6F256548EF00D6E21F /* AppDelegate.swift */; };
 		0F177E72256548EF00D6E21F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F177E71256548EF00D6E21F /* SceneDelegate.swift */; };
 		0F177E7A256548EF00D6E21F /* LingoCoach.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0F177E78256548EF00D6E21F /* LingoCoach.xcdatamodeld */; };
@@ -60,6 +61,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0F05857B257E6E87005B29F7 /* imagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = imagePicker.swift; sourceTree = "<group>"; };
 		0F177E6C256548EF00D6E21F /* LingoCoach.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LingoCoach.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0F177E6F256548EF00D6E21F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0F177E71256548EF00D6E21F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -219,6 +221,7 @@
 				FFC0A52E256FC8C900845E47 /* FilterViewController.swift */,
 				69525842256FF1EB000A5188 /* EditViewController.swift */,
 				690321F02577CF16002D2558 /* CategoryViewCell.swift */,
+				0F05857B257E6E87005B29F7 /* imagePicker.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -415,6 +418,7 @@
 				5785E57125713BDE00652C99 /* UIApplicationExtension.swift in Sources */,
 				0F43D4EC256E7D900066509A /* NoteCollectionViewCell.swift in Sources */,
 				573541D92566B8650002473A /* Period.swift in Sources */,
+				0F05857C257E6E87005B29F7 /* imagePicker.swift in Sources */,
 				0F43D4D6256D521C0066509A /* UIResponderExtension.swift in Sources */,
 				0F43D4D1256D4A590066509A /* NoteListView.swift in Sources */,
 				FFD690BD25712CDE00A94530 /* UIViewSnapshot.swift in Sources */,
