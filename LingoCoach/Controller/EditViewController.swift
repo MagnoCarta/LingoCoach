@@ -7,8 +7,13 @@
 
 import UIKit
 
-class EditViewController: UIViewController {
+class EditViewController: UIViewController, ImagePickerDelegate {
+    func didSelect(image: UIImage?) {
+        icon.image = image
+        
+    }
     
+    var imagePicker: ImagePicker!
     var note: Note!
     weak var delegate: EditViewControllerDelegate!
     
@@ -96,6 +101,7 @@ class EditViewController: UIViewController {
     }
     
     @objc func saveNote() {
+        note.icon = icon.image
         let context = UIApplication.shared.context
         note.title = titleField.text
         do {
@@ -136,6 +142,15 @@ class EditViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        imagePicker = ImagePicker(presentationController: self, delegate: self)
+        editButton.addAction(UIAction(handler: { (_) in
+            let iconVC = IconViewController()
+            iconVC.delegate = self
+            let navController = UINavigationController(rootViewController: iconVC)
+            self.navigationController?.present(navController, animated: true, completion: nil)
+            
+        }), for: .touchUpInside)
+        
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.dismisssKeyboard(_:)))
         self.view.addGestureRecognizer(tapGesture)
         
@@ -147,12 +162,12 @@ class EditViewController: UIViewController {
         view.backgroundColor = .background
         setupViews()
     }
-    
     @objc func cancelNoteChanges() {
         dismiss(animated: true, completion: nil)
     }
     
     func setupViews() {
+        icon.image = self.note.icon
         view.addSubview(botView)
         view.addSubview(topView)
         view.addSubview(iconView)
@@ -204,4 +219,11 @@ class EditViewController: UIViewController {
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
     }
+}
+
+extension EditViewController: IconViewControllerDelegate {
+    func hasChangedIcon(image: UIImage) {
+        icon.image = image
+    }
+
 }

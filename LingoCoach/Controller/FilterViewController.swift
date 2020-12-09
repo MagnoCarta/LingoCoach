@@ -308,7 +308,7 @@ class FilterViewController: UIViewController {
             list = notesFiltered.filter({$0.language == ultimoFiltro.titleLabel.text})
         }
         if !filtrosSelecionados.isEmpty {
-            list = list.filter{ filtrosSelecionados.map{$0.titleLabel.text}.contains($0.category) }
+            list = list.filter { filtrosSelecionados.map{$0.titleLabel.text}.contains($0.category) }
         }
         delegate.updateView(notesDelegate: list)
         hideCardAndGoBack()
@@ -542,8 +542,7 @@ extension FilterViewController: UICollectionViewDelegate, UICollectionViewDataSo
     }
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         
-        let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader,
-                                                                         withReuseIdentifier: "headerView", for: indexPath) as! HeaderFilterCollectionReusableView
+        let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "headerView", for: indexPath) as! HeaderFilterCollectionReusableView
         
         if indexPath.section == 0 {
             headerView.titleLabel.text = "Agrupar por"

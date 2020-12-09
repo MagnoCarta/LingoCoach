@@ -10,6 +10,7 @@ import UIKit
 class DetailsViewController: UIViewController {
     
     var note: Note!
+    weak var delegate: DetailViewControllerDelegate!
     
     fileprivate let botView: UIView = {
         let botView = UIView()
@@ -70,6 +71,7 @@ class DetailsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         navigationItem.title = note.title
         navigationItem.largeTitleDisplayMode = .never
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Editar", style: .plain, target: self, action: #selector(editScreen))
@@ -101,6 +103,10 @@ class DetailsViewController: UIViewController {
         content.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
     }
     
+    @objc func pickNewImage(){
+        
+    }
+    
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         content.dismissKeyboardIfNeeded()
@@ -126,9 +132,11 @@ extension DetailsViewController: DescriptionDelegate {
 extension DetailsViewController: EditViewControllerDelegate {
     func hasSavedNote() {
         navigationItem.title = note.title
+        content.icon.image = note.icon
     }
     
     func hasDeletedNote() {
         navigationController?.popViewController(animated: false)
+        delegate.updateNotes()
     }
 }
