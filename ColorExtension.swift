@@ -48,6 +48,20 @@ extension UIColor {
             return UIColor(red: 214 / 255, green: 228 / 255, blue: 240 / 255, alpha: 1)
         }
     }
+    static var launchBackground: UIColor {
+        if #available(iOS 13.0, *) {
+            return UIColor { (traits) -> UIColor in
+                // Return one of two colors depending on light or dark mode
+                return traits.userInterfaceStyle == .dark ?
+                    UIColor(red: 43 / 255, green: 45 / 255, blue: 50 / 255, alpha: 1) :
+                    UIColor(red: 43 / 255, green: 45 / 255, blue: 50 / 255, alpha: 1)
+                    
+            }
+        } else {
+            // Same old color used for iOS 12 and earlier
+            return UIColor(red: 43 / 255, green: 45 / 255, blue: 50 / 255, alpha: 1)
+        }
+    }
     static var textBlack: UIColor {
         if #available(iOS 13.0, *) {
             return UIColor { (traits) -> UIColor in
