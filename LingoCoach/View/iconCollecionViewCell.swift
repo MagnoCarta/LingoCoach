@@ -6,23 +6,11 @@
 //
 
 import Foundation
-
-
-//
-//  NoteCollectionView.swift
-//  LingoCoach
-//
-//  Created by Gilberto Magno on 11/25/20.
-//
-
-import Foundation
 import UIKit
 
 class IconCollectionViewCell: UICollectionViewCell {
     
     var noteIconView = UIImageView()
-    
-    
     
     override init(frame: CGRect) {
         super.init(frame: frame)

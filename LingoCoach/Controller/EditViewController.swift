@@ -13,7 +13,6 @@ class EditViewController: UIViewController, ImagePickerDelegate {
         
     }
     
-    
     var imagePicker: ImagePicker!
     var note: Note!
     weak var delegate: EditViewControllerDelegate!

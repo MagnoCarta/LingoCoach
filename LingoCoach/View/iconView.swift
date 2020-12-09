@@ -26,7 +26,6 @@ class MyIconView: UIView {
             setupViews()
         }
         
-        
         required init?(coder: NSCoder) {
             fatalError("init(coder:) has not been implemented")
         }
@@ -48,10 +47,5 @@ class MyIconView: UIView {
                 collectionView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: 0)
             ])
         }
-    
-
-   
-    
-    
     
 }

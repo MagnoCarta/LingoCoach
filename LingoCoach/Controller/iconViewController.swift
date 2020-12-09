@@ -8,7 +8,6 @@
 import Foundation
 import UIKit
 
-
 class IconViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         6
@@ -25,8 +24,8 @@ class IconViewController: UIViewController, UICollectionViewDelegate, UICollecti
         dismiss(animated: true, completion: nil)
     }
     var myIconView = MyIconView()
-    var icons = ["translate","translate-chinese","translate-greek","translate-japanese","translate-latin","translate-russian"]
-    weak var delegate : IconViewControllerDelegate!
+    var icons = ["translate", "translate-chinese", "translate-greek", "translate-japanese", "translate-latin", "translate-russian"]
+    weak var delegate: IconViewControllerDelegate!
     
     override func loadView() {
         super.loadView()
@@ -41,7 +40,6 @@ class IconViewController: UIViewController, UICollectionViewDelegate, UICollecti
         delegates(view: myIconView)
     }
     
-    
     func delegates(view: MyIconView) {
         view.collectionView.register(IconCollectionViewCell.self, forCellWithReuseIdentifier: "IconCell")
         view.collectionView.delegate = self
@@ -49,8 +47,6 @@ class IconViewController: UIViewController, UICollectionViewDelegate, UICollecti
     }
 }
 
-
 extension IconViewController {
-    
     
 }

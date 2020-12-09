@@ -10,7 +10,7 @@ import UIKit
 class DetailsViewController: UIViewController {
     
     var note: Note!
-    
+    weak var delegate: DetailViewControllerDelegate!
     
     fileprivate let botView: UIView = {
         let botView = UIView()
@@ -59,8 +59,6 @@ class DetailsViewController: UIViewController {
         content.languageSelected.text = note.language
         content.categorySelected.text = note.category
         
-        
-        
         if note.summary != nil && note.summary != " " && note.summary != "Digite suas anotações aqui" {
             content.notes.text = note.summary
             content.notes.textColor = .textBlack
@@ -73,7 +71,6 @@ class DetailsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         
         navigationItem.title = note.title
         navigationItem.largeTitleDisplayMode = .never
@@ -108,7 +105,6 @@ class DetailsViewController: UIViewController {
     
     @objc func pickNewImage(){
         
-        
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -136,9 +132,11 @@ extension DetailsViewController: DescriptionDelegate {
 extension DetailsViewController: EditViewControllerDelegate {
     func hasSavedNote() {
         navigationItem.title = note.title
+        content.icon.image = note.icon
     }
     
     func hasDeletedNote() {
         navigationController?.popViewController(animated: false)
+        delegate.updateNotes()
     }
 }

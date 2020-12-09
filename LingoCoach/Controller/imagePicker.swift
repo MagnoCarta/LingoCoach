@@ -6,7 +6,6 @@
 //
 import UIKit
 
-
 public protocol ImagePickerDelegate: class {
     func didSelect(image: UIImage?)
 }
@@ -17,10 +16,6 @@ open class ImagePicker: NSObject {
     private weak var presentationController: UIViewController?
     private weak var delegate: ImagePickerDelegate?
     
-    
-    
-    
-
     public init(presentationController: UIViewController, delegate: ImagePickerDelegate) {
         self.pickerController = UIImagePickerController()
 
@@ -34,10 +29,6 @@ open class ImagePicker: NSObject {
         self.pickerController.mediaTypes = ["public.image"]
     }
 
-    
-    
-    
-    
     private func action(for type: UIImagePickerController.SourceType, title: String) -> UIAlertAction? {
         guard UIImagePickerController.isSourceTypeAvailable(type) else {
             return nil

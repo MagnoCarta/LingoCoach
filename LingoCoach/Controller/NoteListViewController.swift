@@ -118,7 +118,9 @@ extension NoteListViewController: UICollectionViewDelegate, UICollectionViewData
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        navigationController?.pushViewController(DetailsViewController(note: notes[indexPath.row]), animated: true)
+        let detailVC = DetailsViewController(note: notes[indexPath.row])
+        detailVC.delegate = self
+        navigationController?.pushViewController(detailVC, animated: true)
     }
     //    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
     //            let numberOfItemsPerRow:CGFloat = 4
@@ -134,4 +136,10 @@ extension NoteListViewController: UICollectionViewDelegate, UICollectionViewData
     //            }
     //        }
     
+}
+
+extension NoteListViewController: DetailViewControllerDelegate {
+    func updateNotes() {
+        load()
+    }
 }
