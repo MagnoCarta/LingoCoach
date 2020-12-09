@@ -10,7 +10,11 @@ import UIKit
 class NoteListViewController: UIViewController {
     
     var noteListView = NoteListView()
-    var notes: [Note] = []
+    var notes: [Note] = [] {
+        didSet {
+            noteListView.collectionView.reloadData()
+        }
+    }
     
     override func loadView() {
         super.loadView()
@@ -28,7 +32,7 @@ class NoteListViewController: UIViewController {
         self.title = "Notas"
         self.navigationController?.navigationBar.prefersLargeTitles = true
         self.navigationController?.navigationBar.barTintColor = .navColor
-//        self.navigationController?.navigationBar.isTranslucent = false
+        //        self.navigationController?.navigationBar.isTranslucent = false
         self.navigationItem.rightBarButtonItem = plusButton
         navigationController?.navigationBar.tintColor = .brightBlueNL
         self.view.backgroundColor = .background
@@ -45,8 +49,8 @@ class NoteListViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        load()
         noteListView.addConstraintFilter(viewBar: navigationController!.navigationBar)
+        noteListView.collectionView.reloadData()
     }
     
     @objc func addNote() {
@@ -71,7 +75,6 @@ class NoteListViewController: UIViewController {
         } catch {
             fatalError("Não foi possível carregar as notas.")
         }
-        noteListView.collectionView.reloadData()
     }
     
     func delegates(view: NoteListView) {
@@ -86,11 +89,18 @@ extension NoteListViewController: delegateFilter {
         // navigationController?.pushViewController(FiltroViewController(), animated: true )
         
         let modalFilter = FilterViewController()
+        modalFilter.delegate = self
         modalFilter.modalPresentationStyle = .fullScreen
         modalFilter.backingImage = self.navigationController?.view.asImage()
         navigationController?.present(modalFilter, animated: false, completion: nil)
     }
     
+}
+
+extension NoteListViewController: FilterViewControllerDelegate {
+    func updateView(notesDelegate: [Note]) {
+        self.notes = notesDelegate
+    }
 }
 
 extension NoteListViewController: UICollectionViewDelegate, UICollectionViewDataSource {

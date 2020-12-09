@@ -9,10 +9,13 @@ import UIKit
 
 class FilterViewController: UIViewController {
 
-    var filterList = [(title: "Inglês", icon: "Dolar"), (title: "Espanhol", icon: "Dolar"), (title: "Japonês", icon: "Dolar")]
+    var languages: [String] = []
+    var categories: [String] = []
+    var notesFiltered: [Note] = []
+    weak var delegate: FilterViewControllerDelegate!
     
     var ultimoFiltro: GroupFilterCollectionViewCell?
-    var filtrosSelecionados: [GroupFilterCollectionViewCell]?
+    var filtrosSelecionados: [GroupFilterCollectionViewCell] = []
     
     enum CardViewState {
         case expanded
@@ -183,7 +186,9 @@ class FilterViewController: UIViewController {
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
+        load()
+        languages = notesFiltered.compactMap { $0.language }.filter { $0 != "" }
+        categories = notesFiltered.compactMap { $0.category }.filter { $0 != "" }
         self.view.layoutIfNeeded()
     }
     
@@ -280,7 +285,7 @@ class FilterViewController: UIViewController {
         for item in itens {
             item.active = false
         }
-        filtrosSelecionados = nil
+        filtrosSelecionados = []
         
     }
     
@@ -288,22 +293,24 @@ class FilterViewController: UIViewController {
         hideCardAndGoBack()
     }
     
+    func load() {
+        let context = UIApplication.shared.context
+        do {
+            self.notesFiltered = try (context.fetch(Note.fetchRequest()) as! [Note])
+        } catch {
+            fatalError("Não foi possível carregar as notas.")
+        }
+    }
+    
     @objc func filterAction() {
-//        if ultimoFiltro?.titleLabel.text == "Menor Preço" {
-//            let list = EstoqueViewController.productList.sorted(by: {$0.costPrice < $1.costPrice})
-//            NoteListViewController.showedProductList = list
-//
-//        } else if ultimoFiltro?.titleLabel.text == "Maior Preço" {
-//            let list = EstoqueViewController.productList.sorted(by: {$0.costPrice > $1.costPrice})
-//            NoteListViewController[.showedProductList = list
-//
-//        } else if ultimoFiltro?.titleLabel.text == "Quantidade" {
-//            let list = EstoqueViewController.productList.sorted(by: {$0.quantity > $1.quantity})
-//            NoteListViewController.showedProductList = list
-//        }
-        
-//        let filtered = EstoqueViewController.showedProductList.filter({categoriasSelecionadas.contains($0.category)})
-//        EstoqueViewController.showedProductList = filtered
+        var list = notesFiltered
+        if let ultimoFiltro = ultimoFiltro {
+            list = notesFiltered.filter({$0.language == ultimoFiltro.titleLabel.text})
+        }
+        if !filtrosSelecionados.isEmpty {
+            list = list.filter{ filtrosSelecionados.map{$0.titleLabel.text}.contains($0.category) }
+        }
+        delegate.updateView(notesDelegate: list)
         hideCardAndGoBack()
     }
     
@@ -527,8 +534,7 @@ class FilterViewController: UIViewController {
 extension FilterViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        //return section == 0 ? filterList.count : categoriasList.count
-        return filterList.count
+        return section == 0 ? languages.count : categories.count
     }
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
@@ -555,10 +561,9 @@ extension FilterViewController: UICollectionViewDelegate, UICollectionViewDataSo
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "AgruparFiltro", for: indexPath) as! GroupFilterCollectionViewCell
         if indexPath.section == 0 {
-            cell.configureCell(title: filterList[indexPath.row].title)
-            
+            cell.configureCell(title: languages[indexPath.row])
         } else {
-            //cell.configureCell(title: categoriasList[indexPath.row], icon: nil)
+            cell.configureCell(title: categories[indexPath.row])
         }
         
         return cell
@@ -576,6 +581,12 @@ extension FilterViewController: UICollectionViewDelegate, UICollectionViewDataSo
                 cell.active.toggle()
             }
         } else {
+            if filtrosSelecionados.contains(cell) {
+                let index = filtrosSelecionados.firstIndex(of: cell)!
+                filtrosSelecionados.remove(at: index)
+            } else {
+                filtrosSelecionados.append(cell)
+            }
             cell.active.toggle()
         }
         
