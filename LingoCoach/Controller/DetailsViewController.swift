@@ -37,6 +37,22 @@ class DetailsViewController: UIViewController {
         present(navController, animated: true, completion: nil)
     }
     
+    @objc func keyboardWillShow(notification: NSNotification) {
+        if content.notes.isFirstResponder {
+            if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
+                if self.view.frame.origin.y == 0 {
+                    self.view.frame.origin.y -= keyboardSize.height - 60
+                }
+            }
+        }
+    }
+    
+    @objc func keyboardWillHide(notification: NSNotification) {
+        if self.view.frame.origin.y != 0 {
+            self.view.frame.origin.y = 0
+            }
+    }
+    
     init(note: Note) {
         super.init(nibName: nil, bundle: nil)
         self.note = note
@@ -62,6 +78,9 @@ class DetailsViewController: UIViewController {
         navigationItem.largeTitleDisplayMode = .never
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Editar", style: .plain, target: self, action: #selector(editScreen))
         view.backgroundColor = .background
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
         
         setupViews()
     }
