@@ -58,7 +58,7 @@ class NoteCollectionViewCell: UICollectionViewCell {
         //Lembrar de testar
         noteIconView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            noteIconView.topAnchor.constraint(equalTo: self.topAnchor, constant: 18),
+            noteIconView.topAnchor.constraint(equalTo: self.topAnchor, constant: 10),
             noteIconView.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.7),
             noteIconView.heightAnchor.constraint(equalTo: widthAnchor, multiplier: 0.7),
             noteIconView.centerXAnchor.constraint(equalTo: self.centerXAnchor)
