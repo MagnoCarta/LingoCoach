@@ -202,8 +202,8 @@ class Description: UIView, UIGestureRecognizerDelegate, UITextViewDelegate {
         NSLayoutConstraint.activate([icon.centerYAnchor.constraint(equalTo: iconView.centerYAnchor),
                                      icon.centerXAnchor.constraint(equalTo: iconView.centerXAnchor),
 //                                     icon.trailingAnchor.constraint(equalTo: iconView.trailingAnchor),
-                                     icon.widthAnchor.constraint(equalTo: iconView.widthAnchor, multiplier: 0.65),
-                                     icon.heightAnchor.constraint(equalTo: iconView.heightAnchor, multiplier: 0.65)])
+                                     icon.widthAnchor.constraint(equalTo: iconView.widthAnchor, multiplier: 0.75),
+                                     icon.heightAnchor.constraint(equalTo: iconView.heightAnchor, multiplier: 0.75)])
         
         NSLayoutConstraint.activate([descriptionView.topAnchor.constraint(equalTo: iconView.bottomAnchor, constant: 26),
                                      descriptionView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
