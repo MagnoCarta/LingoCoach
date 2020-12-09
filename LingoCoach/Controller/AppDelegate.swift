@@ -12,7 +12,10 @@ import CoreData
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        // Override point for customization after application launch
+        //RunLoop.current.run(until: Date(timeIntervalSinceNow: 15.0))
+        // Adds a timer to be able to see the launch screen
+        //Thread.sleep(forTimeInterval: 5.0)
         return true
     }
 

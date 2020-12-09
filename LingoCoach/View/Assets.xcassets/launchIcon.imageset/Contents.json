@@ -1,15 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "noteling-wallpaper.png",
+      "filename" : "notelingIcon.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
+      "filename" : "notelingIcon-1.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
+      "filename" : "notelingIcon-2.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

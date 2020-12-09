@@ -187,8 +187,18 @@ class FilterViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         load()
-        languages = notesFiltered.compactMap { $0.language }.filter { $0 != "" }
-        categories = notesFiltered.compactMap { $0.category }.filter { $0 != "" }
+        let languagesAux = notesFiltered.compactMap { $0.language }.filter { $0 != "" }
+        for languageAux in languagesAux {
+            if !languages.contains(languageAux) {
+                languages.append(languageAux)
+            }
+        }
+        let categoriesAux = notesFiltered.compactMap { $0.category }.filter { $0 != "" }
+        for categoryAux in categoriesAux {
+            if !categories.contains(categoryAux) {
+                categories.append(categoryAux)
+            }
+        }
         self.view.layoutIfNeeded()
     }
     
