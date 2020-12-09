@@ -145,6 +145,7 @@ class Description: UIView, UIGestureRecognizerDelegate, UITextViewDelegate {
 //            }
 //        }
 //    }
+    
     @objc func dismissKeyboardIfNeeded() {
         let frFields = descriptionFields.filter {$0.isFirstResponder}
         if let frField = frFields.first {
@@ -161,7 +162,7 @@ class Description: UIView, UIGestureRecognizerDelegate, UITextViewDelegate {
         
         }
         textView.becomeFirstResponder()
-        
+    
     }
     
     func textViewDidEndEditing(_ textView: UITextView) {
@@ -171,6 +172,7 @@ class Description: UIView, UIGestureRecognizerDelegate, UITextViewDelegate {
             
         }
         textView.resignFirstResponder()
+        
     }
     
     override init(frame: CGRect) {
@@ -191,7 +193,6 @@ class Description: UIView, UIGestureRecognizerDelegate, UITextViewDelegate {
         addSubview(language)
         addSubview(languageSelected)
         addSubview(notes)
-        
         //Constraints da Descrição
         
         NSLayoutConstraint.activate([iconView.widthAnchor.constraint(equalToConstant: 120),
