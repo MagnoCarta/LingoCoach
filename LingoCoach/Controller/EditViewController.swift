@@ -145,7 +145,11 @@ class EditViewController: UIViewController, ImagePickerDelegate {
         
         imagePicker = ImagePicker(presentationController: self, delegate: self)
         editButton.addAction(UIAction(handler: { (_) in
-            self.imagePicker.present(from: self.view)
+            let iconVC = IconViewController()
+            iconVC.delegate = self
+            let navController = UINavigationController(rootViewController: iconVC)
+            self.navigationController?.present(navController, animated: true, completion: nil)
+            
         }), for: .touchUpInside)
         
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.dismisssKeyboard(_:)))
@@ -214,5 +218,11 @@ class EditViewController: UIViewController, ImagePickerDelegate {
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
+    }
+}
+
+extension EditViewController: IconViewControllerDelegate {
+    func hasChangedIcon(image: UIImage) {
+        icon.image = image
     }
 }
