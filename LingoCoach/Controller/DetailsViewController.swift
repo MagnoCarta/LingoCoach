@@ -103,10 +103,6 @@ class DetailsViewController: UIViewController {
         content.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
     }
     
-    @objc func pickNewImage(){
-        
-    }
-    
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         content.dismissKeyboardIfNeeded()
