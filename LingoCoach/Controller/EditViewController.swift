@@ -168,6 +168,7 @@ class EditViewController: UIViewController, ImagePickerDelegate {
     }
     
     func setupViews() {
+        icon.image = self.note.icon
         view.addSubview(botView)
         view.addSubview(topView)
         view.addSubview(iconView)
@@ -225,4 +226,5 @@ extension EditViewController: IconViewControllerDelegate {
     func hasChangedIcon(image: UIImage) {
         icon.image = image
     }
+
 }
