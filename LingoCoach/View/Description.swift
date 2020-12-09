@@ -145,6 +145,20 @@ class Description: UIView, UIGestureRecognizerDelegate, UITextViewDelegate {
 //            }
 //        }
 //    }
+    @objc func keyboardWillShow(notification: NSNotification) {
+        if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
+            if self.frame.origin.y == 0 {
+                self.frame.origin.y -= keyboardSize.height - 80
+            }
+        }
+    }
+    
+    @objc func keyboardWillHide(notification: NSNotification) {
+        if self.frame.origin.y != 0 {
+            self.frame.origin.y = 0
+        }
+    }
+    
     @objc func dismissKeyboardIfNeeded() {
         let frFields = descriptionFields.filter {$0.isFirstResponder}
         if let frField = frFields.first {
@@ -162,6 +176,9 @@ class Description: UIView, UIGestureRecognizerDelegate, UITextViewDelegate {
         }
         textView.becomeFirstResponder()
         
+//        if textView.isFirstResponder {
+//            NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+//        }
     }
     
     func textViewDidEndEditing(_ textView: UITextView) {
@@ -171,6 +188,10 @@ class Description: UIView, UIGestureRecognizerDelegate, UITextViewDelegate {
             
         }
         textView.resignFirstResponder()
+        
+//        if !textView.isFirstResponder {
+//            NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
+//        }
     }
     
     override init(frame: CGRect) {
@@ -191,7 +212,6 @@ class Description: UIView, UIGestureRecognizerDelegate, UITextViewDelegate {
         addSubview(language)
         addSubview(languageSelected)
         addSubview(notes)
-        
         //Constraints da Descrição
         
         NSLayoutConstraint.activate([iconView.widthAnchor.constraint(equalToConstant: 120),
