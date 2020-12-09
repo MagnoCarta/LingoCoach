@@ -10,7 +10,7 @@ import UIKit
 
 class IconViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        6
+        icons.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -24,7 +24,7 @@ class IconViewController: UIViewController, UICollectionViewDelegate, UICollecti
         dismiss(animated: true, completion: nil)
     }
     var myIconView = MyIconView()
-    var icons = ["translate", "translate-chinese", "translate-greek", "translate-japanese", "translate-latin", "translate-russian"]
+    var icons = ["translate-chinese", "translate-greek", "translate-japanese", "translate-latin", "translate-russian"]
     weak var delegate: IconViewControllerDelegate!
     
     override func loadView() {

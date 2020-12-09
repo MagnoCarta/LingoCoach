@@ -26,8 +26,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             tabBarController.tabBar.isHidden = true
     
             window.rootViewController = tabBarController
-
             window.makeKeyAndVisible()
+            
+            
 
             self.window = window
 
